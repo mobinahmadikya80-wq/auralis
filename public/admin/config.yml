@@ -2,7 +2,7 @@ backend:
   name: github
   repo: mobinahmadikya80-wq/auralis
   branch: main
-  base_url: https://auralis-decap-oauth.mobinahmadikya80-wq.workers.dev
+  base_url: https://auralis-decap-oauth.mobinahmadikya80.workers.dev
   auth_endpoint: auth
 
 # Lets you run `npx decap-server` locally and edit content without GitHub auth
