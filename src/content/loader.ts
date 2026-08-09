@@ -122,6 +122,7 @@ export interface DownloadFrontmatter {
   size: string;
   desc: string;
   iconName: string; // maps to a lucide-react icon in DownloadsPage
+  fileUrl: string; // direct link to the actual file (e.g. hosted on your own storage host)
 }
 
 export function getCourses(): (CourseFrontmatter & { id: string })[] {

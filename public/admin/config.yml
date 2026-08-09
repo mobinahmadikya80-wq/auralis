@@ -112,6 +112,7 @@ collections:
       - { label: "Size", name: "size", widget: "string" }
       - { label: "Description", name: "desc", widget: "text" }
       - { label: "Icon Name (lucide-react)", name: "iconName", widget: "string" }
+      - { label: "Direct File URL", name: "fileUrl", widget: "string", hint: "Paste the direct download link from your file storage host (e.g. https://tumsaud.ir/files/example.pdf)" }
 
   - name: "resources"
     label: "Resource Hub (Notes, Books, Slides, Videos, Papers)"

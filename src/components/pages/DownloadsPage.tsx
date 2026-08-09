@@ -65,8 +65,9 @@ export const DownloadsPage: React.FC = () => {
                   <ShieldCheck className="w-4 h-4" /> Virus Scanned
                 </span>
                 <button
-                  onClick={() => alert(`Starting download for: ${item.name}`)}
-                  className="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold text-xs flex items-center gap-2 shadow-md shadow-cyan-500/20"
+                  onClick={() => window.open(item.fileUrl || '#', '_blank', 'noopener,noreferrer')}
+                  disabled={!item.fileUrl}
+                  className="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 disabled:bg-zinc-300 dark:disabled:bg-zinc-700 disabled:cursor-not-allowed text-zinc-950 font-bold text-xs flex items-center gap-2 shadow-md shadow-cyan-500/20"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>Download File</span>
