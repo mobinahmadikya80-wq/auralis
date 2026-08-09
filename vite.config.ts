@@ -15,30 +15,18 @@ export default defineConfig(() => {
     build: {
       target: 'es2020',
       cssCodeSplit: true,
-      minify: 'esbuild',
+      minify: 'esbuild' as const,
       sourcemap: false,
-      chunkSizeWarningLimit: 1000,
-      rollupOptions: {
-        output: {
-          manualChunks(id) {
-            if (id.includes('node_modules')) {
-              if (id.includes('react') || id.includes('react-dom')) {
-                return 'vendor-react';
-              }
-              if (id.includes('motion')) {
-                return 'vendor-motion';
-              }
-              if (id.includes('lucide-react')) {
-                return 'vendor-icons';
-              }
-              if (id.includes('recharts') || id.includes('d3')) {
-                return 'vendor-charts';
-              }
-              return 'vendor-core';
-            }
-          },
-        },
-      },
+      chunkSizeWarningLimit: 1500,
+      // NOTE: a manual chunking rule used to split "motion" into its own
+      // chunk separately from "react". Because motion's module calls
+      // React.createContext() at import time, and Rollup doesn't guarantee
+      // chunk *load order* the way it guarantees module *dependency* order
+      // when chunks are cross-referenced like this, the motion chunk could
+      // execute before the react chunk in the browser, crashing the whole
+      // app with "Cannot read properties of undefined (reading
+      // 'createContext')". Letting Rollup choose chunking automatically
+      // avoids this class of ordering bug entirely.
     },
     server: {
       port: 3000,
