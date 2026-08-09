@@ -54,10 +54,16 @@ export const VideosPage: React.FC = () => {
             {/* Thumbnail Player Placeholder */}
             <div className="relative aspect-video bg-zinc-950 flex items-center justify-center overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent z-10" />
-              
-              <div className="w-16 h-16 rounded-full bg-cyan-500/90 text-zinc-950 flex items-center justify-center z-20 shadow-2xl group-hover:scale-110 transition-transform cursor-pointer">
+
+              <a
+                href={v.fileUrl || (v.youtubeId ? `https://www.youtube.com/watch?v=${v.youtubeId}` : '#')}
+                target={v.fileUrl ? undefined : '_blank'}
+                rel={v.fileUrl ? undefined : 'noopener noreferrer'}
+                download={!!v.fileUrl}
+                className="w-16 h-16 rounded-full bg-cyan-500/90 text-zinc-950 flex items-center justify-center z-20 shadow-2xl group-hover:scale-110 transition-transform cursor-pointer"
+              >
                 <Play className="w-7 h-7 fill-current translate-x-0.5" />
-              </div>
+              </a>
 
               <span className="absolute bottom-3 right-3 z-20 px-2 py-1 rounded-md bg-zinc-900/90 text-white font-mono text-[10px] border border-zinc-700">
                 {v.duration}
@@ -83,12 +89,26 @@ export const VideosPage: React.FC = () => {
 
               <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800 text-xs text-zinc-500 flex justify-between items-center">
                 <span>Presenter: <strong className="text-zinc-700 dark:text-zinc-300">{v.author}</strong></span>
-                <button
-                  onClick={() => alert(`Launching Video Player for: ${v.title}`)}
-                  className="text-cyan-500 font-bold hover:underline flex items-center gap-1"
-                >
-                  Watch Lecture <ExternalLink className="w-3 h-3" />
-                </button>
+                {v.fileUrl ? (
+                  <a
+                    href={v.fileUrl}
+                    download
+                    className="text-cyan-500 font-bold hover:underline flex items-center gap-1"
+                  >
+                    Download Video <ExternalLink className="w-3 h-3" />
+                  </a>
+                ) : v.youtubeId ? (
+                  <a
+                    href={`https://www.youtube.com/watch?v=${v.youtubeId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cyan-500 font-bold hover:underline flex items-center gap-1"
+                  >
+                    Watch Lecture <ExternalLink className="w-3 h-3" />
+                  </a>
+                ) : (
+                  <span className="text-zinc-400">No video source</span>
+                )}
               </div>
             </div>
           </div>

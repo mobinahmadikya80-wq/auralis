@@ -83,7 +83,8 @@ export interface VideoFrontmatter {
   category: string;
   views: string;
   description: string;
-  youtubeId: string;
+  youtubeId: string; // optional: leave empty if using fileUrl instead
+  fileUrl: string; // optional: direct link to a video file on your own storage host (for real downloads)
 }
 
 export interface BookFrontmatter {
