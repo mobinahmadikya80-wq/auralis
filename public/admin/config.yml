@@ -1,0 +1,220 @@
+backend:
+  name: github
+  repo: mobinahmadikya80-wq/auralis
+  branch: main
+  base_url: https://auralis-decap-oauth.mobinahmadikya80-wq.workers.dev
+  auth_endpoint: auth
+
+# Lets you run `npx decap-server` locally and edit content without GitHub auth
+# while developing on your own machine. Has no effect on the deployed site.
+local_backend: true
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "courses"
+    label: "Courses"
+    folder: "src/content/courses"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Course Code", name: "code", widget: "string" }
+      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Level", name: "level", widget: "select", options: ["Beginner", "Intermediate", "Advanced"] }
+      - { label: "Instructor", name: "instructor", widget: "string" }
+      - { label: "Modules Count", name: "modulesCount", widget: "number", value_type: "int" }
+      - { label: "Duration", name: "duration", widget: "string", hint: "e.g. 12 Hours" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Syllabus", name: "syllabus", widget: "list" }
+      - { label: "Enrolled", name: "enrolled", widget: "number", value_type: "int" }
+
+  - name: "teachers"
+    label: "Teachers"
+    folder: "src/content/teachers"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Institution", name: "institution", widget: "string" }
+      - { label: "Specialties", name: "specialties", widget: "list" }
+      - { label: "Bio", name: "bio", widget: "text" }
+      - { label: "Publications", name: "publications", widget: "number", value_type: "int" }
+      - { label: "Email", name: "email", widget: "string" }
+      - { label: "Photo URL", name: "image", widget: "string" }
+
+  - name: "videos"
+    label: "Videos"
+    folder: "src/content/videos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Duration", name: "duration", widget: "string", hint: "e.g. 22:15" }
+      - { label: "Author / Instructor", name: "author", widget: "string" }
+      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Views", name: "views", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "YouTube Video ID", name: "youtubeId", widget: "string" }
+
+  - name: "books"
+    label: "Books"
+    folder: "src/content/books"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Authors", name: "authors", widget: "string" }
+      - { label: "Publisher", name: "publisher", widget: "string" }
+      - { label: "Edition", name: "edition", widget: "string" }
+      - { label: "Rating", name: "rating", widget: "number", value_type: "float" }
+      - { label: "Chapters", name: "chapters", widget: "number", value_type: "int" }
+      - { label: "Description", name: "desc", widget: "text" }
+      - { label: "Topics", name: "topics", widget: "list" }
+
+  - name: "research"
+    label: "Research Papers"
+    folder: "src/content/research"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Journal", name: "journal", widget: "string" }
+      - { label: "DOI", name: "doi", widget: "string" }
+      - { label: "Date", name: "date", widget: "string", hint: "e.g. November 2023" }
+      - { label: "Authors", name: "authors", widget: "string" }
+      - { label: "Citations", name: "citations", widget: "number", value_type: "int" }
+      - { label: "Abstract", name: "abstract", widget: "text" }
+
+  - name: "announcements"
+    label: "Announcements"
+    folder: "src/content/announcements"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Date", name: "date", widget: "string", hint: "e.g. May 04, 2026" }
+      - { label: "Badge", name: "badge", widget: "string" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Read Time", name: "readTime", widget: "string" }
+
+  - name: "downloads"
+    label: "Downloads"
+    folder: "src/content/downloads"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Type", name: "type", widget: "string" }
+      - { label: "Extension", name: "extension", widget: "string" }
+      - { label: "Size", name: "size", widget: "string" }
+      - { label: "Description", name: "desc", widget: "text" }
+      - { label: "Icon Name (lucide-react)", name: "iconName", widget: "string" }
+
+  - name: "resources"
+    label: "Resource Hub (Notes, Books, Slides, Videos, Papers)"
+    folder: "src/content/resources"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Type", name: "type", widget: "select", options: ["note", "book", "slides", "video", "case", "paper", "tool"] }
+      - label: "Topic"
+        name: "topic"
+        widget: "select"
+        options:
+          - "Anatomy & Physiology"
+          - "Psychoacoustics"
+          - "Pediatric Audiology"
+          - "Vestibular & Balance"
+          - "Electrophysiology (ABR/OAE)"
+          - "Hearing Aids & Amplification"
+          - "Cochlear Implants"
+          - "Tinnitus & Hyperacusis"
+          - "Auditory Processing (APD)"
+      - { label: "Level", name: "level", widget: "select", options: ["Beginner", "Intermediate", "Advanced"] }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Institution", name: "institution", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Read Time / Duration", name: "readTimeOrDuration", widget: "string" }
+      - { label: "Download URL", name: "downloadUrl", widget: "string", required: false }
+      - { label: "External Link", name: "externalLink", widget: "string", required: false }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "PDF Pages", name: "pdfPages", widget: "number", value_type: "int", required: false }
+      - { label: "Slides Count", name: "slidesCount", widget: "number", value_type: "int", required: false }
+      - { label: "YouTube Video ID", name: "videoYoutubeId", widget: "string", required: false }
+      - { label: "File Size", name: "fileSize", widget: "string", required: false }
+      - { label: "Rating", name: "rating", widget: "number", value_type: "float" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Date Added", name: "dateAdded", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Full Content (Markdown body)", name: "body", widget: "markdown", required: false }
+
+  - name: "cases"
+    label: "Clinical Case Studies"
+    folder: "src/content/cases"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Patient Age", name: "patientAge", widget: "number", value_type: "int" }
+      - { label: "Patient Gender", name: "patientGender", widget: "select", options: ["Male", "Female", "Other"] }
+      - { label: "Chief Complaint", name: "chiefComplaint", widget: "text" }
+      - { label: "History of Present Illness", name: "historyOfPresentIllness", widget: "text" }
+      - { label: "Otoscopy Findings", name: "otoscopyFindings", widget: "text" }
+      - label: "Audiogram"
+        name: "audiogram"
+        widget: "object"
+        fields:
+          - label: "Right Ear - Air Conduction"
+            name: "rightEarAir"
+            widget: "list"
+            fields:
+              - { label: "Frequency (Hz)", name: "frequency", widget: "number", value_type: "int" }
+              - { label: "Decibels (dB HL)", name: "decibels", widget: "number", value_type: "int" }
+          - label: "Right Ear - Bone Conduction"
+            name: "rightEarBone"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Frequency (Hz)", name: "frequency", widget: "number", value_type: "int" }
+              - { label: "Decibels (dB HL)", name: "decibels", widget: "number", value_type: "int" }
+          - label: "Left Ear - Air Conduction"
+            name: "leftEarAir"
+            widget: "list"
+            fields:
+              - { label: "Frequency (Hz)", name: "frequency", widget: "number", value_type: "int" }
+              - { label: "Decibels (dB HL)", name: "decibels", widget: "number", value_type: "int" }
+          - label: "Left Ear - Bone Conduction"
+            name: "leftEarBone"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Frequency (Hz)", name: "frequency", widget: "number", value_type: "int" }
+              - { label: "Decibels (dB HL)", name: "decibels", widget: "number", value_type: "int" }
+      - label: "Tympanometry"
+        name: "tympanometry"
+        widget: "object"
+        fields:
+          - { label: "Type - Right", name: "typeRight", widget: "select", options: ["Type A", "Type As", "Type Ad", "Type B", "Type C"] }
+          - { label: "Type - Left", name: "typeLeft", widget: "select", options: ["Type A", "Type As", "Type Ad", "Type B", "Type C"] }
+          - { label: "Peak Pressure - Right (daPa)", name: "peakPressureRight", widget: "number", value_type: "int" }
+          - { label: "Peak Pressure - Left (daPa)", name: "peakPressureLeft", widget: "number", value_type: "int" }
+          - { label: "Compliance - Right (ml)", name: "complianceRight", widget: "number", value_type: "float" }
+          - { label: "Compliance - Left (ml)", name: "complianceLeft", widget: "number", value_type: "float" }
+      - { label: "Acoustic Reflexes", name: "acousticReflexes", widget: "text" }
+      - { label: "OAE Results", name: "oaeResults", widget: "text" }
+      - { label: "Correct Diagnosis", name: "correctDiagnosis", widget: "string" }
+      - { label: "Differential Diagnoses", name: "differentialDiagnoses", widget: "list" }
+      - { label: "Diagnostic Explanation", name: "diagnosticExplanation", widget: "text" }
+      - { label: "Recommended Management", name: "recommendedManagement", widget: "list" }
+      - label: "Quiz Questions"
+        name: "quizQuestions"
+        widget: "list"
+        fields:
+          - { label: "ID", name: "id", widget: "string" }
+          - { label: "Question", name: "question", widget: "string" }
+          - { label: "Options", name: "options", widget: "list" }
+          - { label: "Correct Option Index", name: "correctIndex", widget: "number", value_type: "int" }
+          - { label: "Explanation", name: "explanation", widget: "text" }

@@ -1,0 +1,6 @@
+{
+  "name": "Auralis - Audiology Educational Platform",
+  "description": "A world-class free educational archive, interactive tools, and learning platform for Audiology students, clinicians, and researchers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

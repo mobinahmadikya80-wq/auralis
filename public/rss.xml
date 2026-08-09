@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Auralis Audiology Educational RSS Feed</title>
+  <link>https://auralis-audiology.org</link>
+  <description>Latest clinical papers, course lectures, audiology simulators, and research updates from Auralis Open Science Platform.</description>
+  <language>en-us</language>
+  <lastBuildDate>Fri, 07 Aug 2026 00:00:00 GMT</lastBuildDate>
+  <atom:link href="https://auralis-audiology.org/rss.xml" rel="self" type="application/rss+xml" />
+  
+  <item>
+    <title>Auditory Brainstem Response (ABR) Latency-Intensity Normative Data</title>
+    <link>https://auralis-audiology.org/research</link>
+    <description>Peer-reviewed clinical protocol on Wave I, III, and V interpeak latency analysis for acoustic neuroma differential diagnosis.</description>
+    <pubDate>Thu, 06 Aug 2026 00:00:00 GMT</pubDate>
+    <guid>https://auralis-audiology.org/research#abr-latency-2026</guid>
+  </item>
+
+  <item>
+    <title>3D Interactive Inner Ear &amp; Basilar Membrane Tonotopic Map</title>
+    <link>https://auralis-audiology.org/anatomy</link>
+    <description>Interactive simulation of cochlear traveling wave dynamics and organ of Corti hair cell sensory transduction.</description>
+    <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
+    <guid>https://auralis-audiology.org/anatomy#3d-cochlea</guid>
+  </item>
+
+  <item>
+    <title>ANSI S3.6 Calibrated Audiogram Simulator &amp; PTA Diagnostic Suite</title>
+    <link>https://auralis-audiology.org/simulator</link>
+    <description>Practice pure-tone air &amp; bone conduction masking with real-time Carhart notch and conductive hearing loss detection.</description>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+    <guid>https://auralis-audiology.org/simulator#audiogram-sim</guid>
+  </item>
+</channel>
+</rss>
