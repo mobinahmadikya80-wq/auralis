@@ -124,10 +124,9 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
 
               <a
                 href={resource.downloadUrl || '#'}
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert(`Downloading open educational material: ${resource.title}`);
-                }}
+                download
+                target={resource.downloadUrl ? '_blank' : undefined}
+                rel={resource.downloadUrl ? 'noopener noreferrer' : undefined}
                 className="px-5 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold text-xs flex items-center gap-2 shadow-lg shadow-cyan-500/20 whitespace-nowrap"
               >
                 <Download className="w-4 h-4" />

@@ -74,6 +74,7 @@ collections:
       - { label: "Chapters", name: "chapters", widget: "number", value_type: "int" }
       - { label: "Description", name: "desc", widget: "text" }
       - { label: "Topics", name: "topics", widget: "list" }
+      - { label: "Direct File URL", name: "fileUrl", widget: "string", required: false, hint: "Direct download link from your storage host, e.g. https://tumsaud.ir/books/example.pdf" }
 
   - name: "research"
     label: "Research Papers"

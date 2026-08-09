@@ -6,6 +6,7 @@ edition: 7th Revised Edition
 rating: 4.9
 chapters: 48
 desc: The definitive gold-standard reference text for diagnostic audiology, electrophysiology, acoustic immittance, auditory processing disorders, and hearing aid technology.
+fileUrl: ""
 topics:
   - Diagnostic Audiology
   - Electrophysiology

@@ -96,6 +96,7 @@ export interface BookFrontmatter {
   chapters: number;
   desc: string;
   topics: string[];
+  fileUrl: string; // optional: direct link to a downloadable PDF/EPUB on your own storage host
 }
 
 export interface ResearchFrontmatter {

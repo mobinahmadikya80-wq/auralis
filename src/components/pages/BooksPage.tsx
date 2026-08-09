@@ -65,13 +65,18 @@ export const BooksPage: React.FC = () => {
 
             <div className="flex items-center justify-between border-t border-zinc-100 dark:border-zinc-800 pt-4 text-xs">
               <span className="text-zinc-400">{b.publisher}</span>
-              <button
-                onClick={() => alert(`Opening e-Reader for: ${b.title}`)}
-                className="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold text-xs flex items-center gap-1.5 shadow-md shadow-cyan-500/20"
-              >
-                <span>Read e-Book</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </button>
+              {b.fileUrl ? (
+                <a
+                  href={b.fileUrl}
+                  download
+                  className="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold text-xs flex items-center gap-1.5 shadow-md shadow-cyan-500/20"
+                >
+                  <span>Download e-Book</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              ) : (
+                <span className="text-zinc-400 italic">No file linked yet</span>
+              )}
             </div>
           </div>
         ))}

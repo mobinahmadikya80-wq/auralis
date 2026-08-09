@@ -6,6 +6,7 @@ edition: 5th Edition
 rating: 4.7
 chapters: 22
 desc: Comprehensive introduction to physical acoustics, middle ear mechanics, basilar membrane travelling waves, neural pitch coding, and binaural sound localization.
+fileUrl: ""
 topics:
   - Acoustics
   - Cochlear Mechanics
