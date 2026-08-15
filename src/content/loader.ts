@@ -52,6 +52,11 @@ const downloadFiles = import.meta.glob('/src/content/downloads/*.md', { eager: t
 const resourceFiles = import.meta.glob('/src/content/resources/*.md', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>;
 const caseFiles = import.meta.glob('/src/content/cases/*.md', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>;
 
+export interface CourseMaterialItem {
+  title: string;
+  fileUrl: string;
+}
+
 export interface CourseFrontmatter {
   title: string;
   code: string;
@@ -63,6 +68,9 @@ export interface CourseFrontmatter {
   description: string;
   syllabus: string[];
   enrolled: number;
+  videos: CourseMaterialItem[];
+  slides: CourseMaterialItem[];
+  notes: CourseMaterialItem[];
 }
 
 export interface TeacherFrontmatter {

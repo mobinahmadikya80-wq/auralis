@@ -29,6 +29,27 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Syllabus", name: "syllabus", widget: "list" }
       - { label: "Enrolled", name: "enrolled", widget: "number", value_type: "int" }
+      - label: "Videos (شامل ویدیوهای این درس)"
+        name: "videos"
+        widget: "list"
+        default: []
+        fields:
+          - { label: "Title", name: "title", widget: "string", hint: "e.g. Session 1 - Introduction" }
+          - { label: "Direct File URL", name: "fileUrl", widget: "string", hint: "Direct link to the video file on your own storage host" }
+      - label: "Slides (اسلایدهای این درس)"
+        name: "slides"
+        widget: "list"
+        default: []
+        fields:
+          - { label: "Title", name: "title", widget: "string", hint: "e.g. Session 1 Slides" }
+          - { label: "Direct File URL", name: "fileUrl", widget: "string", hint: "Direct link to the slide file on your own storage host" }
+      - label: "Notes / جزوات (جزوات این درس)"
+        name: "notes"
+        widget: "list"
+        default: []
+        fields:
+          - { label: "Title", name: "title", widget: "string", hint: "e.g. جزوه جلسه ۱" }
+          - { label: "Direct File URL", name: "fileUrl", widget: "string", hint: "Direct link to the note/PDF file on your own storage host" }
 
   - name: "teachers"
     label: "Teachers"

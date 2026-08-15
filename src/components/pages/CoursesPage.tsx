@@ -11,10 +11,12 @@ import {
   BarChart,
   FileCheck
 } from 'lucide-react';
-import { getCourses } from '../../content/loader';
+import { getCourses, CourseFrontmatter } from '../../content/loader';
+import { CourseDetailModal } from '../CourseDetailModal';
 
 export const CoursesPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [selectedCourse, setSelectedCourse] = useState<(CourseFrontmatter & { id: string }) | null>(null);
 
   const courses = getCourses();
 
@@ -105,7 +107,7 @@ export const CoursesPage: React.FC = () => {
               </div>
 
               <button
-                onClick={() => alert(`Course Syllabus for "${c.title}" registered in workspace!`)}
+                onClick={() => setSelectedCourse(c)}
                 className="px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs flex items-center gap-1.5 shadow-md shadow-cyan-600/20"
               >
                 <span>Access Course</span>
@@ -115,6 +117,10 @@ export const CoursesPage: React.FC = () => {
           </div>
         ))}
       </div>
+
+      {selectedCourse && (
+        <CourseDetailModal course={selectedCourse} onClose={() => setSelectedCourse(null)} />
+      )}
 
     </div>
   );
