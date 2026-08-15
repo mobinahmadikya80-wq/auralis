@@ -160,7 +160,7 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
               Clinical Keywords & Descriptors
             </h3>
             <div className="flex flex-wrap gap-1.5">
-              {resource.tags.map(t => (
+              {(resource.tags || []).map(t => (
                 <span key={t} className="px-2.5 py-1 rounded-lg text-xs bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
                   #{t}
                 </span>

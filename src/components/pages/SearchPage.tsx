@@ -280,7 +280,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({ onSelectResource }) => {
 
               {item.tags.length > 0 && (
                 <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800 flex flex-wrap gap-1.5">
-                  {item.tags.map((tag, tid) => (
+                  {(item.tags || []).map((tag, tid) => (
                     <span
                       key={tid}
                       onClick={(e) => {

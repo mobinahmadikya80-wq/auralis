@@ -52,7 +52,7 @@ export const BooksPage: React.FC = () => {
               </p>
 
               <div className="flex flex-wrap gap-1.5">
-                {b.topics.map((t, tIdx) => (
+                {(b.topics || []).map((t, tIdx) => (
                   <span
                     key={tIdx}
                     className="px-2 py-0.5 rounded text-[10px] font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400"

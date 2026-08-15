@@ -51,7 +51,7 @@ export const TeachersPage: React.FC = () => {
               <div className="space-y-1.5">
                 <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider">Clinical Specializations:</span>
                 <div className="flex flex-wrap gap-1.5">
-                  {f.specialties.map((spec, sIdx) => (
+                  {(f.specialties || []).map((spec, sIdx) => (
                     <span
                       key={sIdx}
                       className="px-2.5 py-1 rounded-lg text-[10px] font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200/50 dark:border-zinc-700/50"

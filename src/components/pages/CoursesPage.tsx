@@ -91,7 +91,7 @@ export const CoursesPage: React.FC = () => {
                   <FileCheck className="w-3.5 h-3.5 text-cyan-500" /> Key Syllabus Learning Modules:
                 </span>
                 <ul className="space-y-1 text-xs text-zinc-700 dark:text-zinc-300">
-                  {c.syllabus.map((s, i) => (
+                  {(c.syllabus || []).map((s, i) => (
                     <li key={i} className="flex items-start gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-1.5 shrink-0" />
                       <span>{s}</span>

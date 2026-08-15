@@ -8,4 +8,8 @@ modulesCount: 1
 duration: /
 description: ...
 enrolled: 2
+syllabus: []
+videos: []
+slides: []
+notes: []
 ---
