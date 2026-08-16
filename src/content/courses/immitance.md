@@ -7,9 +7,13 @@ instructor: .
 modulesCount: 1
 duration: /
 description: ...
-enrolled: 2
 syllabus: []
-videos: []
+enrolled: 2
+videos:
+  - title: ویدیو جلسه 1
+    fileUrl: .......
+  - title: ویدیو جلسه 2
+    fileUrl: ............
 slides: []
 notes: []
 ---
