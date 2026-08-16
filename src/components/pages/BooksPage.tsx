@@ -39,15 +39,15 @@ export const BooksPage: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="text-lg font-bold text-zinc-900 dark:text-white font-display">
+                <h3 className="text-lg font-bold text-zinc-900 dark:text-white font-display auto-dir">
                   {b.title}
                 </h3>
-                <p className="text-xs text-cyan-600 dark:text-cyan-400 font-semibold mt-1">
+                <p className="text-xs text-cyan-600 dark:text-cyan-400 font-semibold mt-1 auto-dir">
                   نویسندگان: {b.authors}
                 </p>
               </div>
 
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed auto-dir">
                 {b.desc}
               </p>
 
@@ -55,7 +55,7 @@ export const BooksPage: React.FC = () => {
                 {(b.topics || []).map((t, tIdx) => (
                   <span
                     key={tIdx}
-                    className="px-2 py-0.5 rounded text-[10px] font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400"
+                    className="px-2 py-0.5 rounded text-[10px] font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 auto-dir"
                   >
                     {t}
                   </span>
@@ -64,7 +64,7 @@ export const BooksPage: React.FC = () => {
             </div>
 
             <div className="flex items-center justify-between border-t border-zinc-100 dark:border-zinc-800 pt-4 text-xs">
-              <span className="text-zinc-400">{b.publisher}</span>
+              <span className="text-zinc-400 auto-dir">{b.publisher}</span>
               {b.fileUrl ? (
                 <a
                   href={b.fileUrl}

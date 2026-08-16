@@ -29,7 +29,7 @@ export const ResearchPage: React.FC = () => {
             className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-8 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4 hover:border-cyan-500/40 transition-all"
           >
             <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-zinc-400 font-mono">
-              <span className="text-cyan-500 font-bold">{p.journal}</span>
+              <span className="text-cyan-500 font-bold auto-dir">{p.journal}</span>
               <div className="flex items-center gap-3">
                 <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" /> {p.date}</span>
                 <span className="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-300 font-semibold">{p.citations} استناد</span>
@@ -37,17 +37,17 @@ export const ResearchPage: React.FC = () => {
             </div>
 
             <div>
-              <h3 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-white font-display leading-snug">
+              <h3 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-white font-display leading-snug auto-dir">
                 {p.title}
               </h3>
-              <p className="text-xs text-zinc-400 font-semibold mt-1">
+              <p className="text-xs text-zinc-400 font-semibold mt-1 auto-dir">
                 نویسندگان: {p.authors}
               </p>
             </div>
 
             <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-1">
               <span className="text-[11px] font-bold text-cyan-500 uppercase tracking-wider">خلاصه چکیده:</span>
-              <p className="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">
+              <p className="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed auto-dir">
                 {p.abstract}
               </p>
             </div>
