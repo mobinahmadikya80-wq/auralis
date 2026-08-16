@@ -37,11 +37,11 @@ export const AnnouncementsPage: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="text-lg font-bold text-zinc-900 dark:text-white font-display auto-dir">
+            <h3 dir="auto" className="text-lg font-bold text-zinc-900 dark:text-white font-display">
               {item.title}
             </h3>
 
-            <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed auto-dir">
+            <p dir="auto" className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
               {item.summary}
             </p>
 

@@ -50,12 +50,12 @@ export const DownloadsPage: React.FC = () => {
                   <div className="p-2.5 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-cyan-500 shrink-0">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-base font-bold text-zinc-900 dark:text-white font-display leading-snug auto-dir">
+                  <h3 dir="auto" className="text-base font-bold text-zinc-900 dark:text-white font-display leading-snug">
                     {item.name}
                   </h3>
                 </div>
 
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed auto-dir">
+                <p dir="auto" className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
                   {item.desc}
                 </p>
               </div>

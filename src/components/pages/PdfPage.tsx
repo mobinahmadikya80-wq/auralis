@@ -45,15 +45,15 @@ export const PdfPage: React.FC = () => {
                   ) : null}
                 </div>
 
-                <h3 className="text-base font-bold text-zinc-900 dark:text-white font-display auto-dir">
+                <h3 dir="auto" className="text-base font-bold text-zinc-900 dark:text-white font-display">
                   {pdf.title}
                 </h3>
 
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed auto-dir">
+                <p dir="auto" className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
                   {pdf.description}
                 </p>
 
-                <div className="text-[11px] text-zinc-400 font-semibold auto-dir">
+                <div dir="auto" className="text-[11px] text-zinc-400 font-semibold">
                   ناشر: {pdf.author}{pdf.institution ? ` — ${pdf.institution}` : ''}
                 </div>
               </div>

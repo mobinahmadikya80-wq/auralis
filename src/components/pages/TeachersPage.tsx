@@ -36,15 +36,15 @@ export const TeachersPage: React.FC = () => {
                   className="w-16 h-16 rounded-2xl object-cover border border-zinc-200 dark:border-zinc-700 shadow-sm"
                 />
                 <div>
-                  <h3 className="text-base font-bold text-zinc-900 dark:text-white font-display auto-dir">
+                  <h3 dir="auto" className="text-base font-bold text-zinc-900 dark:text-white font-display">
                     {f.name}
                   </h3>
-                  <p className="text-xs text-cyan-500 font-semibold auto-dir">{f.role}</p>
-                  <p className="text-[11px] text-zinc-500 auto-dir">{f.institution}</p>
+                  <p dir="auto" className="text-xs text-cyan-500 font-semibold">{f.role}</p>
+                  <p dir="auto" className="text-[11px] text-zinc-500">{f.institution}</p>
                 </div>
               </div>
 
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed auto-dir">
+              <p dir="auto" className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
                 {f.bio}
               </p>
 
@@ -54,7 +54,7 @@ export const TeachersPage: React.FC = () => {
                   {(f.specialties || []).map((spec, sIdx) => (
                     <span
                       key={sIdx}
-                      className="px-2.5 py-1 rounded-lg text-[10px] font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200/50 dark:border-zinc-700/50 auto-dir"
+                      dir="auto" className="px-2.5 py-1 rounded-lg text-[10px] font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200/50 dark:border-zinc-700/50"
                     >
                       {spec}
                     </span>

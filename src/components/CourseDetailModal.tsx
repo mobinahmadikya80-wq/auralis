@@ -21,7 +21,7 @@ const MaterialRow: React.FC<{ item: CourseMaterialItem; index: number }> = ({ it
       <span className="w-7 h-7 shrink-0 rounded-lg bg-cyan-500/10 text-cyan-500 text-xs font-bold flex items-center justify-center">
         {index + 1}
       </span>
-      <span className="text-sm font-semibold text-zinc-800 dark:text-zinc-200 truncate auto-dir">
+      <span dir="auto" className="text-sm font-semibold text-zinc-800 dark:text-zinc-200 truncate">
         {item.title}
       </span>
     </div>
@@ -68,11 +68,11 @@ export const CourseDetailModal: React.FC<CourseDetailModalProps> = ({ course, on
             <span className="px-2.5 py-1 rounded-md text-[10px] font-bold font-mono uppercase bg-cyan-500/10 text-cyan-500 border border-cyan-500/20">
               {course.code} • {course.category}
             </span>
-            <h2 className="text-lg font-bold text-zinc-900 dark:text-white font-display truncate auto-dir">
+            <h2 dir="auto" className="text-lg font-bold text-zinc-900 dark:text-white font-display truncate">
               {course.title}
             </h2>
             <div className="text-xs text-zinc-500 flex items-center gap-3">
-              <span>استاد: <strong className="text-zinc-700 dark:text-zinc-300 auto-dir">{course.instructor}</strong></span>
+              <span>استاد: <strong dir="auto" className="text-zinc-700 dark:text-zinc-300">{course.instructor}</strong></span>
               <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {course.duration}</span>
             </div>
           </div>

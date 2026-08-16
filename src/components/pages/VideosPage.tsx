@@ -79,16 +79,16 @@ export const VideosPage: React.FC = () => {
                 <span className="flex items-center gap-1"><Eye className="w-3.5 h-3.5" /> {v.views} بازدید</span>
               </div>
 
-              <h3 className="text-base font-bold text-zinc-900 dark:text-white group-hover:text-cyan-500 transition-colors auto-dir">
+              <h3 dir="auto" className="text-base font-bold text-zinc-900 dark:text-white group-hover:text-cyan-500 transition-colors">
                 {v.title}
               </h3>
 
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed auto-dir">
+              <p dir="auto" className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
                 {v.description}
               </p>
 
               <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800 text-xs text-zinc-500 flex justify-between items-center">
-                <span>ارائه‌دهنده: <strong className="text-zinc-700 dark:text-zinc-300 auto-dir">{v.author}</strong></span>
+                <span>ارائه‌دهنده: <strong dir="auto" className="text-zinc-700 dark:text-zinc-300">{v.author}</strong></span>
                 {v.fileUrl ? (
                   <a
                     href={v.fileUrl}

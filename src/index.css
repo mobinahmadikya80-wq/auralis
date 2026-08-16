@@ -27,17 +27,6 @@
     font-family: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
   }
 
-  /*
-   * Applied to any element that renders admin/CMS-entered text (titles,
-   * descriptions, names, bios, etc). Instead of forcing a direction, this
-   * lets each text block pick its own direction based on the first strong
-   * character it actually contains — Persian text turns out right-aligned,
-   * English text turns out left-aligned, automatically and per-field.
-   */
-  .auto-dir {
-    unicode-bidi: plaintext;
-  }
-
   /* Custom Apple-quality smooth scrollbar */
   ::-webkit-scrollbar {
     width: 8px;

@@ -78,10 +78,10 @@ export const CoursesPage: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="text-lg font-bold text-zinc-900 dark:text-white font-display auto-dir">
+                <h3 dir="auto" className="text-lg font-bold text-zinc-900 dark:text-white font-display">
                   {c.title}
                 </h3>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2 leading-relaxed auto-dir">
+                <p dir="auto" className="text-xs text-zinc-500 dark:text-zinc-400 mt-2 leading-relaxed">
                   {c.description}
                 </p>
               </div>
@@ -94,7 +94,7 @@ export const CoursesPage: React.FC = () => {
                   {(c.syllabus || []).map((s, i) => (
                     <li key={i} className="flex items-start gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-1.5 shrink-0" />
-                      <span className="auto-dir">{s}</span>
+                      <span dir="auto">{s}</span>
                     </li>
                   ))}
                 </ul>
@@ -103,7 +103,7 @@ export const CoursesPage: React.FC = () => {
 
             <div className="flex items-center justify-between border-t border-zinc-100 dark:border-zinc-800 pt-4 text-xs">
               <div className="text-zinc-500">
-                استاد: <strong className="text-zinc-800 dark:text-zinc-200 auto-dir">{c.instructor}</strong>
+                استاد: <strong dir="auto" className="text-zinc-800 dark:text-zinc-200">{c.instructor}</strong>
               </div>
 
               <button

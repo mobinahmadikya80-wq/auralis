@@ -45,17 +45,17 @@ export const SlidesPage: React.FC = () => {
                   )}
                 </div>
 
-                <h3 className="text-base font-bold text-zinc-900 dark:text-white font-display auto-dir">
+                <h3 dir="auto" className="text-base font-bold text-zinc-900 dark:text-white font-display">
                   {s.title}
                 </h3>
 
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed auto-dir">
+                <p dir="auto" className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
                   {s.description}
                 </p>
               </div>
 
               <div className="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-800 text-xs">
-                <span className="text-zinc-500 auto-dir">نویسنده: {s.author}</span>
+                <span dir="auto" className="text-zinc-500">نویسنده: {s.author}</span>
                 {s.downloadUrl ? (
                   <a
                     href={s.downloadUrl}
