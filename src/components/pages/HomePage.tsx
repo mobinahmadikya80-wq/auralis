@@ -31,37 +31,37 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource
   const featuredResources = EDUCATIONAL_RESOURCES.filter(r => r.featured).slice(0, 4);
 
   const stats = [
-    { label: 'Clinical Courses', value: '38+' },
-    { label: 'Video Demonstrations', value: '140+' },
-    { label: 'Peer-Reviewed Papers', value: '250+' },
-    { label: 'Active Audiology Scholars', value: '12,500+' },
+    { label: 'دروس بالینی', value: '+۳۸' },
+    { label: 'نمایش ویدیویی', value: '+۱۴۰' },
+    { label: 'مقاله داوری‌شده', value: '+۲۵۰' },
+    { label: 'دانشجوی فعال', value: '+۱۲,۵۰۰' },
   ];
 
   const quickFeatures = [
     {
-      title: 'Interactive 3D Ear Anatomy',
-      desc: 'Explore outer, middle, inner ear structures & basilar membrane tonotopic frequency mapping.',
+      title: 'آناتومی سه‌بعدی تعاملی گوش',
+      desc: 'ساختارهای گوش خارجی، میانی، داخلی و نقشه فرکانسی تونوتوپیک غشای پایه را کاوش کنید.',
       icon: Ear,
       tab: 'anatomy',
       color: 'from-cyan-500 to-blue-600',
     },
     {
-      title: 'Audiogram Simulator Lab',
-      desc: 'Plot air & bone conduction thresholds, calculate PTA, and detect Carhart notch or noise notches.',
+      title: 'آزمایشگاه شبیه‌ساز آدیوگرام',
+      desc: 'آستانه‌های هدایت هوایی و استخوانی را ثبت کنید، PTA را محاسبه و Carhart notch یا noise notch را تشخیص دهید.',
       icon: Activity,
       tab: 'simulator',
       color: 'from-indigo-500 to-purple-600',
     },
     {
-      title: 'Clinical Tools Suite',
-      desc: 'Count-the-dots SII score, RETSPL dB SPL converters, and NIOSH noise dose calculators.',
+      title: 'مجموعه ابزارهای بالینی',
+      desc: 'محاسبه امتیاز SII به روش Count-the-dots، تبدیل RETSPL به dB SPL و ماشین‌حساب دوز نویز NIOSH.',
       icon: Sparkles,
       tab: 'tools',
       color: 'from-emerald-500 to-teal-600',
     },
     {
-      title: 'AI Clinical Tutor',
-      desc: 'Consult our Gemini-powered AI partner for electrophysiology, ABR latency, and vestibular questions.',
+      title: 'دستیار هوشمند بالینی',
+      desc: 'برای سوالات مربوط به الکتروفیزیولوژی، لیتنسی ABR و مسائل دهلیزی از دستیار هوش مصنوعی ما کمک بگیرید.',
       icon: Sparkles,
       tab: 'aitutor',
       color: 'from-purple-500 to-pink-600',
@@ -77,15 +77,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource
           <div className="relative z-10 max-w-3xl space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold border border-cyan-500/20">
               <Award className="w-4 h-4 text-cyan-400" />
-              <span>The Premier Open Audiology Science & Clinical Platform</span>
+              <span>برترین پلتفرم آزاد علم و عمل بالینی شنوایی‌شناسی</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-extrabold font-display tracking-tight leading-[1.15]">
-              Master Audiological Science & <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">Clinical Practice</span>
+              تسلط بر علم شنوایی‌شناسی و <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">عمل بالینی</span>
             </h1>
 
             <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-2xl">
-              Access world-class textbooks, video lectures, ABR electrophysiology protocols, real patient case batteries, and ANSI-calibrated audiometric tools in one unified workspace.
+              به کتاب‌های درسی، جلسات ویدیویی، پروتکل‌های الکتروفیزیولوژی ABR، بسته‌های موارد بیماران واقعی و ابزارهای آدیومتری کالیبره‌شده با استاندارد ANSI، همه در یک فضای کاری یکپارچه دسترسی داشته باشید.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-2">
@@ -94,7 +94,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource
                   onClick={() => onNavigate('courses')}
                   className="px-6 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold text-xs sm:text-sm transition-all shadow-lg shadow-cyan-500/20 flex items-center gap-2 cursor-pointer"
                 >
-                  <span>Explore Curriculum</span>
+                  <span>مشاهده سرفصل‌ها</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </Magnetic>
@@ -105,7 +105,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource
                   className="px-6 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-xs sm:text-sm border border-zinc-700 transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <Activity className="w-4 h-4 text-cyan-400" />
-                  <span>Launch Audiogram Lab</span>
+                  <span>ورود به آزمایشگاه آدیوگرام</span>
                 </button>
               </Magnetic>
             </div>
@@ -140,10 +140,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource
           <div className="flex items-center justify-between">
             <div className="space-y-1">
               <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white font-display">
-                Clinical Learning Labs & Engines
+                آزمایشگاه‌ها و موتورهای یادگیری بالینی
               </h2>
               <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
-                Direct hands-on simulators designed for students, residents, and clinical audiologists.
+                شبیه‌سازهای عملی طراحی‌شده برای دانشجویان، دستیاران و شنوایی‌شناسان بالینی.
               </p>
             </div>
           </div>
@@ -173,7 +173,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource
                   </div>
 
                   <div className="pt-4 flex items-center text-xs font-bold text-cyan-500 group-hover:translate-x-1 transition-transform">
-                    <span>Open Module</span>
+                    <span>ورود به ماژول</span>
                     <ArrowRight className="w-3.5 h-3.5 ml-1" />
                   </div>
                 </TiltCard>
@@ -189,17 +189,17 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource
           <div className="flex items-center justify-between">
             <div className="space-y-1">
               <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white font-display">
-                Featured Clinical Literature
+                منابع بالینی برگزیده
               </h2>
               <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
-                Hand-picked high-impact chapters, papers, and video lectures.
+                فصل‌ها، مقالات و جلسات ویدیویی منتخب و پرکاربرد.
               </p>
             </div>
             <button
               onClick={() => onNavigate('library')}
               className="text-xs font-bold text-cyan-500 hover:text-cyan-400 flex items-center gap-1"
             >
-              <span>View All Archive</span>
+              <span>مشاهده کل آرشیو</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -213,7 +213,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource
                 onClick={() => onSelectResource(res)}
               >
                 <div className="flex items-center justify-between">
-                  <span className="px-2.5 py-1 rounded-md text-[10px] font-bold font-mono bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
+                  <span dir="auto" className="px-2.5 py-1 rounded-md text-[10px] font-bold font-mono bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
                     {res.topic}
                   </span>
                   <span className="text-[10px] font-mono text-zinc-400">
@@ -222,17 +222,17 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource
                 </div>
 
                 <div className="space-y-1">
-                  <h3 className="text-base font-bold text-zinc-900 dark:text-white group-hover:text-cyan-500 transition-colors">
+                  <h3 dir="auto" className="text-base font-bold text-zinc-900 dark:text-white group-hover:text-cyan-500 transition-colors">
                     {res.title}
                   </h3>
-                  <p className="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2 leading-relaxed">
+                  <p dir="auto" className="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2 leading-relaxed">
                     {res.description}
                   </p>
                 </div>
 
                 <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between text-xs text-zinc-400">
-                  <span>By {res.author}</span>
-                  <span className="text-cyan-500 font-bold group-hover:translate-x-1 transition-transform">Read Paper →</span>
+                  <span dir="auto">نویسنده: {res.author}</span>
+                  <span className="text-cyan-500 font-bold group-hover:translate-x-1 transition-transform">مطالعه ←</span>
                 </div>
               </TiltCard>
             </StaggerItem>
@@ -243,12 +243,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource
       {/* CTA Section */}
       <ScrollReveal direction="up">
         <div className="bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 border border-cyan-500/20 rounded-3xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="space-y-2 text-center sm:text-left">
+          <div className="space-y-2 text-center sm:text-right">
             <h3 className="text-xl font-extrabold text-zinc-900 dark:text-white font-display">
-              Ready to test your diagnostic skills?
+              آماده‌ای مهارت تشخیصی‌ت رو محک بزنی؟
             </h3>
             <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 max-w-xl">
-              Solve real clinical cases with otoscopy, tympanometry, ABR latency charts, and speech audiometry batteries.
+              موارد بالینی واقعی را با اتوسکوپی، تمپانومتری، نمودارهای لیتنسی ABR و بسته‌های آدیومتری گفتار حل کن.
             </p>
           </div>
 
@@ -257,7 +257,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource
               onClick={() => onNavigate('cases')}
               className="px-6 py-3 rounded-2xl bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold text-xs sm:text-sm shadow-lg shadow-cyan-500/20 shrink-0 transition-all cursor-pointer"
             >
-              Solve Patient Cases
+              حل موارد بیماران
             </button>
           </Magnetic>
         </div>

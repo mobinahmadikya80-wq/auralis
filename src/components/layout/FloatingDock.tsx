@@ -23,14 +23,14 @@ export const FloatingDock: React.FC<FloatingDockProps> = ({
   savedCount
 }) => {
   const dockItems = [
-    { id: 'home', label: 'Home', icon: Home },
-    { id: 'library', label: 'Hub', icon: BookOpen },
-    { id: 'anatomy', label: '3D Ear', icon: Ear },
-    { id: 'simulator', label: 'Lab', icon: Activity },
-    { id: 'tools', label: 'Tools', icon: Calculator },
-    { id: 'cases', label: 'Cases', icon: Stethoscope },
-    { id: 'aitutor', label: 'AI Partner', icon: Sparkles, highlight: true },
-    { id: 'saved', label: 'Saved', icon: Bookmark, count: savedCount },
+    { id: 'home', label: 'خانه', icon: Home },
+    { id: 'library', label: 'منابع', icon: BookOpen },
+    { id: 'anatomy', label: 'گوش سه‌بعدی', icon: Ear },
+    { id: 'simulator', label: 'آزمایشگاه', icon: Activity },
+    { id: 'tools', label: 'ابزارها', icon: Calculator },
+    { id: 'cases', label: 'موارد', icon: Stethoscope },
+    { id: 'aitutor', label: 'دستیار AI', icon: Sparkles, highlight: true },
+    { id: 'saved', label: 'ذخیره‌ها', icon: Bookmark, count: savedCount },
   ];
 
   return (
