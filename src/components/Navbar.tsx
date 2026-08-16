@@ -30,12 +30,12 @@ export const Navbar: React.FC<NavbarProps> = ({
   savedCount
 }) => {
   const navItems = [
-    { id: 'library', label: 'Resource Hub', icon: BookOpen },
-    { id: 'anatomy', label: '3D Ear Anatomy', icon: Ear },
-    { id: 'simulator', label: 'Audiogram Lab', icon: Activity },
-    { id: 'tools', label: 'Calculators', icon: Calculator },
-    { id: 'cases', label: 'Case Studies', icon: Stethoscope },
-    { id: 'aitutor', label: 'AI Tutor', icon: Sparkles, badge: 'AI' },
+    { id: 'library', label: 'مرکز منابع', icon: BookOpen },
+    { id: 'anatomy', label: 'آناتومی سه‌بعدی گوش', icon: Ear },
+    { id: 'simulator', label: 'آزمایشگاه آدیوگرام', icon: Activity },
+    { id: 'tools', label: 'ابزارهای محاسباتی', icon: Calculator },
+    { id: 'cases', label: 'مطالعات موردی', icon: Stethoscope },
+    { id: 'aitutor', label: 'دستیار هوشمند', icon: Sparkles, badge: 'AI' },
   ];
 
   return (
@@ -48,7 +48,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button 
               onClick={onOpenSidebar}
               className="p-2 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-              title="Open Navigation Menu"
+              title="باز کردن منوی ناوبری"
             >
               <Menu className="w-4 h-4" />
             </button>
@@ -65,7 +65,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     AURALIS
                   </span>
                   <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20 uppercase tracking-widest hidden sm:inline-block">
-                    Open Archive
+                    آرشیو باز
                   </span>
                 </div>
               </div>
@@ -106,7 +106,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white border border-zinc-200 dark:border-zinc-800 text-xs transition-colors"
             >
               <Search className="w-3.5 h-3.5 text-zinc-400" />
-              <span className="hidden md:inline">Search archive...</span>
+              <span className="hidden md:inline">جست‌وجو در آرشیو...</span>
               <kbd className="hidden md:flex items-center gap-0.5 text-[10px] bg-zinc-200 dark:bg-zinc-800 px-1.5 py-0.5 rounded text-zinc-500 dark:text-zinc-400 font-mono">
                 <Command className="w-2.5 h-2.5" /> K
               </kbd>
@@ -121,7 +121,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   ? 'bg-cyan-500/10 text-cyan-500 border-cyan-500/30'
                   : 'bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-800'
               }`}
-              title="Saved Items & Notes"
+              title="موارد و یادداشت‌های ذخیره‌شده"
             >
               <Bookmark className="w-4 h-4" />
               {savedCount > 0 && (

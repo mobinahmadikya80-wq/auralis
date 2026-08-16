@@ -19,13 +19,13 @@ export const DownloadsPage: React.FC = () => {
       <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-8 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-semibold border border-cyan-500/20">
           <Download className="w-3.5 h-3.5" />
-          <span>Software & Clinical Downloads Archive</span>
+          <span>آرشیو دانلود نرم‌افزار و منابع بالینی</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white font-display">
-          Audiometric Tools, WAV Tracks & Spreadsheets
+          ابزارهای آدیومتری، فایل‌های صوتی و صفحات اکسل
         </h1>
         <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 max-w-2xl">
-          Free downloadable SII spreadsheets, calibrated audio WAV files, RETSPL reference charts, and clinical intake documentation templates.
+          صفحات اکسل رایگان SII، فایل‌های صوتی کالیبره‌شده، جداول مرجع RETSPL و قالب‌های مستندسازی پذیرش بالینی، همه قابل دانلود.
         </p>
       </div>
 
@@ -62,7 +62,7 @@ export const DownloadsPage: React.FC = () => {
 
               <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800 flex justify-between items-center text-xs">
                 <span className="text-emerald-500 font-semibold flex items-center gap-1">
-                  <ShieldCheck className="w-4 h-4" /> Virus Scanned
+                  <ShieldCheck className="w-4 h-4" /> بررسی‌شده از نظر ویروس
                 </span>
                 <button
                   onClick={() => window.open(item.fileUrl || '#', '_blank', 'noopener,noreferrer')}
@@ -70,7 +70,7 @@ export const DownloadsPage: React.FC = () => {
                   className="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 disabled:bg-zinc-300 dark:disabled:bg-zinc-700 disabled:cursor-not-allowed text-zinc-950 font-bold text-xs flex items-center gap-2 shadow-md shadow-cyan-500/20"
                 >
                   <Download className="w-3.5 h-3.5" />
-                  <span>Download File</span>
+                  <span>دانلود فایل</span>
                 </button>
               </div>
             </div>

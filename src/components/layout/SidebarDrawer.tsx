@@ -44,43 +44,43 @@ export const SidebarDrawer: React.FC<SidebarDrawerProps> = ({
 
   const sections = [
     {
-      title: 'Main Navigation',
+      title: 'ناوبری اصلی',
       items: [
-        { id: 'home', label: 'Homepage', icon: Home, desc: 'Overview & Highlights' },
-        { id: 'search', label: 'Universal Search', icon: Search, desc: 'Search all resources' },
-        { id: 'courses', label: 'Courses & Curriculum', icon: GraduationCap, desc: 'Audiology syllabus' },
-        { id: 'teachers', label: 'Clinical Faculty', icon: UserCheck, desc: 'Professors & researchers' },
+        { id: 'home', label: 'صفحه اصلی', icon: Home, desc: 'نمای کلی و برجسته‌ها' },
+        { id: 'search', label: 'جست‌وجوی جامع', icon: Search, desc: 'جست‌وجو در همه منابع' },
+        { id: 'courses', label: 'دروس و سرفصل‌ها', icon: GraduationCap, desc: 'برنامه درسی شنوایی‌شناسی' },
+        { id: 'teachers', label: 'اساتید بالینی', icon: UserCheck, desc: 'اساتید و پژوهشگران' },
       ]
     },
     {
-      title: 'Interactive Tools & Labs',
+      title: 'ابزارها و آزمایشگاه‌های تعاملی',
       items: [
-        { id: 'anatomy', label: '3D Ear Anatomy', icon: Ear, desc: 'Tonotopic frequency map' },
-        { id: 'simulator', label: 'Audiogram Simulator', icon: Activity, desc: 'Pure-tone audiogram lab' },
-        { id: 'tools', label: 'Clinical Calculators', icon: Calculator, desc: 'SII, noise & RETSPL tools' },
-        { id: 'cases', label: 'Clinical Cases', icon: Stethoscope, desc: 'Patient diagnostics battery' },
-        { id: 'aitutor', label: 'AI Clinical Partner', icon: Sparkles, desc: 'Gemini-powered tutor', badge: 'AI' },
+        { id: 'anatomy', label: 'آناتومی سه‌بعدی گوش', icon: Ear, desc: 'نقشه فرکانسی تونوتوپیک' },
+        { id: 'simulator', label: 'شبیه‌ساز آدیوگرام', icon: Activity, desc: 'آزمایشگاه آدیوگرام تن خالص' },
+        { id: 'tools', label: 'ماشین‌حساب‌های بالینی', icon: Calculator, desc: 'ابزارهای SII، نویز و RETSPL' },
+        { id: 'cases', label: 'موارد بالینی', icon: Stethoscope, desc: 'بسته تشخیصی بیماران' },
+        { id: 'aitutor', label: 'دستیار هوشمند بالینی', icon: Sparkles, desc: 'مدرس مجهز به هوش مصنوعی', badge: 'AI' },
       ]
     },
     {
-      title: 'Media Vault & Resources',
+      title: 'گنجینه رسانه و منابع',
       items: [
-        { id: 'library', label: 'Resource Hub', icon: BookOpen, desc: 'Textbooks & notes' },
-        { id: 'videos', label: 'Video Demonstrations', icon: Video, desc: 'Otoscopy & ABR videos' },
-        { id: 'pdf', label: 'Clinical PDF Manuals', icon: FileText, desc: 'ANSI/BSA guidelines' },
-        { id: 'slides', label: 'Lecture Slide Decks', icon: Presentation, desc: 'PowerPoint decks' },
-        { id: 'books', label: 'Core Textbooks', icon: Library, desc: 'Digital e-Books' },
-        { id: 'research', label: 'Research Papers', icon: Microscope, desc: 'Peer-reviewed studies' },
-        { id: 'announcements', label: 'News & Events', icon: Megaphone, desc: 'Conferences & updates' },
-        { id: 'downloads', label: 'Downloads Archive', icon: Download, desc: 'Spreadsheets & WAV files' },
-        { id: 'saved', label: 'Saved Study Journal', icon: Bookmark, desc: 'Bookmarked notes', count: savedCount },
+        { id: 'library', label: 'مرکز منابع', icon: BookOpen, desc: 'کتاب‌ها و جزوات' },
+        { id: 'videos', label: 'ویدیوهای آموزشی', icon: Video, desc: 'ویدیوهای اتوسکوپی و ABR' },
+        { id: 'pdf', label: 'راهنماهای بالینی PDF', icon: FileText, desc: 'دستورالعمل‌های ANSI/BSA' },
+        { id: 'slides', label: 'اسلایدهای درسی', icon: Presentation, desc: 'فایل‌های پاورپوینت' },
+        { id: 'books', label: 'کتاب‌های مرجع', icon: Library, desc: 'کتاب‌های الکترونیکی' },
+        { id: 'research', label: 'مقالات پژوهشی', icon: Microscope, desc: 'مطالعات داوری‌شده' },
+        { id: 'announcements', label: 'اخبار و رویدادها', icon: Megaphone, desc: 'همایش‌ها و به‌روزرسانی‌ها' },
+        { id: 'downloads', label: 'آرشیو دانلودها', icon: Download, desc: 'فایل‌های اکسل و صوتی' },
+        { id: 'saved', label: 'دفتر مطالعه ذخیره‌شده', icon: Bookmark, desc: 'یادداشت‌های نشان‌شده', count: savedCount },
       ]
     },
     {
-      title: 'Platform',
+      title: 'پلتفرم',
       items: [
-        { id: 'about', label: 'About Auralis', icon: Info, desc: 'Mission & Standards' },
-        { id: 'contact', label: 'Contact Support', icon: Mail, desc: 'University inquiries' },
+        { id: 'about', label: 'درباره اورالیس', icon: Info, desc: 'رسالت و استانداردها' },
+        { id: 'contact', label: 'ارتباط با پشتیبانی', icon: Mail, desc: 'سوالات دانشگاهی' },
       ]
     }
   ];
@@ -107,7 +107,7 @@ export const SidebarDrawer: React.FC<SidebarDrawerProps> = ({
               </div>
               <div>
                 <span className="font-bold text-base text-zinc-900 dark:text-white font-display">AURALIS</span>
-                <p className="text-[10px] text-zinc-500">Navigation Menu</p>
+                <p className="text-[10px] text-zinc-500">منوی ناوبری</p>
               </div>
             </div>
 
@@ -136,7 +136,7 @@ export const SidebarDrawer: React.FC<SidebarDrawerProps> = ({
                         setActiveTab(item.id);
                         onClose();
                       }}
-                      className={`w-full text-left px-3 py-2 rounded-xl transition-all flex items-center justify-between group ${
+                      className={`w-full text-right px-3 py-2 rounded-xl transition-all flex items-center justify-between group ${
                         isActive
                           ? 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30 font-bold'
                           : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900'
@@ -175,8 +175,8 @@ export const SidebarDrawer: React.FC<SidebarDrawerProps> = ({
 
         {/* Bottom Metadata Info */}
         <div className="pt-6 mt-6 border-t border-zinc-100 dark:border-zinc-800 text-[11px] text-zinc-500 space-y-1">
-          <p className="font-semibold text-zinc-700 dark:text-zinc-300">Auralis Open Platform v1.0</p>
-          <p>Built for Audiology Science Education</p>
+          <p className="font-semibold text-zinc-700 dark:text-zinc-300">پلتفرم متن‌باز اورالیس نسخه ۱.۰</p>
+          <p>ساخته‌شده برای آموزش علم شنوایی‌شناسی</p>
         </div>
 
       </div>

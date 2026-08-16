@@ -169,6 +169,85 @@ export function getResourceFiles(): Record<string, string> {
   return resourceFiles;
 }
 
+/**
+ * Auto-derives Resource Hub-shaped items from every course's Videos/Slides/
+ * Notes materials. This is what keeps the Resource Hub automatically in
+ * sync with Courses: nothing needs to be duplicated by hand in the admin
+ * panel — add a video/slide/note to a course, and it shows up in the Hub
+ * too, tagged with which course it belongs to.
+ */
+export function getCourseDerivedResourceEntries(): Array<{
+  id: string;
+  title: string;
+  type: 'video' | 'slides' | 'note';
+  topic: string;
+  level: string;
+  author: string;
+  institution?: string;
+  description: string;
+  readTimeOrDuration: string;
+  downloadUrl?: string;
+  tags: string[];
+  rating: number;
+  dateAdded: string;
+}> {
+  const courses = getCourses();
+  const entries: ReturnType<typeof getCourseDerivedResourceEntries> = [];
+
+  for (const course of courses) {
+    (course.videos || []).forEach((item, idx) => {
+      entries.push({
+        id: `course-${course.id}-video-${idx}`,
+        title: item.title,
+        type: 'video',
+        topic: course.category,
+        level: course.level,
+        author: course.instructor,
+        description: `Video material from the course "${course.title}" (${course.code}).`,
+        readTimeOrDuration: course.duration,
+        downloadUrl: item.fileUrl,
+        tags: [course.title, course.code, 'Course Material'],
+        rating: 5,
+        dateAdded: new Date().toISOString().slice(0, 10),
+      });
+    });
+    (course.slides || []).forEach((item, idx) => {
+      entries.push({
+        id: `course-${course.id}-slides-${idx}`,
+        title: item.title,
+        type: 'slides',
+        topic: course.category,
+        level: course.level,
+        author: course.instructor,
+        description: `Slide deck from the course "${course.title}" (${course.code}).`,
+        readTimeOrDuration: course.duration,
+        downloadUrl: item.fileUrl,
+        tags: [course.title, course.code, 'Course Material'],
+        rating: 5,
+        dateAdded: new Date().toISOString().slice(0, 10),
+      });
+    });
+    (course.notes || []).forEach((item, idx) => {
+      entries.push({
+        id: `course-${course.id}-note-${idx}`,
+        title: item.title,
+        type: 'note',
+        topic: course.category,
+        level: course.level,
+        author: course.instructor,
+        description: `Lecture notes from the course "${course.title}" (${course.code}).`,
+        readTimeOrDuration: course.duration,
+        downloadUrl: item.fileUrl,
+        tags: [course.title, course.code, 'Course Material'],
+        rating: 5,
+        dateAdded: new Date().toISOString().slice(0, 10),
+      });
+    });
+  }
+
+  return entries;
+}
+
 export function getCaseFiles(): Record<string, string> {
   return caseFiles;
 }

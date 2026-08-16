@@ -5,7 +5,7 @@ import {
   Clock, 
   CheckCircle2, 
   Award, 
-  ChevronRight, 
+  ChevronLeft, 
   UserCheck, 
   Sparkles,
   BarChart,
@@ -33,13 +33,13 @@ export const CoursesPage: React.FC = () => {
       <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-8 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-semibold border border-cyan-500/20">
           <GraduationCap className="w-3.5 h-3.5" />
-          <span>Audiology Academic Curriculum</span>
+          <span>برنامه درسی آکادمیک شنوایی‌شناسی</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white font-display">
-          Clinical Audiology Courses & Syllabus
+          دروس و سرفصل‌های بالینی شنوایی‌شناسی
         </h1>
         <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 max-w-2xl">
-          Structured academic courses designed according to AAA and ASHA standards. Perfect for Au.D. students, clinical interns, and practicing audiologists.
+          دروس آکادمیک ساختاریافته بر اساس استانداردهای AAA و ASHA. مناسب برای دانشجویان Au.D.، کارآموزان بالینی و شنوایی‌شناسان شاغل.
         </p>
 
         {/* Category Filters */}
@@ -88,7 +88,7 @@ export const CoursesPage: React.FC = () => {
 
               <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
                 <span className="text-[11px] font-bold uppercase text-zinc-400 flex items-center gap-1.5">
-                  <FileCheck className="w-3.5 h-3.5 text-cyan-500" /> Key Syllabus Learning Modules:
+                  <FileCheck className="w-3.5 h-3.5 text-cyan-500" /> ماژول‌های کلیدی یادگیری سرفصل:
                 </span>
                 <ul className="space-y-1 text-xs text-zinc-700 dark:text-zinc-300">
                   {(c.syllabus || []).map((s, i) => (
@@ -103,15 +103,15 @@ export const CoursesPage: React.FC = () => {
 
             <div className="flex items-center justify-between border-t border-zinc-100 dark:border-zinc-800 pt-4 text-xs">
               <div className="text-zinc-500">
-                Instructor: <strong className="text-zinc-800 dark:text-zinc-200">{c.instructor}</strong>
+                استاد: <strong className="text-zinc-800 dark:text-zinc-200">{c.instructor}</strong>
               </div>
 
               <button
                 onClick={() => setSelectedCourse(c)}
                 className="px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs flex items-center gap-1.5 shadow-md shadow-cyan-600/20"
               >
-                <span>Access Course</span>
-                <ChevronRight className="w-4 h-4" />
+                <span>ورود به درس</span>
+                <ChevronLeft className="w-4 h-4" />
               </button>
             </div>
           </div>

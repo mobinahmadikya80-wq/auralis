@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bell, Calendar, ChevronRight, Sparkles, Megaphone, ShieldCheck } from 'lucide-react';
+import { Bell, Calendar, ChevronLeft, Sparkles, Megaphone, ShieldCheck } from 'lucide-react';
 import { getAnnouncements } from '../../content/loader';
 
 export const AnnouncementsPage: React.FC = () => {
@@ -11,13 +11,13 @@ export const AnnouncementsPage: React.FC = () => {
       <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-8 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-semibold border border-cyan-500/20">
           <Megaphone className="w-3.5 h-3.5" />
-          <span>Announcements & News</span>
+          <span>اطلاعیه‌ها و اخبار</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white font-display">
-          Clinical Announcements & Platform Updates
+          اطلاعیه‌های بالینی و به‌روزرسانی‌های پلتفرم
         </h1>
         <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 max-w-2xl">
-          Stay informed with the latest audiological news, platform releases, conference schedules, and continuing education (CEU) workshops.
+          از آخرین اخبار شنوایی‌شناسی، انتشارات پلتفرم، برنامه همایش‌ها و کارگاه‌های آموزش مداوم (CEU) باخبر شوید.
         </p>
       </div>
 
@@ -51,8 +51,8 @@ export const AnnouncementsPage: React.FC = () => {
                 onClick={() => alert(`Reading news: ${item.title}`)}
                 className="text-cyan-500 font-bold hover:underline flex items-center gap-1"
               >
-                <span>Read Full Announcement</span>
-                <ChevronRight className="w-4 h-4" />
+                <span>مطالعه کامل اطلاعیه</span>
+                <ChevronLeft className="w-4 h-4" />
               </button>
             </div>
           </div>

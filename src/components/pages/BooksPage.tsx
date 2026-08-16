@@ -11,13 +11,13 @@ export const BooksPage: React.FC = () => {
       <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-8 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-semibold border border-cyan-500/20">
           <BookOpen className="w-3.5 h-3.5" />
-          <span>Core Academic Textbooks</span>
+          <span>کتاب‌های مرجع آکادمیک</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white font-display">
-          Audiology Reference Textbooks & Handbooks
+          کتاب‌ها و راهنماهای مرجع شنوایی‌شناسی
         </h1>
         <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 max-w-2xl">
-          Digital open access textbook library covering clinical diagnostics, electrophysiology, pediatric audiology, and physical acoustics.
+          کتابخانه دیجیتال با دسترسی آزاد شامل تشخیص بالینی، الکتروفیزیولوژی، شنوایی‌شناسی کودکان و آکوستیک فیزیکی.
         </p>
       </div>
 
@@ -43,7 +43,7 @@ export const BooksPage: React.FC = () => {
                   {b.title}
                 </h3>
                 <p className="text-xs text-cyan-600 dark:text-cyan-400 font-semibold mt-1">
-                  Authors: {b.authors}
+                  نویسندگان: {b.authors}
                 </p>
               </div>
 
@@ -71,11 +71,11 @@ export const BooksPage: React.FC = () => {
                   download
                   className="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold text-xs flex items-center gap-1.5 shadow-md shadow-cyan-500/20"
                 >
-                  <span>Download e-Book</span>
+                  <span>دانلود کتاب</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               ) : (
-                <span className="text-zinc-400 italic">No file linked yet</span>
+                <span className="text-zinc-400 italic">هنوز فایلی ثبت نشده</span>
               )}
             </div>
           </div>

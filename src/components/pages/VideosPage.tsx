@@ -17,13 +17,13 @@ export const VideosPage: React.FC = () => {
       <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-8 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-semibold border border-cyan-500/20">
           <Video className="w-3.5 h-3.5" />
-          <span>Clinical Video Vault</span>
+          <span>گنجینه ویدیوی بالینی</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white font-display">
-          Audiology Clinical Video Demonstrations
+          نمایش‌های ویدیویی بالینی شنوایی‌شناسی
         </h1>
         <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 max-w-2xl">
-          High-definition clinical procedure videos showing physical otoscopy, ABR electrode prep, REM probe tube placement, and pediatric VRA conditioning.
+          ویدیوهای بالینی با کیفیت بالا شامل اتوسکوپی فیزیکی، آماده‌سازی الکترود ABR، جایگذاری پروب REM و تهییج VRA کودکان.
         </p>
 
         {/* Filter Bar */}
@@ -76,7 +76,7 @@ export const VideosPage: React.FC = () => {
                 <span className="px-2 py-0.5 rounded font-mono text-[10px] bg-cyan-500/10 text-cyan-500 border border-cyan-500/20">
                   {v.category}
                 </span>
-                <span className="flex items-center gap-1"><Eye className="w-3.5 h-3.5" /> {v.views} Views</span>
+                <span className="flex items-center gap-1"><Eye className="w-3.5 h-3.5" /> {v.views} بازدید</span>
               </div>
 
               <h3 className="text-base font-bold text-zinc-900 dark:text-white group-hover:text-cyan-500 transition-colors">
@@ -88,14 +88,14 @@ export const VideosPage: React.FC = () => {
               </p>
 
               <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800 text-xs text-zinc-500 flex justify-between items-center">
-                <span>Presenter: <strong className="text-zinc-700 dark:text-zinc-300">{v.author}</strong></span>
+                <span>ارائه‌دهنده: <strong className="text-zinc-700 dark:text-zinc-300">{v.author}</strong></span>
                 {v.fileUrl ? (
                   <a
                     href={v.fileUrl}
                     download
                     className="text-cyan-500 font-bold hover:underline flex items-center gap-1"
                   >
-                    Download Video <ExternalLink className="w-3 h-3" />
+                    دانلود ویدیو <ExternalLink className="w-3 h-3" />
                   </a>
                 ) : v.youtubeId ? (
                   <a
@@ -104,10 +104,10 @@ export const VideosPage: React.FC = () => {
                     rel="noopener noreferrer"
                     className="text-cyan-500 font-bold hover:underline flex items-center gap-1"
                   >
-                    Watch Lecture <ExternalLink className="w-3 h-3" />
+                    مشاهده جلسه <ExternalLink className="w-3 h-3" />
                   </a>
                 ) : (
-                  <span className="text-zinc-400">No video source</span>
+                  <span className="text-zinc-400">منبع ویدیو موجود نیست</span>
                 )}
               </div>
             </div>

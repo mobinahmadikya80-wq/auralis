@@ -11,13 +11,13 @@ export const TeachersPage: React.FC = () => {
       <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-8 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-semibold border border-cyan-500/20">
           <UserCheck className="w-3.5 h-3.5" />
-          <span>Clinical & Academic Faculty</span>
+          <span>اساتید بالینی و آکادمیک</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white font-display">
-          Auralis Academic Board & Clinical Educators
+          هیئت علمی و مدرسان بالینی اورالیس
         </h1>
         <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 max-w-2xl">
-          Learn from leading clinical audiologists, researchers, and university professors dedicated to advancing open-access audiological education worldwide.
+          از شنوایی‌شناسان بالینی برجسته، پژوهشگران و استادان دانشگاه که به توسعه آموزش آزاد شنوایی‌شناسی در سراسر جهان متعهدند، بیاموزید.
         </p>
       </div>
 
@@ -49,7 +49,7 @@ export const TeachersPage: React.FC = () => {
               </p>
 
               <div className="space-y-1.5">
-                <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider">Clinical Specializations:</span>
+                <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider">تخصص‌های بالینی:</span>
                 <div className="flex flex-wrap gap-1.5">
                   {(f.specialties || []).map((spec, sIdx) => (
                     <span
@@ -66,7 +66,7 @@ export const TeachersPage: React.FC = () => {
             <div className="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-800 text-xs">
               <div className="flex items-center gap-1.5 text-zinc-500">
                 <BookOpen className="w-3.5 h-3.5 text-cyan-500" />
-                <span><strong>{f.publications}</strong> Clinical Papers</span>
+                <span><strong>{f.publications}</strong> مقاله بالینی</span>
               </div>
 
               <a
@@ -74,7 +74,7 @@ export const TeachersPage: React.FC = () => {
                 className="px-3 py-1.5 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-cyan-500 hover:text-zinc-950 font-bold transition-all flex items-center gap-1.5"
               >
                 <Mail className="w-3.5 h-3.5" />
-                <span>Contact Faculty</span>
+                <span>تماس با استاد</span>
               </a>
             </div>
           </div>

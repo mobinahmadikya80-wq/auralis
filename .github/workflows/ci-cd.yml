@@ -37,6 +37,9 @@ jobs:
         run: npm run lint
 
       - name: Build Application
+        env:
+          VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
+          VITE_OPENAI_API_KEY: ${{ secrets.VITE_OPENAI_API_KEY }}
         run: npm run build
 
       - name: Upload Build Artifacts

@@ -51,9 +51,48 @@ export const AiTutor: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const apiKey = (import.meta as unknown as { env?: { VITE_GEMINI_API_KEY?: string } }).env?.VITE_GEMINI_API_KEY;
-      if (apiKey) {
-        const ai = new GoogleGenAI({ apiKey });
+      const env = (import.meta as unknown as { env?: { VITE_OPENAI_API_KEY?: string; VITE_GEMINI_API_KEY?: string } }).env;
+      const openaiKey = env?.VITE_OPENAI_API_KEY;
+      const geminiKey = env?.VITE_GEMINI_API_KEY;
+
+      if (openaiKey) {
+        const res = await fetch('https://api.openai.com/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${openaiKey}`,
+          },
+          body: JSON.stringify({
+            model: 'gpt-4o-mini',
+            messages: [
+              {
+                role: 'system',
+                content: 'You are Auralis AI Tutor, a senior professor and clinical audiologist. Provide clear, evidence-based explanations.',
+              },
+              { role: 'user', content: query },
+            ],
+          }),
+        });
+
+        if (!res.ok) {
+          throw new Error(`OpenAI API error: ${res.status}`);
+        }
+
+        const data = await res.json();
+        const replyText: string = data.choices?.[0]?.message?.content || 'No response text generated.';
+        const tutorMsg: ChatMessage = {
+          id: (Date.now() + 1).toString(),
+          sender: 'tutor',
+          text: replyText,
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        };
+        setMessages(prev => [...prev, tutorMsg]);
+        setIsLoading(false);
+        return;
+      }
+
+      if (geminiKey) {
+        const ai = new GoogleGenAI({ apiKey: geminiKey });
         const response = await ai.models.generateContent({
           model: 'gemini-2.5-flash',
           contents: [

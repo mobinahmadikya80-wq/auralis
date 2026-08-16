@@ -10,9 +10,9 @@ interface CourseDetailModalProps {
 type Tab = 'videos' | 'slides' | 'notes';
 
 const TABS: { id: Tab; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
-  { id: 'videos', label: 'Videos', icon: Video },
-  { id: 'slides', label: 'Slides', icon: Presentation },
-  { id: 'notes', label: 'Notes (جزوات)', icon: FileText },
+  { id: 'videos', label: 'ویدیوها', icon: Video },
+  { id: 'slides', label: 'اسلایدها', icon: Presentation },
+  { id: 'notes', label: 'جزوات', icon: FileText },
 ];
 
 const MaterialRow: React.FC<{ item: CourseMaterialItem; index: number }> = ({ item, index }) => (
@@ -34,10 +34,10 @@ const MaterialRow: React.FC<{ item: CourseMaterialItem; index: number }> = ({ it
         className="shrink-0 px-3 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold text-xs flex items-center gap-1.5 shadow-sm"
       >
         <Download className="w-3.5 h-3.5" />
-        <span>Download</span>
+        <span>دانلود</span>
       </a>
     ) : (
-      <span className="shrink-0 text-[11px] text-zinc-400 italic">No file linked</span>
+      <span className="shrink-0 text-[11px] text-zinc-400 italic">فایلی ثبت نشده</span>
     )}
   </div>
 );
@@ -72,7 +72,7 @@ export const CourseDetailModal: React.FC<CourseDetailModalProps> = ({ course, on
               {course.title}
             </h2>
             <div className="text-xs text-zinc-500 flex items-center gap-3">
-              <span>Instructor: <strong className="text-zinc-700 dark:text-zinc-300">{course.instructor}</strong></span>
+              <span>استاد: <strong className="text-zinc-700 dark:text-zinc-300">{course.instructor}</strong></span>
               <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {course.duration}</span>
             </div>
           </div>
@@ -111,7 +111,7 @@ export const CourseDetailModal: React.FC<CourseDetailModalProps> = ({ course, on
         <div className="p-6 space-y-3 overflow-y-auto">
           {activeItems.length === 0 ? (
             <div className="text-center text-sm text-zinc-400 py-10">
-              Nothing added to this section yet. Add items from the admin panel (Courses → this course → {tab === 'videos' ? 'Videos' : tab === 'slides' ? 'Slides' : 'Notes'}).
+              هنوز آیتمی به این بخش اضافه نشده. از پنل ادمین اضافه کن (Courses → این درس → {tab === 'videos' ? 'Videos' : tab === 'slides' ? 'Slides' : 'Notes'}).
             </div>
           ) : (
             activeItems.map((item, i) => <MaterialRow key={i} item={item} index={i} />)
