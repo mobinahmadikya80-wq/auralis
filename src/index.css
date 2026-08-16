@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/*
+ * By default Tailwind v4 switches dark: utilities based on the OS-level
+ * `prefers-color-scheme` media query. This app instead toggles a `.dark`
+ * class on <html> (see DarkModeToggle.tsx) so the user can pick a theme
+ * independently of their system setting — this directive is what makes
+ * Tailwind's dark: utilities respond to that class instead.
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
