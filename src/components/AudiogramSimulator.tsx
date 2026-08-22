@@ -127,13 +127,13 @@ export const AudiogramSimulator: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-semibold border border-blue-500/20">
               <Activity className="w-3.5 h-3.5" />
-              <span>Interactive Clinical Audiometer Simulator</span>
+              <span>شبیه‌ساز تعاملی آدیومتر بالینی</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white font-display mt-2">
-              Pure-Tone Audiogram Laboratory
+              آزمایشگاه آدیوگرام تن خالص
             </h2>
             <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-1">
-              Plot air and bone conduction thresholds (-10 dB to 120 dB HL). Listen to synthesized tones and inspect automated diagnostic interpretations.
+              آستانه‌های هدایت هوایی و استخوانی رو ثبت کن (۱۰- تا ۱۲۰ dB HL). به تن‌های سنتزشده گوش بده و تفسیر تشخیصی خودکار رو ببین.
             </p>
           </div>
 
@@ -143,7 +143,7 @@ export const AudiogramSimulator: React.FC = () => {
               onClick={() => loadPreset('normal')}
               className="px-3 py-1.5 rounded-xl bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 text-zinc-800 dark:text-zinc-200 font-medium"
             >
-              Normal Preset
+              حالت عادی
             </button>
             <button
               onClick={() => loadPreset('presbycusis')}
@@ -170,7 +170,7 @@ export const AudiogramSimulator: React.FC = () => {
         <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">
           
           <div className="flex items-center gap-2">
-            <span className="text-xs text-zinc-400 font-bold uppercase">Ear Selection:</span>
+            <span className="text-xs text-zinc-400 font-bold uppercase">انتخاب گوش:</span>
             <button
               onClick={() => setActiveEar('right')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
@@ -179,7 +179,7 @@ export const AudiogramSimulator: React.FC = () => {
                   : 'bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400'
               }`}
             >
-              Right Ear (Red O)
+              گوش راست (دایره قرمز)
             </button>
             <button
               onClick={() => setActiveEar('left')}
@@ -189,12 +189,12 @@ export const AudiogramSimulator: React.FC = () => {
                   : 'bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400'
               }`}
             >
-              Left Ear (Blue X)
+              گوش چپ (ضربدر آبی)
             </button>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-xs text-zinc-400 font-bold uppercase">Transducer Mode:</span>
+            <span className="text-xs text-zinc-400 font-bold uppercase">نوع هدایت:</span>
             <button
               onClick={() => setConductionType('air')}
               className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
@@ -203,7 +203,7 @@ export const AudiogramSimulator: React.FC = () => {
                   : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200'
               }`}
             >
-              Air Conduction
+              هدایت هوایی
             </button>
             <button
               onClick={() => setConductionType('bone')}
@@ -213,7 +213,7 @@ export const AudiogramSimulator: React.FC = () => {
                   : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200'
               }`}
             >
-              Bone Conduction
+              هدایت استخوانی
             </button>
           </div>
 
@@ -230,10 +230,10 @@ export const AudiogramSimulator: React.FC = () => {
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-bold text-zinc-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
               <Activity className="w-4 h-4 text-rose-500" />
-              Standard Clinical Audiogram Plot (dB HL)
+              نمودار استاندارد آدیوگرام بالینی (dB HL)
             </h3>
             <span className="text-xs text-zinc-500 font-mono">
-              Frequency (Hz) vs Hearing Level (dB HL)
+              فرکانس (هرتز) در برابر سطح شنوایی (dB HL)
             </span>
           </div>
 
@@ -278,7 +278,7 @@ export const AudiogramSimulator: React.FC = () => {
                 strokeDasharray="2 2"
               />
               <text x="250" y="140" textAnchor="middle" fill="#f59e0b" fontSize="10" opacity="0.6" className="font-semibold">
-                Conversational Speech Spectrum
+                طیف گفتار محاوره‌ای
               </text>
 
               {/* Right Ear Air Conduction Red Line & Circles */}
@@ -345,7 +345,7 @@ export const AudiogramSimulator: React.FC = () => {
           {/* Interactive Frequency Threshold Sliders */}
           <div className="space-y-3 pt-2">
             <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
-              Adjust {activeEar.toUpperCase()} EAR {conductionType.toUpperCase()} Thresholds (dB HL)
+              تنظیم آستانه‌های {conductionType === "air" ? "هدایت هوایی" : "هدایت استخوانی"} گوش {activeEar === "right" ? "راست" : "چپ"} (dB HL)
             </h4>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
@@ -358,7 +358,7 @@ export const AudiogramSimulator: React.FC = () => {
                     <button
                       onClick={() => playPureTone(tp.frequency, tp.decibels, 600, activeEar)}
                       className="text-cyan-500 hover:text-cyan-400"
-                      title="Play Tone"
+                      title="پخش تن"
                     >
                       <Volume2 className="w-3.5 h-3.5" />
                     </button>
@@ -389,21 +389,21 @@ export const AudiogramSimulator: React.FC = () => {
           
           <div className="border-b border-zinc-100 dark:border-zinc-800 pb-4">
             <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-500">
-              Automated Audiometric Diagnostic Classifier
+              طبقه‌بندی تشخیصی خودکار آدیومتری
             </span>
             <h3 className="text-xl font-bold text-zinc-900 dark:text-white font-display mt-1">
-              {activeEar.toUpperCase()} Ear Diagnostic Analysis
+              تحلیل تشخیصی گوش {activeEar === "right" ? "راست" : "چپ"}
             </h3>
           </div>
 
           {/* PTA Score Badge */}
           <div className="p-5 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
             <div>
-              <div className="text-xs text-zinc-400 font-medium">Pure Tone Average (PTA)</div>
+              <div className="text-xs text-zinc-400 font-medium">میانگین تن خالص (PTA)</div>
               <div className="text-3xl font-extrabold text-zinc-900 dark:text-white font-mono mt-1">
                 {pta} <span className="text-sm font-sans font-normal text-zinc-500">dB HL</span>
               </div>
-              <div className="text-[11px] text-zinc-500 mt-0.5">(Calculated at 500, 1000, 2000 Hz)</div>
+              <div className="text-[11px] text-zinc-500 mt-0.5">(محاسبه‌شده در ۵۰۰، ۱۰۰۰ و ۲۰۰۰ هرتز)</div>
             </div>
 
             <div className={`px-3 py-1.5 rounded-xl text-xs font-bold border ${degreeObj.colorClass}`}>
@@ -414,7 +414,7 @@ export const AudiogramSimulator: React.FC = () => {
           {/* Degree Description */}
           <div className="space-y-1">
             <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
-              Functional Auditory Impact
+              تأثیر عملکردی بر شنوایی
             </h4>
             <p className="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed bg-zinc-100/60 dark:bg-zinc-800/40 p-3.5 rounded-xl border border-zinc-200/60 dark:border-zinc-800/60">
               {degreeObj.description}
@@ -424,7 +424,7 @@ export const AudiogramSimulator: React.FC = () => {
           {/* Type of Loss */}
           <div className="space-y-1">
             <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
-              Site of Lesion / Type of Loss
+              محل ضایعه / نوع کاهش شنوایی
             </h4>
             <div className="p-3.5 rounded-xl bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-600 dark:text-blue-400">
               {typeStr}
@@ -434,7 +434,7 @@ export const AudiogramSimulator: React.FC = () => {
           {/* Audiogram Configuration */}
           <div className="space-y-1">
             <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
-              Configuration Contour
+              الگوی نمودار
             </h4>
             <div className="p-3.5 rounded-xl bg-purple-500/10 border border-purple-500/20 text-xs font-semibold text-purple-600 dark:text-purple-400">
               {configStr}
@@ -443,11 +443,11 @@ export const AudiogramSimulator: React.FC = () => {
 
           {/* Clinical Action Button */}
           <button
-            onClick={() => alert(`Audiogram Diagnostic Report:\nEar: ${activeEar.toUpperCase()}\nPTA: ${pta} dB HL\nDegree: ${degreeObj.degree}\nType: ${typeStr}\nConfiguration: ${configStr}`)}
+            onClick={() => alert(`گزارش تشخیصی آدیوگرام:\nگوش: ${activeEar === 'right' ? 'راست' : 'چپ'}\nPTA: ${pta} dB HL\nدرجه: ${degreeObj.degree}\nنوع: ${typeStr}\nالگو: ${configStr}`)}
             className="w-full py-3 px-4 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs font-bold hover:bg-cyan-600 dark:hover:bg-cyan-400 dark:hover:text-zinc-950 transition-colors shadow-sm flex items-center justify-center gap-2"
           >
             <FileCheck className="w-4 h-4" />
-            <span>Export Clinical Audiometric Report</span>
+            <span>خروجی گزارش تشخیصی آدیومتری</span>
           </button>
 
         </div>

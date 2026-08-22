@@ -95,13 +95,13 @@ export const InteractiveEarAnatomy: React.FC = () => {
         <div className="space-y-2 max-w-2xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold border border-cyan-500/20">
             <Ear className="w-3.5 h-3.5" />
-            <span>Interactive 3D Medical Ear Anatomy & Tonotopic Simulator</span>
+            <span>شبیه‌ساز سه‌بعدی تعاملی آناتومی گوش</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight font-display">
-            Auditory System 3D Anatomy & Physiology
+            آناتومی و فیزیولوژی سه‌بعدی سیستم شنوایی
           </h2>
           <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-            Manipulate the 3D ear model using React Three Fiber. Rotate, zoom, pan, toggle X-Ray wireframe mode, and select curriculum lessons to highlight specific anatomical structures automatically.
+            مدل سه‌بعدی گوش رو بچرخون، زوم کن، جابه‌جا کن، حالت اشعه ایکس رو فعال کن، یا از درس‌ها برای هایلایت خودکار ساختار مربوطه استفاده کن.
           </p>
         </div>
 
@@ -118,7 +118,7 @@ export const InteractiveEarAnatomy: React.FC = () => {
               }`}
             >
               <Box className="w-3.5 h-3.5" />
-              <span>3D Model (R3F)</span>
+              <span>مدل سه‌بعدی</span>
             </button>
             <button
               onClick={() => setViewMode('2d')}
@@ -129,7 +129,7 @@ export const InteractiveEarAnatomy: React.FC = () => {
               }`}
             >
               <Layers className="w-3.5 h-3.5" />
-              <span>2D Cross-Section</span>
+              <span>برش دوبعدی</span>
             </button>
           </div>
 
@@ -145,7 +145,7 @@ export const InteractiveEarAnatomy: React.FC = () => {
                     : 'text-zinc-400 hover:text-white'
                 }`}
               >
-                {reg}
+                {{ all: 'همه', outer: 'خارجی', middle: 'میانی', inner: 'داخلی', neural: 'عصبی' }[reg]}
               </button>
             ))}
           </div>
@@ -158,11 +158,11 @@ export const InteractiveEarAnatomy: React.FC = () => {
           <div className="flex items-center gap-2">
             <BookOpen className="w-4 h-4 text-cyan-500" />
             <h3 className="text-sm font-bold text-zinc-900 dark:text-white uppercase tracking-wider">
-              Anatomical Lesson Integration
+              درس‌های آناتومی
             </h3>
           </div>
           <span className="text-xs text-zinc-500">
-            Click a lesson to automatically highlight and focus related 3D anatomy
+            روی یک درس بزن تا ساختار مربوطه توی مدل سه‌بعدی هایلایت بشه
           </span>
         </div>
 
@@ -207,7 +207,7 @@ export const InteractiveEarAnatomy: React.FC = () => {
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-zinc-100 dark:border-zinc-800 pb-4">
             <h3 className="text-sm font-bold text-zinc-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
               <Layers className="w-4 h-4 text-cyan-500" />
-              {viewMode === '3d' ? '3D Anatomical Render (React Three Fiber)' : '2D Cross-Section Vector Map'}
+              {viewMode === '3d' ? 'نمای سه‌بعدی آناتومی' : 'نقشه برداری دوبعدی'}
             </h3>
 
             {/* 3D Toggles Toolbar */}
@@ -221,7 +221,7 @@ export const InteractiveEarAnatomy: React.FC = () => {
                       : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-500 border-zinc-300 dark:border-zinc-700'
                   }`}
                 >
-                  3D Labels
+                  برچسب‌ها
                 </button>
                 <button
                   onClick={() => setXrayMode(!xrayMode)}
@@ -231,7 +231,7 @@ export const InteractiveEarAnatomy: React.FC = () => {
                       : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-500 border-zinc-300 dark:border-zinc-700'
                   }`}
                 >
-                  X-Ray Wireframe
+                  حالت اشعه ایکس
                 </button>
                 <button
                   onClick={() => setAutoRotate(!autoRotate)}
@@ -241,7 +241,7 @@ export const InteractiveEarAnatomy: React.FC = () => {
                       : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-500 border-zinc-300 dark:border-zinc-700'
                   }`}
                 >
-                  <RotateCw className="w-3 h-3" /> Auto-Rotate
+                  <RotateCw className="w-3 h-3" /> چرخش خودکار
                 </button>
               </div>
             )}
@@ -375,9 +375,9 @@ export const InteractiveEarAnatomy: React.FC = () => {
             <div className="flex items-center justify-between text-xs text-white">
               <span className="font-bold flex items-center gap-2 text-cyan-400">
                 <Volume2 className="w-4 h-4" />
-                Cochlear Basilar Membrane Tonotopic Map
+                نقشه تونوتوپیک غشای پایه حلزون
               </span>
-              <span className="text-[11px] text-zinc-400">Click frequency node to play audio</span>
+              <span className="text-[11px] text-zinc-400">برای پخش صدا، روی فرکانس بزن</span>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-2">
@@ -414,7 +414,7 @@ export const InteractiveEarAnatomy: React.FC = () => {
           <div className="space-y-2 border-b border-zinc-100 dark:border-zinc-800 pb-4">
             <div className="flex items-center justify-between">
               <span className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
-                {activeStructure.region} Ear Region
+                ناحیه {activeStructure.region}
               </span>
               {activeStructure.latinName && (
                 <span className="text-xs text-zinc-400 italic">
@@ -423,7 +423,7 @@ export const InteractiveEarAnatomy: React.FC = () => {
               )}
             </div>
 
-            <h3 className="text-2xl font-bold text-zinc-900 dark:text-white font-display">
+            <h3 dir="auto" className="text-2xl font-bold text-zinc-900 dark:text-white font-display">
               {activeStructure.name}
             </h3>
           </div>
@@ -431,9 +431,9 @@ export const InteractiveEarAnatomy: React.FC = () => {
           {/* Description */}
           <div className="space-y-2">
             <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
-              Anatomical Description
+              توضیحات آناتومیک
             </h4>
-            <p className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed bg-zinc-50 dark:bg-zinc-800/40 p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80">
+            <p dir="auto" className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed bg-zinc-50 dark:bg-zinc-800/40 p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80">
               {activeStructure.description}
             </p>
           </div>
@@ -442,13 +442,13 @@ export const InteractiveEarAnatomy: React.FC = () => {
           <div className="space-y-2">
             <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-1.5">
               <Activity className="w-3.5 h-3.5 text-cyan-500" />
-              Primary Acoustic & Mechanical Functions
+              عملکردهای اصلی صوتی و مکانیکی
             </h4>
             <ul className="space-y-1.5 text-xs text-zinc-600 dark:text-zinc-300">
               {activeStructure.keyFunctions.map((fn, idx) => (
                 <li key={idx} className="flex items-start gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 mt-1.5 shrink-0" />
-                  <span>{fn}</span>
+                  <span dir="auto">{fn}</span>
                 </li>
               ))}
             </ul>
@@ -458,9 +458,9 @@ export const InteractiveEarAnatomy: React.FC = () => {
           <div className="space-y-2 p-4 rounded-2xl bg-cyan-500/10 border border-cyan-500/20">
             <h4 className="text-xs font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider flex items-center gap-1.5">
               <Stethoscope className="w-4 h-4" />
-              Clinical Significance
+              اهمیت بالینی
             </h4>
-            <p className="text-xs text-zinc-800 dark:text-zinc-200 leading-relaxed">
+            <p dir="auto" className="text-xs text-zinc-800 dark:text-zinc-200 leading-relaxed">
               {activeStructure.clinicalSignificance}
             </p>
           </div>
@@ -469,7 +469,7 @@ export const InteractiveEarAnatomy: React.FC = () => {
           <div className="space-y-2">
             <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-1.5">
               <AlertCircle className="w-3.5 h-3.5 text-rose-500" />
-              Associated Clinical Pathologies
+              آسیب‌شناسی‌های بالینی مرتبط
             </h4>
             <div className="flex flex-wrap gap-1.5">
               {activeStructure.pathologyAssociation.map((path) => (
@@ -477,7 +477,7 @@ export const InteractiveEarAnatomy: React.FC = () => {
                   key={path}
                   className="px-2.5 py-1 rounded-lg text-xs font-medium bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20"
                 >
-                  {path}
+                  <span dir="auto">{path}</span>
                 </span>
               ))}
             </div>

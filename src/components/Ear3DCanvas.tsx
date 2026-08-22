@@ -286,7 +286,7 @@ export const Ear3DCanvas: React.FC<Ear3DCanvasProps> = ({
         <button
           onClick={handleResetCamera}
           className="p-2.5 rounded-2xl bg-zinc-900/80 hover:bg-zinc-800 text-white border border-zinc-700/80 backdrop-blur-md transition-all shadow-lg text-xs font-bold flex items-center gap-1.5"
-          title="Reset Camera View"
+          title="بازنشانی دوربین"
         >
           <RotateCcw className="w-3.5 h-3.5" />
           <span className="hidden sm:inline">Reset View</span>

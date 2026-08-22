@@ -35,8 +35,8 @@ export const DarkModeToggle: React.FC = () => {
     <button
       onClick={toggleTheme}
       className="p-2 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors shadow-sm flex items-center justify-center"
-      title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
-      aria-label="Toggle Theme"
+      title={`تغییر به حالت ${theme === 'dark' ? 'روشن' : 'تاریک'}`}
+      aria-label="تغییر حالت نمایش"
     >
       {theme === 'dark' ? (
         <Sun className="w-4 h-4 text-amber-400 animate-spin-slow" />
