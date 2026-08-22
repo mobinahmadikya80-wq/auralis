@@ -6,7 +6,6 @@ import {
   User, 
   Loader2
 } from 'lucide-react';
-import { GoogleGenAI } from '@google/genai';
 
 interface ChatMessage {
   id: string;
@@ -20,7 +19,7 @@ export const AiTutor: React.FC = () => {
     {
       id: 'm1',
       sender: 'tutor',
-      text: "Welcome to Auralis AI Tutor! I am your client-side AI clinical assistant specialized in Audiological Science, Psychoacoustics, Electrophysiology, and Vestibular Diagnostics. How can I assist your study or clinical preparation today?",
+      text: "Welcome to Auralis AI Tutor! I am your AI clinical assistant specialized in Audiological Science, Psychoacoustics, Electrophysiology, and Vestibular Diagnostics. How can I assist your study or clinical preparation today?",
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
   ]);
@@ -46,98 +45,71 @@ export const AiTutor: React.FC = () => {
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     };
 
-    setMessages(prev => [...prev, userMsg]);
+    const nextMessages = [...messages, userMsg];
+    setMessages(nextMessages);
     if (!textToSend) setInputQuery('');
     setIsLoading(true);
 
-    try {
-      const env = (import.meta as unknown as { env?: { VITE_OPENAI_API_KEY?: string; VITE_GEMINI_API_KEY?: string } }).env;
-      const openaiKey = env?.VITE_OPENAI_API_KEY;
-      const geminiKey = env?.VITE_GEMINI_API_KEY;
+    const env = (import.meta as unknown as { env?: { VITE_AI_PROXY_URL?: string } }).env;
+    const proxyUrl = env?.VITE_AI_PROXY_URL?.trim();
 
-      if (openaiKey) {
-        const res = await fetch('https://api.openai.com/v1/chat/completions', {
+    try {
+      if (proxyUrl) {
+        const history = nextMessages
+          .filter((m) => m.id !== 'm1' || m.sender === 'user')
+          .map((m) => ({
+            role: (m.sender === 'user' ? 'user' : 'assistant') as 'user' | 'assistant',
+            content: m.text,
+          }));
+
+        if (history.length === 0 || history[history.length - 1].role !== 'user') {
+          history.push({ role: 'user', content: query });
+        }
+
+        const res = await fetch(proxyUrl, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${openaiKey}`,
-          },
-          body: JSON.stringify({
-            model: 'gpt-4o-mini',
-            messages: [
-              {
-                role: 'system',
-                content: 'You are Auralis AI Tutor, a senior professor and clinical audiologist. Provide clear, evidence-based explanations.',
-              },
-              { role: 'user', content: query },
-            ],
-          }),
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: history }),
         });
 
         if (!res.ok) {
-          throw new Error(`OpenAI API error: ${res.status}`);
+          const errBody = await res.json().catch(() => ({}));
+          throw new Error((errBody as { error?: string })?.error || `Proxy error: ${res.status}`);
         }
 
-        const data = await res.json();
-        const replyText: string = data.choices?.[0]?.message?.content || 'No response text generated.';
+        const data = await res.json() as { reply?: string };
+        const replyText: string = data.reply || 'No response text generated.';
+
         const tutorMsg: ChatMessage = {
           id: (Date.now() + 1).toString(),
           sender: 'tutor',
           text: replyText,
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
         };
-        setMessages(prev => [...prev, tutorMsg]);
-        setIsLoading(false);
-        return;
-      }
-
-      if (geminiKey) {
-        const ai = new GoogleGenAI({ apiKey: geminiKey });
-        const response = await ai.models.generateContent({
-          model: 'gemini-2.5-flash',
-          contents: [
-            {
-              role: 'user',
-              parts: [
-                {
-                  text: `You are Auralis AI Tutor, a senior professor and clinical audiologist. Provide a clear, evidence-based explanation for: ${query}`
-                }
-              ]
-            }
-          ]
-        });
-
-        const replyText = response.text || 'No response text generated.';
-        const tutorMsg: ChatMessage = {
-          id: (Date.now() + 1).toString(),
-          sender: 'tutor',
-          text: replyText,
-          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-        };
-        setMessages(prev => [...prev, tutorMsg]);
+        setMessages((prev) => [...prev, tutorMsg]);
         setIsLoading(false);
         return;
       }
     } catch {
-      // Fallback to client-side clinical engine
+      // Fall through to local clinical fallback
     }
 
-    // Client-side clinical audiology intelligence engine
+    // Local fallback when proxy is not configured or request fails
     let replyText = `Clinical Explanation regarding "${query}":\n\n`;
 
     const q = query.toLowerCase();
     if (q.includes('abr') || q.includes('wave') || q.includes('neuroma')) {
       replyText += `**ABR Wave V & Retrocochlear Evaluation:**\n- Wave V originates in the inferior colliculus (midbrain).\n- Prolongation of Wave V absolute latency (>5.7 ms at 70 dB nHL click) or interaural Wave V delay (IT5 > 0.3 ms) indicates slowed neural conduction, strongly suspicious for retrocochlear pathology such as Vestibular Schwannoma (Acoustic Neuroma).\n- Prolonged I-V interpeak latency (>4.0 ms) further supports retrocochlear lesion identification.`;
-    } else if (q.includes('otosclerosis') || q.includes('schwartze')) {
-      replyText += `**Otosclerosis vs Tympanosclerosis:**\n- **Otosclerosis**: Spongy bone turnover at the stapedio-vestibular joint causing stapes fixation. Presents with Type As (shallow) tympanograms, conductively elevated thresholds, Schwartze sign (red vascular blush behind TM), and Carhart Notch at 2 kHz.\n- **Tympanosclerosis**: Hyalinization and calcification of the tympanic membrane/middle ear mucosal tissue from chronic otitis media; usually asymptomatic unless thick plaque stiffens TM mobility.`;
-    } else if (q.includes('sii') || q.includes('speech') || q.includes('dots')) {
-      replyText += `**Speech Intelligibility Index (SII) Method:**\n- The SII quantifies the proportion of speech signal audible to a listener (0.0 to 1.0, or 0% to 100%).\n- In Mueller & Killion's Count-the-Dots method, 100 dots are distributed across frequencies (500 to 4000 Hz) representing speech power density. Dots sitting above the patient's audiometric threshold line are audible and summed to yield the SII percentage.`;
+    } else if (q.includes('otosclerosis') || q.includes('schwartze') || q.includes('tympanosclerosis')) {
+      replyText += `**Otosclerosis vs Tympanosclerosis:**\n- **Schwartze sign** (otoscopy): reddish blush on the promontory due to increased vascularity of the otospongiotic focus — classic for active otosclerosis.\n- **Tympanosclerosis**: white calcified plaques on the tympanic membrane, usually post-inflammatory; does not show Schwartze sign.\n- Audiometric clue for otosclerosis: Carhart notch (bone-conduction dip at 2000 Hz) and progressive conductive loss with Type As tympanogram.`;
+    } else if (q.includes('sii') || q.includes('count-the-dots') || q.includes('intelligibility')) {
+      replyText += `**Speech Intelligibility Index (SII) — Count-the-Dots:**\n- In Mueller & Killion's Count-the-Dots method, 100 dots are distributed across frequencies (500 to 4000 Hz) representing speech power density. Dots sitting above the patient's audiometric threshold line are audible and summed to yield the SII percentage.`;
     } else if (q.includes('vra') || q.includes('cpa') || q.includes('pediatric')) {
       replyText += `**Pediatric Audiology Behavioral Testing:**\n- **Visual Reinforcement Audiometry (VRA)**: Recommended for infants aged 6 to 24 months. Uses animated lighted toys as visual reinforcement when the child turns toward sound stimuli.\n- **Conditioned Play Audiometry (CPA)**: Recommended for toddlers aged 2.5 to 5 years. Conditions the child to perform a play task (e.g., dropping a peg in a bucket) upon hearing a sound stimulus.`;
     } else if (q.includes('masking') || q.includes('gap')) {
       replyText += `**Clinical Masking Rules (ANSI S3.6):**\n- Masking is required for Air Conduction when AC(test ear) - BC(non-test ear) >= Interaural Attenuation (40 dB for supra-aural headphones, 60 dB for insert earphones).\n- Masking is ALWAYS required for Bone Conduction whenever an Air-Bone Gap in the test ear exceeds 10 dB.`;
     } else {
-      replyText += `**Core Audiological Clinical Principles:**\n1. **Diagnostic Integration**: Always correlate behavioral pure-tone audiograms with objective battery tests (Tympanometry Type A/B/C, Acoustic Reflexes, DPOAEs, ABR).\n2. **Acoustic Standards**: RETSPL values convert dB HL thresholds to dB SPL across frequencies (e.g. 1000 Hz 0 dB HL = 7.5 dB SPL).\n3. **Patient Counseling**: Verify amplification using Real-Ear Measurement (REM) probe microphone systems to ensure speech audibility and comfortable output levels.`;
+      replyText += `**Core Audiological Clinical Principles:**\n1. **Diagnostic Integration**: Always correlate behavioral pure-tone audiograms with objective battery tests (Tympanometry Type A/B/C, Acoustic Reflexes, DPOAEs, ABR).\n2. **Acoustic Standards**: RETSPL values convert dB HL thresholds to dB SPL across frequencies (e.g. 1000 Hz 0 dB HL = 7.5 dB SPL).\n3. **Patient Counseling**: Verify amplification using Real-Ear Measurement (REM) probe microphone systems to ensure speech audibility and comfortable output levels.\n\n*(برای پاسخ کامل هوش مصنوعی، پروکسی Cloudflare را پیکربندی کنید.)*`;
     }
 
     setTimeout(() => {
@@ -147,7 +119,7 @@ export const AiTutor: React.FC = () => {
         text: replyText,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
-      setMessages(prev => [...prev, tutorMsg]);
+      setMessages((prev) => [...prev, tutorMsg]);
       setIsLoading(false);
     }, 400);
   };
@@ -183,7 +155,7 @@ export const AiTutor: React.FC = () => {
       </div>
 
       {/* Chat Messages Container */}
-      <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm flex flex-col h-[520px]">
+      <div className="bg-white dark:bg-zinc-900 rounded-3xl border border-zinc-200 dark:border-zinc-800 p-4 sm:p-6 shadow-sm flex flex-col h-[520px]">
         
         <div className="flex-1 overflow-y-auto space-y-4 pr-2">
           {messages.map((m) => (
