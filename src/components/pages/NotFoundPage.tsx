@@ -19,10 +19,10 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({ onNavigateHome }) =>
 
       <div className="max-w-md space-y-2">
         <h1 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white font-display">
-          Acoustic Frequency Not Found
+          فرکانس مورد نظر پیدا نشد
         </h1>
         <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-          The requested clinical resource or page path could not be located in our audiological database. It may have been moved or archived.
+          منبع یا صفحه‌ی درخواستی در پایگاه‌داده ما پیدا نشد. ممکنه جابه‌جا یا آرشیو شده باشه.
         </p>
       </div>
 
@@ -32,7 +32,7 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({ onNavigateHome }) =>
           className="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold text-xs flex items-center gap-2 shadow-lg shadow-cyan-500/20"
         >
           <Home className="w-4 h-4" />
-          <span>Back to Main Hub</span>
+          <span>بازگشت به صفحه اصلی</span>
         </button>
       </div>
     </div>

@@ -8,8 +8,8 @@ interface EmptyStatePageProps {
 }
 
 export const EmptyStatePage: React.FC<EmptyStatePageProps> = ({
-  title = "No Resources Found",
-  description = "No clinical notes, textbooks, or tools matched your query. Try broadening your keywords.",
+  title = "منبعی پیدا نشد",
+  description = "هیچ جزوه، کتاب یا ابزاری با این جست‌وجو مطابقت نداشت. کلیدواژه‌ها را کلی‌تر کن.",
   onReset
 }) => {
   return (
@@ -32,7 +32,7 @@ export const EmptyStatePage: React.FC<EmptyStatePageProps> = ({
           className="px-4 py-2 rounded-xl bg-cyan-500 text-zinc-950 font-bold text-xs inline-flex items-center gap-2 shadow-md"
         >
           <RefreshCw className="w-3.5 h-3.5" />
-          <span>Reset Search & Filters</span>
+          <span>پاک‌کردن جست‌وجو و فیلترها</span>
         </button>
       )}
     </div>

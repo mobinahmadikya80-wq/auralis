@@ -308,15 +308,15 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
   if (!isOpen) return null;
 
   const categories: { id: SearchCategoryFilter; label: string; count?: number }[] = [
-    { id: 'all', label: 'All Items', count: allSearchItems.length },
-    { id: 'courses', label: 'Courses', count: allSearchItems.filter(i => i.category === 'Courses').length },
-    { id: 'teachers', label: 'Teachers', count: allSearchItems.filter(i => i.category === 'Teachers').length },
-    { id: 'videos', label: 'Videos', count: allSearchItems.filter(i => i.category === 'Videos').length },
-    { id: 'books', label: 'Books', count: allSearchItems.filter(i => i.category === 'Books').length },
-    { id: 'slides', label: 'Slides', count: allSearchItems.filter(i => i.category === 'Slides').length },
-    { id: 'research', label: 'Research', count: allSearchItems.filter(i => i.category === 'Research').length },
-    { id: 'pdf', label: 'PDFs', count: allSearchItems.filter(i => i.category === 'PDF').length },
-    { id: 'tags', label: 'Tags' },
+    { id: 'all', label: 'همه', count: allSearchItems.length },
+    { id: 'courses', label: 'دروس', count: allSearchItems.filter(i => i.category === 'Courses').length },
+    { id: 'teachers', label: 'اساتید', count: allSearchItems.filter(i => i.category === 'Teachers').length },
+    { id: 'videos', label: 'ویدیوها', count: allSearchItems.filter(i => i.category === 'Videos').length },
+    { id: 'books', label: 'کتاب‌ها', count: allSearchItems.filter(i => i.category === 'Books').length },
+    { id: 'slides', label: 'اسلایدها', count: allSearchItems.filter(i => i.category === 'Slides').length },
+    { id: 'research', label: 'پژوهش', count: allSearchItems.filter(i => i.category === 'Research').length },
+    { id: 'pdf', label: 'PDFها', count: allSearchItems.filter(i => i.category === 'PDF').length },
+    { id: 'tags', label: 'برچسب‌ها' },
   ];
 
   return (
@@ -340,7 +340,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
               setQuery(e.target.value);
               setSelectedIndex(0);
             }}
-            placeholder="Search everything: Courses, Teachers, Videos, Books, Slides, Research, PDFs, Tags..."
+            placeholder="جست‌وجو در دروس، اساتید، ویدیوها، کتاب‌ها، اسلایدها، پژوهش..."
             className="w-full py-2.5 text-sm sm:text-base bg-transparent border-0 focus:outline-none text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 font-medium"
           />
           {query && (
@@ -352,7 +352,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
             </button>
           )}
           <span className="hidden sm:inline-block px-2 py-1 rounded-lg bg-zinc-200 dark:bg-zinc-800 text-[10px] font-mono text-zinc-500 font-bold shrink-0">
-            ESC to exit
+            برای خروج ESC
           </span>
         </div>
 
@@ -387,7 +387,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         {!query && (
           <div className="px-5 py-2.5 bg-zinc-100/50 dark:bg-zinc-900/30 border-b border-zinc-200/60 dark:border-zinc-800/40 flex items-center gap-2 text-xs text-zinc-500 overflow-x-auto">
             <Clock className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
-            <span className="font-bold text-[11px] uppercase tracking-wider shrink-0 text-zinc-400">Recents:</span>
+            <span className="font-bold text-[11px] uppercase tracking-wider shrink-0 text-zinc-400">اخیر:</span>
             {recentSearches.map((term, i) => (
               <button
                 key={i}
@@ -431,7 +431,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
 
                   <div className="space-y-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-xs font-bold text-zinc-900 dark:text-zinc-100 truncate">
+                      <span dir="auto" className="text-xs font-bold text-zinc-900 dark:text-zinc-100 truncate">
                         {item.title}
                       </span>
                       <span className="px-2 py-0.5 rounded-md text-[10px] font-bold font-mono bg-zinc-200/80 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-300/50 dark:border-zinc-700">
@@ -439,11 +439,11 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                       </span>
                     </div>
 
-                    <div className="text-xs text-zinc-500 truncate">
+                    <div dir="auto" className="text-xs text-zinc-500 truncate">
                       {item.subtitle}
                     </div>
 
-                    <p className="text-[11px] text-zinc-400 line-clamp-1 leading-snug">
+                    <p dir="auto" className="text-[11px] text-zinc-400 line-clamp-1 leading-snug">
                       {item.description}
                     </p>
 
@@ -470,7 +470,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                 <div className="flex items-center gap-2 shrink-0">
                   {isSelected && (
                     <span className="text-[11px] font-mono text-cyan-500 font-bold hidden sm:flex items-center gap-1">
-                      Press <CornerDownLeft className="w-3 h-3" />
+                      اینتر <CornerDownLeft className="w-3 h-3" />
                     </span>
                   )}
                   <ChevronRight className={`w-4 h-4 transition-transform ${isSelected ? 'text-cyan-500 translate-x-1' : 'text-zinc-400'}`} />
@@ -482,8 +482,8 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
           {filteredItems.length === 0 && (
             <div className="py-16 text-center space-y-3">
               <Search className="w-10 h-10 text-zinc-400 mx-auto opacity-40 animate-pulse" />
-              <div className="text-sm font-bold text-zinc-500">No matching items found for "{query}"</div>
-              <div className="text-xs text-zinc-400">Try searching for terms like ABR, Audiogram, VNG, Faculty, Chapter, or PDF.</div>
+              <div className="text-sm font-bold text-zinc-500">موردی برای "{query}" پیدا نشد</div>
+              <div className="text-xs text-zinc-400">عباراتی مثل ABR، آدیوگرام، VNG یا اسم استاد رو امتحان کن.</div>
             </div>
           )}
         </div>
@@ -493,19 +493,19 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
           <div className="flex items-center gap-4 text-[11px] font-mono">
             <span className="flex items-center gap-1">
               <kbd className="px-1.5 py-0.5 rounded bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold">↑</kbd>
-              <kbd className="px-1.5 py-0.5 rounded bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold">↓</kbd> navigate
+              <kbd className="px-1.5 py-0.5 rounded bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold">↓</kbd> جابه‌جایی
             </span>
             <span className="flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 rounded bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold">↵</kbd> select
+              <kbd className="px-1.5 py-0.5 rounded bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold">↵</kbd> انتخاب
             </span>
             <span className="flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 rounded bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold">ESC</kbd> close
+              <kbd className="px-1.5 py-0.5 rounded bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold">ESC</kbd> بستن
             </span>
           </div>
 
           <div className="text-[11px] font-mono text-cyan-500 font-semibold flex items-center gap-1">
             <Sparkles className="w-3.5 h-3.5 text-cyan-500" />
-            <span>Instant Search Engine Active ({filteredItems.length} indexed)</span>
+            <span>موتور جست‌وجو فعال ({filteredItems.length} مورد نمایه‌شده)</span>
           </div>
         </div>
 

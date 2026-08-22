@@ -58,13 +58,13 @@ export const SavedWorkspace: React.FC<SavedWorkspaceProps> = ({
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-semibold border border-cyan-500/20">
               <Bookmark className="w-3.5 h-3.5" />
-              <span>Personal Audiology Study Workspace</span>
+              <span>فضای شخصی مطالعه شنوایی‌شناسی</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white font-display mt-2">
-              Saved Bookmarks & Study Notebook
+              نشان‌شده‌ها و دفترچه مطالعه
             </h2>
             <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
-              Access your bookmarked textbooks, clinical lecture notes, case studies, and personal study journals.
+              به کتاب‌های نشان‌شده، جزوات، موارد بالینی و یادداشت‌های شخصی خودت دسترسی داشته باش.
             </p>
           </div>
 
@@ -77,7 +77,7 @@ export const SavedWorkspace: React.FC<SavedWorkspaceProps> = ({
                   : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200'
               }`}
             >
-              Saved Bookmarks ({savedResources.length})
+              نشان‌شده‌ها ({savedResources.length})
             </button>
             <button
               onClick={() => setActiveSubTab('notes')}
@@ -87,7 +87,7 @@ export const SavedWorkspace: React.FC<SavedWorkspaceProps> = ({
                   : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200'
               }`}
             >
-              Study Notes ({notes.length})
+              یادداشت‌ها ({notes.length})
             </button>
           </div>
         </div>
@@ -104,16 +104,17 @@ export const SavedWorkspace: React.FC<SavedWorkspaceProps> = ({
                   className="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between space-y-4"
                 >
                   <div className="space-y-2">
-                    <span className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
+                    <span dir="auto" className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
                       {res.topic}
                     </span>
                     <h3 
+                      dir="auto"
                       onClick={() => onSelectResource(res)}
                       className="text-base font-bold text-zinc-900 dark:text-white hover:text-cyan-500 cursor-pointer transition-colors"
                     >
                       {res.title}
                     </h3>
-                    <p className="text-xs text-zinc-500 line-clamp-2">
+                    <p dir="auto" className="text-xs text-zinc-500 line-clamp-2">
                       {res.description}
                     </p>
                   </div>
@@ -123,14 +124,14 @@ export const SavedWorkspace: React.FC<SavedWorkspaceProps> = ({
                       onClick={() => onSelectResource(res)}
                       className="text-cyan-500 font-semibold hover:underline flex items-center gap-1"
                     >
-                      <span>Open Material</span>
+                      <span>مشاهده</span>
                       <ChevronRight className="w-3.5 h-3.5" />
                     </button>
 
                     <button
                       onClick={() => onRemoveSaved(res)}
                       className="p-1.5 rounded-lg text-rose-500 hover:bg-rose-500/10 transition-colors"
-                      title="Remove Bookmark"
+                      title="حذف نشان"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -141,9 +142,9 @@ export const SavedWorkspace: React.FC<SavedWorkspaceProps> = ({
           ) : (
             <div className="bg-white dark:bg-zinc-900 rounded-3xl p-12 text-center border border-zinc-200 dark:border-zinc-800 space-y-3">
               <Bookmark className="w-10 h-10 text-zinc-400 mx-auto" />
-              <h3 className="text-base font-bold text-zinc-800 dark:text-zinc-200">No saved bookmarks yet</h3>
+              <h3 className="text-base font-bold text-zinc-800 dark:text-zinc-200">هنوز چیزی نشان نکردی</h3>
               <p className="text-xs text-zinc-500 max-w-sm mx-auto">
-                Explore the Resource Hub or Clinical Cases and click the bookmark icon to save key learning items for later review.
+                توی مرکز منابع یا موارد بالینی، رو آیکون نشان بزن تا اینجا ذخیره بشه.
               </p>
             </div>
           )}
@@ -157,14 +158,14 @@ export const SavedWorkspace: React.FC<SavedWorkspaceProps> = ({
           {/* Note Editor (7 cols) */}
           <div className="lg:col-span-7 bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-8 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
             <h3 className="text-base font-bold text-zinc-900 dark:text-white font-display flex items-center gap-2">
-              <Plus className="w-4 h-4 text-cyan-500" /> Create Custom Clinical Study Note
+              <Plus className="w-4 h-4 text-cyan-500" /> ساخت یادداشت شخصی
             </h3>
 
             <input
               type="text"
               value={newNoteTitle}
               onChange={(e) => setNewNoteTitle(e.target.value)}
-              placeholder="Note Title e.g. 'Key ABR Peak Latency Takeaways'..."
+              placeholder="عنوان یادداشت..."
               className="w-full p-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-xs sm:text-sm font-semibold focus:outline-none"
             />
 
@@ -172,7 +173,7 @@ export const SavedWorkspace: React.FC<SavedWorkspaceProps> = ({
               rows={8}
               value={newNoteContent}
               onChange={(e) => setNewNoteContent(e.target.value)}
-              placeholder="Write lecture summary, clinical formulas, or case notes here..."
+              placeholder="خلاصه جلسه، فرمول یا نکته بالینی رو اینجا بنویس..."
               className="w-full p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-xs sm:text-sm focus:outline-none resize-none leading-relaxed"
             />
 
@@ -182,14 +183,14 @@ export const SavedWorkspace: React.FC<SavedWorkspaceProps> = ({
               className="py-3 px-6 rounded-xl bg-cyan-600 hover:bg-cyan-500 disabled:opacity-50 text-white text-xs font-bold transition-all shadow-md flex items-center gap-2"
             >
               {isNoteSaved ? <Check className="w-4 h-4" /> : <Save className="w-4 h-4" />}
-              <span>{isNoteSaved ? 'Note Saved to Journal!' : 'Save Note'}</span>
+              <span>{isNoteSaved ? 'ذخیره شد!' : 'ذخیره یادداشت'}</span>
             </button>
           </div>
 
           {/* Notes List (5 cols) */}
           <div className="lg:col-span-5 bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-8 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
             <h3 className="text-base font-bold text-zinc-900 dark:text-white font-display">
-              Saved Journal Entries ({notes.length})
+              یادداشت‌های ذخیره‌شده ({notes.length})
             </h3>
 
             {notes.length > 0 ? (
@@ -200,29 +201,29 @@ export const SavedWorkspace: React.FC<SavedWorkspaceProps> = ({
                     className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2 relative group"
                   >
                     <div className="flex items-center justify-between">
-                      <h4 className="text-xs font-bold text-zinc-900 dark:text-white">{n.title}</h4>
+                      <h4 dir="auto" className="text-xs font-bold text-zinc-900 dark:text-white">{n.title}</h4>
                       <button
                         onClick={() => onDeleteNote(n.id)}
                         className="text-zinc-400 hover:text-rose-500 p-1"
-                        title="Delete Note"
+                        title="حذف یادداشت"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
                       </button>
                     </div>
 
-                    <p className="text-xs text-zinc-600 dark:text-zinc-300 line-clamp-3 leading-relaxed whitespace-pre-wrap">
+                    <p dir="auto" className="text-xs text-zinc-600 dark:text-zinc-300 line-clamp-3 leading-relaxed whitespace-pre-wrap">
                       {n.content}
                     </p>
 
                     <span className="text-[10px] font-mono text-zinc-400 block pt-1">
-                      Saved on {n.updatedAt}
+                      ذخیره‌شده در {n.updatedAt}
                     </span>
                   </div>
                 ))}
               </div>
             ) : (
               <div className="py-8 text-center text-xs text-zinc-400">
-                No custom notes written yet. Use the editor to take study notes!
+                هنوز یادداشتی ننوشتی. از ادیتور کنار استفاده کن!
               </div>
             )}
           </div>

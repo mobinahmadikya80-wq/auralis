@@ -4,18 +4,18 @@ import { BrainCircuit, Award, Globe, ShieldCheck, CheckCircle2, Users, Heart } f
 export const AboutPage: React.FC = () => {
   const pillars = [
     {
-      title: 'Open Access Mission',
-      desc: 'Democratizing high-level audiological science, electrophysiology training, and clinical case materials for students and clinicians globally without paywalls.',
+      title: 'رسالت دسترسی آزاد',
+      desc: 'دموکراتیزه کردن علم پیشرفته شنوایی‌شناسی، آموزش الکتروفیزیولوژی و موارد بالینی برای دانشجویان و متخصصان سراسر جهان، بدون هزینه اشتراک.',
       icon: Globe,
     },
     {
-      title: 'ANSI & ISO Compliance',
-      desc: 'All virtual audiograms, decibel SPL to HL conversions, and sound level calibration curves adhere strictly to ANSI S3.6-2018 and ISO 389 standards.',
+      title: 'انطباق با ANSI و ISO',
+      desc: 'تمام آدیوگرام‌های مجازی، تبدیل‌های دسی‌بل SPL به HL و منحنی‌های کالیبراسیون سطح صدا، دقیقاً مطابق استانداردهای ANSI S3.6-2018 و ISO 389 هستند.',
       icon: ShieldCheck,
     },
     {
-      title: 'Evidence-Based Curriculum',
-      desc: 'Developed in collaboration with leading clinical professors from Johns Hopkins, Northwestern, Harvard, and Vanderbilt University Medical Centers.',
+      title: 'سرفصل مبتنی بر شواهد',
+      desc: 'با همکاری اساتید بالینی برجسته از مراکز پزشکی دانشگاهی معتبر توسعه یافته است.',
       icon: Award,
     },
   ];
@@ -31,11 +31,11 @@ export const AboutPage: React.FC = () => {
         </div>
 
         <h1 className="text-3xl sm:text-4xl font-extrabold font-display tracking-tight leading-tight">
-          About Auralis Open Audiology Science
+          درباره اورالیس، علم آزاد شنوایی‌شناسی
         </h1>
 
         <p className="text-sm sm:text-base text-zinc-300 max-w-2xl leading-relaxed">
-          Auralis was founded to bridge the gap between academic acoustics, neurophysiology research, and hands-on clinical practice. We provide open-access interactive tools, 3D anatomical models, and diagnostic case simulators for audiology students worldwide.
+          اورالیس با هدف پر کردن فاصله میان آکوستیک آکادمیک، پژوهش نوروفیزیولوژی و عمل بالینی راه‌اندازی شد. ما ابزارهای تعاملی آزاد، مدل‌های سه‌بعدی آناتومیک و شبیه‌سازهای موارد تشخیصی رو برای دانشجویان شنوایی‌شناسی در سراسر جهان ارائه می‌دیم.
         </p>
       </div>
 
@@ -65,17 +65,17 @@ export const AboutPage: React.FC = () => {
       {/* Academic Endorsements */}
       <div className="bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
         <h2 className="text-xl font-bold text-zinc-900 dark:text-white font-display">
-          Academic Accreditation & Standards Compliance
+          استانداردها و انطباق آکادمیک
         </h2>
         <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-          Auralis platform content aligns with guidelines issued by the American Academy of Audiology (AAA), the American Speech-Language-Hearing Association (ASHA), the British Society of Audiology (BSA), and the International Society of Audiology (ISA).
+          محتوای پلتفرم اورالیس با دستورالعمل‌های صادرشده از انجمن‌های معتبر بین‌المللی شنوایی‌شناسی هم‌راستاست.
         </p>
 
         <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center font-bold text-xs font-mono text-cyan-500">
-          <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">ANSI S3.6 Compliant</div>
-          <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">ISO 389 Calibrated</div>
-          <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">AAA Practice Guidelines</div>
-          <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">ASHA CEU Approved</div>
+          <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">مطابق ANSI S3.6</div>
+          <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">کالیبره با ISO 389</div>
+          <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">دستورالعمل‌های AAA</div>
+          <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">تایید ASHA CEU</div>
         </div>
       </div>
     </div>

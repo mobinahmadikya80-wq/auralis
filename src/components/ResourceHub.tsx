@@ -35,12 +35,12 @@ export const ResourceHub: React.FC<ResourceHubProps> = ({
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const typesList: { id: ResourceType | 'all'; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
-    { id: 'all', label: 'All Resources', icon: BookOpen },
-    { id: 'note', label: 'Course Notes', icon: FileText },
-    { id: 'book', label: 'PDF Textbooks', icon: BookOpen },
-    { id: 'slides', label: 'Slide Decks', icon: Presentation },
-    { id: 'video', label: 'Lectures & Videos', icon: Video },
-    { id: 'paper', label: 'Research Papers', icon: FileCheck },
+    { id: 'all', label: 'همه منابع', icon: BookOpen },
+    { id: 'note', label: 'جزوات درسی', icon: FileText },
+    { id: 'book', label: 'کتاب‌های PDF', icon: BookOpen },
+    { id: 'slides', label: 'اسلایدها', icon: Presentation },
+    { id: 'video', label: 'جلسات و ویدیوها', icon: Video },
+    { id: 'paper', label: 'مقالات پژوهشی', icon: FileCheck },
   ];
 
   const topicsList: CategoryTopic[] = [
@@ -80,10 +80,10 @@ export const ResourceHub: React.FC<ResourceHubProps> = ({
           <div>
             <h2 className="text-xl font-bold text-zinc-900 dark:text-white font-display flex items-center gap-2">
               <BookOpen className="w-5 h-5 text-cyan-500" />
-              Audiology Educational Archive
+              آرشیو آموزشی شنوایی‌شناسی
             </h2>
             <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
-              Browse open-access course outlines, peer-reviewed textbooks, slide decks, video lectures, and clinical papers.
+              سرفصل‌های آزاد، کتاب‌های داوری‌شده، اسلایدها، جلسات ویدیویی و مقالات بالینی را مرور کن.
             </p>
           </div>
 
@@ -94,7 +94,7 @@ export const ResourceHub: React.FC<ResourceHubProps> = ({
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Filter by keyword..."
+              placeholder="جست‌وجو با کلیدواژه..."
               className="w-full pl-9 pr-4 py-2 text-xs bg-zinc-50 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700/80 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/30 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400"
             />
           </div>
@@ -127,14 +127,14 @@ export const ResourceHub: React.FC<ResourceHubProps> = ({
           
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-zinc-400 flex items-center gap-1 font-medium">
-              <Filter className="w-3.5 h-3.5" /> Topic:
+              <Filter className="w-3.5 h-3.5" /> موضوع:
             </span>
             <select
               value={selectedTopic}
               onChange={(e) => setSelectedTopic(e.target.value as CategoryTopic | 'all')}
               className="px-3 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-800 dark:text-zinc-200 focus:outline-none"
             >
-              <option value="all">All Topics (9 Categories)</option>
+              <option value="all">همه موضوعات (۹ دسته)</option>
               {topicsList.map(topic => (
                 <option key={topic} value={topic}>{topic}</option>
               ))}
@@ -142,7 +142,7 @@ export const ResourceHub: React.FC<ResourceHubProps> = ({
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-zinc-400 font-medium">Level:</span>
+            <span className="text-zinc-400 font-medium">سطح:</span>
             {['all', 'Beginner', 'Intermediate', 'Advanced'].map((lvl) => (
               <button
                 key={lvl}
@@ -153,7 +153,7 @@ export const ResourceHub: React.FC<ResourceHubProps> = ({
                     : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200'
                 }`}
               >
-                {lvl === 'all' ? 'All Levels' : lvl}
+                {lvl === 'all' ? 'همه سطوح' : lvl === 'Beginner' ? 'مبتدی' : lvl === 'Intermediate' ? 'متوسط' : 'پیشرفته'}
               </button>
             ))}
           </div>
@@ -175,7 +175,7 @@ export const ResourceHub: React.FC<ResourceHubProps> = ({
               {/* Card Header & Badge */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between gap-2">
-                  <span className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
+                  <span dir="auto" className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
                     {res.topic}
                   </span>
 
@@ -189,7 +189,7 @@ export const ResourceHub: React.FC<ResourceHubProps> = ({
                         ? 'bg-cyan-500/10 text-cyan-500 border-cyan-500/30'
                         : 'text-zinc-400 border-zinc-200 dark:border-zinc-800 hover:text-zinc-600 dark:hover:text-zinc-200'
                     }`}
-                    title={isSaved ? 'Remove Bookmark' : 'Save Resource'}
+                    title={isSaved ? 'حذف نشان' : 'ذخیره منبع'}
                   >
                     <Bookmark className="w-4 h-4" />
                   </button>
@@ -197,6 +197,7 @@ export const ResourceHub: React.FC<ResourceHubProps> = ({
 
                 {/* Resource Title */}
                 <h3 
+                  dir="auto"
                   onClick={() => onSelectResource(res)}
                   className="text-base font-bold text-zinc-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors cursor-pointer line-clamp-2 leading-snug"
                 >
@@ -204,7 +205,7 @@ export const ResourceHub: React.FC<ResourceHubProps> = ({
                 </h3>
 
                 {/* Description */}
-                <p className="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-3 leading-relaxed">
+                <p dir="auto" className="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-3 leading-relaxed">
                   {res.description}
                 </p>
               </div>
@@ -212,7 +213,7 @@ export const ResourceHub: React.FC<ResourceHubProps> = ({
               {/* Author & Footer Meta */}
               <div className="pt-6 mt-6 border-t border-zinc-100 dark:border-zinc-800/80 space-y-4">
                 <div className="flex items-center justify-between text-[11px] text-zinc-500 dark:text-zinc-400">
-                  <span className="font-medium truncate max-w-[180px] text-zinc-700 dark:text-zinc-300">
+                  <span dir="auto" className="font-medium truncate max-w-[180px] text-zinc-700 dark:text-zinc-300">
                     {res.author}
                   </span>
                   <span className="flex items-center gap-1 font-mono">
@@ -238,7 +239,7 @@ export const ResourceHub: React.FC<ResourceHubProps> = ({
                   onClick={() => onSelectResource(res)}
                   className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs font-semibold hover:bg-cyan-600 dark:hover:bg-cyan-400 dark:hover:text-zinc-950 transition-colors shadow-sm"
                 >
-                  <span>Open Educational Resource</span>
+                  <span>مشاهده منبع آموزشی</span>
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
@@ -251,9 +252,9 @@ export const ResourceHub: React.FC<ResourceHubProps> = ({
       {filteredResources.length === 0 && (
         <div className="bg-white dark:bg-zinc-900 rounded-2xl p-12 text-center border border-zinc-200 dark:border-zinc-800 space-y-3">
           <BookOpen className="w-10 h-10 text-zinc-400 mx-auto" />
-          <h3 className="text-base font-bold text-zinc-800 dark:text-zinc-200">No resources found matching filters</h3>
+          <h3 className="text-base font-bold text-zinc-800 dark:text-zinc-200">منبعی با این فیلترها پیدا نشد</h3>
           <p className="text-xs text-zinc-500 max-w-sm mx-auto">
-            Try adjusting your topic selection, keyword query, or resource format filter.
+            موضوع، کلیدواژه جست‌وجو یا نوع منبع را تغییر بده.
           </p>
         </div>
       )}

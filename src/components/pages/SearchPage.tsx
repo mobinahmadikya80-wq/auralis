@@ -67,7 +67,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({ onSelectResource }) => {
       id: `teacher_${t.id}`,
       title: t.name,
       subtitle: `${t.role} • ${t.institution}`,
-      description: `Specializing in ${(t.specialties || []).join(', ')}`,
+      description: `متخصص در ${(t.specialties || []).join('، ')}`,
       category: 'Teachers',
       typeBadge: 'Faculty',
       icon: Users,
@@ -174,14 +174,14 @@ export const SearchPage: React.FC<SearchPageProps> = ({ onSelectResource }) => {
   });
 
   const categories = [
-    { id: 'all', label: 'All Items' },
-    { id: 'courses', label: 'Courses' },
-    { id: 'teachers', label: 'Teachers' },
-    { id: 'videos', label: 'Videos' },
-    { id: 'books', label: 'Books' },
-    { id: 'slides', label: 'Slides' },
-    { id: 'research', label: 'Research' },
-    { id: 'pdf', label: 'PDFs' },
+    { id: 'all', label: 'همه موارد' },
+    { id: 'courses', label: 'دروس' },
+    { id: 'teachers', label: 'اساتید' },
+    { id: 'videos', label: 'ویدیوها' },
+    { id: 'books', label: 'کتاب‌ها' },
+    { id: 'slides', label: 'اسلایدها' },
+    { id: 'research', label: 'پژوهش' },
+    { id: 'pdf', label: 'PDFها' },
   ];
 
   return (
@@ -191,13 +191,13 @@ export const SearchPage: React.FC<SearchPageProps> = ({ onSelectResource }) => {
         <div className="space-y-2">
           <div className="flex items-center gap-2 text-cyan-500 font-bold text-xs uppercase tracking-wider">
             <Sparkles className="w-4 h-4" />
-            <span>Instant Search Engine • Phase 11</span>
+            <span>موتور جست‌وجوی آنی</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-zinc-900 dark:text-white font-display">
-            Auralis Unified Search System
+            سامانه جست‌وجوی یکپارچه اورالیس
           </h1>
           <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
-            Instant search across Courses, Teachers, Videos, Books, Slides, Research Papers, PDFs, and Tags with zero-latency client index.
+            جست‌وجوی آنی در دروس، اساتید، ویدیوها، کتاب‌ها، اسلایدها، مقالات، PDFها و برچسب‌ها.
           </p>
         </div>
 
@@ -209,7 +209,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({ onSelectResource }) => {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search everything: ABR latency, VNG, Otoscopy, Carhart notch, SII count-the-dots, REM targets..."
+              placeholder="جست‌وجو در همه‌چیز: ABR latency، VNG، اتوسکوپی، Carhart notch..."
               className="w-full pl-12 pr-10 py-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-900 dark:text-white focus:outline-none focus:border-cyan-500 shadow-inner font-medium"
             />
             {query && (
@@ -243,8 +243,8 @@ export const SearchPage: React.FC<SearchPageProps> = ({ onSelectResource }) => {
 
       {/* Results Header */}
       <div className="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400 px-2 font-mono">
-        <span>Found {filtered.length} matching resources in archive</span>
-        {query && <span>Filtering for query: "{query}"</span>}
+        <span>{filtered.length} منبع مطابق در آرشیو پیدا شد</span>
+        {query && <span>فیلتر برای: "{query}"</span>}
       </div>
 
       {/* Grid Results */}
@@ -265,15 +265,15 @@ export const SearchPage: React.FC<SearchPageProps> = ({ onSelectResource }) => {
                   <Icon className="w-4 h-4 text-cyan-500 group-hover:scale-110 transition-transform" />
                 </div>
 
-                <h3 className="text-base font-bold text-zinc-900 dark:text-white group-hover:text-cyan-500 transition-colors">
+                <h3 dir="auto" className="text-base font-bold text-zinc-900 dark:text-white group-hover:text-cyan-500 transition-colors">
                   {item.title}
                 </h3>
 
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2 leading-relaxed">
+                <p dir="auto" className="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2 leading-relaxed">
                   {item.description}
                 </p>
 
-                <div className="text-[11px] text-zinc-400 font-mono">
+                <div dir="auto" className="text-[11px] text-zinc-400 font-mono">
                   {item.subtitle}
                 </div>
               </div>
@@ -302,10 +302,10 @@ export const SearchPage: React.FC<SearchPageProps> = ({ onSelectResource }) => {
           <div className="col-span-full py-16 bg-white dark:bg-zinc-900 rounded-3xl border border-zinc-200 dark:border-zinc-800 text-center space-y-3">
             <Search className="w-10 h-10 text-zinc-400 mx-auto opacity-40 animate-pulse" />
             <div className="text-base font-bold text-zinc-600 dark:text-zinc-300">
-              No matching resources found for "{query}"
+              منبعی برای "{query}" پیدا نشد
             </div>
             <p className="text-xs text-zinc-500 max-w-md mx-auto">
-              Try adjusting your search query or selecting a different category filter above.
+              عبارت جست‌وجو یا فیلتر دسته‌بندی رو تغییر بده.
             </p>
           </div>
         )}
