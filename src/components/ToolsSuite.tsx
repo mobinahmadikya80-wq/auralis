@@ -62,13 +62,13 @@ export const ToolsSuite: React.FC = () => {
         <div className="space-y-2">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-semibold border border-indigo-500/20">
             <Calculator className="w-3.5 h-3.5" />
-            <span>Clinical Audiology Calculator & Acoustic Suite</span>
+            <span>مجموعه ماشین‌حساب و ابزارهای آکوستیک بالینی</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white font-display">
-            Audiological Clinical Tools Suite
+            مجموعه ابزارهای بالینی شنوایی‌شناسی
           </h2>
           <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
-            Perform instant Speech Intelligibility Index (SII) count-the-dots calculations, occupational noise exposure dose limits, RETSPL dB SPL conversions, and clinical masking thresholds.
+            محاسبه آنی شاخص SII به روش Count-the-Dots، حد مجاز مواجهه شغلی با نویز، تبدیل RETSPL و آستانه‌های ماسکینگ بالینی.
           </p>
         </div>
 
@@ -82,7 +82,7 @@ export const ToolsSuite: React.FC = () => {
                 : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200'
             }`}
           >
-            Speech Intelligibility Index (SII)
+            شاخص SII
           </button>
           <button
             onClick={() => setActiveTool('noise')}
@@ -92,7 +92,7 @@ export const ToolsSuite: React.FC = () => {
                 : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200'
             }`}
           >
-            Noise Exposure Dose Limits
+            حد مجاز مواجهه با نویز
           </button>
           <button
             onClick={() => setActiveTool('unit')}
@@ -102,7 +102,7 @@ export const ToolsSuite: React.FC = () => {
                 : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200'
             }`}
           >
-            dB SPL ↔ dB HL RETSPL Converter
+            تبدیل RETSPL (dB SPL ↔ dB HL)
           </button>
           <button
             onClick={() => setActiveTool('masking')}
@@ -112,7 +112,7 @@ export const ToolsSuite: React.FC = () => {
                 : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200'
             }`}
           >
-            Clinical Masking Calculator
+            ماشین‌حساب ماسکینگ
           </button>
         </div>
       </div>
@@ -125,16 +125,16 @@ export const ToolsSuite: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-7 space-y-6">
               <h3 className="text-lg font-bold text-zinc-900 dark:text-white font-display">
-                Count-the-Dots Speech Intelligibility Index (SII)
+                شاخص SII به روش Count-the-Dots
               </h3>
               <p className="text-xs text-zinc-500 leading-relaxed">
-                The Count-the-Dots audiogram represents the 100 dots distributed across key speech acoustic frequencies (Mueller & Killion). Adjust pure-tone thresholds below to see how many dots remain audible for conversational speech.
+                آدیوگرام Count-the-Dots نشان‌دهنده ۱۰۰ نقطه پخش‌شده روی فرکانس‌های کلیدی گفتار است (روش Mueller & Killion). آستانه‌ها رو تغییر بده تا ببینی چند نقطه برای گفتار محاوره‌ای قابل‌شنیدن می‌مونه.
               </p>
 
               <div className="grid grid-cols-2 gap-4 pt-2">
                 <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
                   <div className="flex justify-between text-xs font-bold">
-                    <span>500 Hz Threshold</span>
+                    <span>آستانه ۵۰۰ هرتز</span>
                     <span className="font-mono text-cyan-500">{sii500} dB HL</span>
                   </div>
                   <input
@@ -146,7 +146,7 @@ export const ToolsSuite: React.FC = () => {
 
                 <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
                   <div className="flex justify-between text-xs font-bold">
-                    <span>1000 Hz Threshold</span>
+                    <span>آستانه ۱۰۰۰ هرتز</span>
                     <span className="font-mono text-cyan-500">{sii1000} dB HL</span>
                   </div>
                   <input
@@ -158,7 +158,7 @@ export const ToolsSuite: React.FC = () => {
 
                 <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
                   <div className="flex justify-between text-xs font-bold">
-                    <span>2000 Hz Threshold</span>
+                    <span>آستانه ۲۰۰۰ هرتز</span>
                     <span className="font-mono text-cyan-500">{sii2000} dB HL</span>
                   </div>
                   <input
@@ -170,7 +170,7 @@ export const ToolsSuite: React.FC = () => {
 
                 <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
                   <div className="flex justify-between text-xs font-bold">
-                    <span>4000 Hz Threshold</span>
+                    <span>آستانه ۴۰۰۰ هرتز</span>
                     <span className="font-mono text-cyan-500">{sii4000} dB HL</span>
                   </div>
                   <input
@@ -184,12 +184,12 @@ export const ToolsSuite: React.FC = () => {
 
             <div className="lg:col-span-5 bg-zinc-950 rounded-2xl p-6 border border-zinc-800 text-white space-y-6">
               <div>
-                <span className="text-[10px] font-bold uppercase text-cyan-400">Calculated SII Output</span>
+                <span className="text-[10px] font-bold uppercase text-cyan-400">نتیجه محاسبه SII</span>
                 <div className="text-4xl font-extrabold font-mono text-cyan-400 mt-1">
                   {siiResult.siiScorePercent}%
                 </div>
                 <div className="text-xs text-zinc-400 mt-1">
-                  {siiResult.dotsVisibleCount} / 100 Acoustic Speech Dots Audible
+                  {siiResult.dotsVisibleCount} / ۱۰۰ نقطه قابل‌شنیدن
                 </div>
               </div>
 
@@ -202,7 +202,7 @@ export const ToolsSuite: React.FC = () => {
               </div>
 
               <div className="p-4 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-zinc-300 leading-relaxed">
-                <strong className="text-cyan-400">Clinical Interpretation:</strong> An SII score of {siiResult.siiScorePercent}% means the patient receives approximately {siiResult.siiScorePercent}% of the acoustic cues necessary for unassisted conversational speech perception.
+                <strong className="text-cyan-400">تفسیر بالینی:</strong> امتیاز SII برابر با {siiResult.siiScorePercent}% یعنی بیمار حدود {siiResult.siiScorePercent}% از سرنخ‌های آکوستیکی لازم برای درک گفتار محاوره‌ای بدون کمک را دریافت می‌کند.
               </div>
             </div>
           </div>
@@ -213,13 +213,13 @@ export const ToolsSuite: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-7 space-y-6">
               <h3 className="text-lg font-bold text-zinc-900 dark:text-white font-display">
-                Occupational & Environmental Noise Exposure Time Calculator
+                محاسبه زمان مواجهه مجاز با نویز شغلی و محیطی
               </h3>
 
               <div className="space-y-4">
                 <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
                   <div className="flex justify-between text-xs font-bold">
-                    <span>Noise Sound Pressure Level (dBA)</span>
+                    <span>سطح فشار صوت نویز (dBA)</span>
                     <span className="font-mono text-rose-500">{noiseLevelDba} dBA</span>
                   </div>
                   <input
@@ -230,7 +230,7 @@ export const ToolsSuite: React.FC = () => {
                 </div>
 
                 <div className="flex items-center gap-4 text-xs font-semibold">
-                  <span>Standard Criterion:</span>
+                  <span>استاندارد ملاک:</span>
                   <button
                     onClick={() => setNoiseStandard('NIOSH')}
                     className={`px-3 py-1.5 rounded-lg border ${
@@ -257,17 +257,17 @@ export const ToolsSuite: React.FC = () => {
 
             <div className="lg:col-span-5 bg-zinc-950 rounded-2xl p-6 border border-zinc-800 text-white space-y-6">
               <div>
-                <span className="text-[10px] font-bold uppercase text-rose-400">Permissible Daily Exposure Duration</span>
+                <span className="text-[10px] font-bold uppercase text-rose-400">مدت مجاز مواجهه روزانه</span>
                 <div className="text-3xl font-extrabold font-mono text-rose-400 mt-1">
                   {noiseResult.formattedTime}
                 </div>
                 <div className="text-xs text-zinc-400 mt-1">
-                  Based on {noiseStandard} standard at {noiseLevelDba} dBA
+                  بر اساس استاندارد {noiseStandard} در {noiseLevelDba} dBA
                 </div>
               </div>
 
               <div className="p-4 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-zinc-300 leading-relaxed">
-                <strong className="text-rose-400">Safety Warning:</strong> Exceeding {noiseResult.formattedTime} at {noiseLevelDba} dBA causes cumulative metabolic stress and mechanical outer hair cell damage in the 4 kHz basilar membrane region. Hearing protection required.
+                <strong className="text-rose-400">هشدار ایمنی:</strong> مواجهه بیش از {noiseResult.formattedTime} در {noiseLevelDba} dBA باعث آسیب تجمعی به سلول‌های مویی خارجی در ناحیه ۴ کیلوهرتز غشای پایه می‌شود. استفاده از محافظ شنوایی الزامی است.
               </div>
             </div>
           </div>
@@ -278,12 +278,12 @@ export const ToolsSuite: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-7 space-y-6">
               <h3 className="text-lg font-bold text-zinc-900 dark:text-white font-display">
-                RETSPL Reference Unit Conversion (dB HL to dB SPL)
+                تبدیل واحد مرجع RETSPL (dB HL به dB SPL)
               </h3>
 
               <div className="space-y-4">
                 <div>
-                  <label className="text-xs font-bold text-zinc-400 uppercase">Select Frequency (Hz):</label>
+                  <label className="text-xs font-bold text-zinc-400 uppercase">انتخاب فرکانس (هرتز):</label>
                   <div className="flex flex-wrap gap-2 mt-2">
                     {[125, 250, 500, 1000, 2000, 4000, 8000].map(f => (
                       <button
@@ -301,7 +301,7 @@ export const ToolsSuite: React.FC = () => {
 
                 <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
                   <div className="flex justify-between text-xs font-bold">
-                    <span>Input Threshold (dB HL)</span>
+                    <span>آستانه ورودی (dB HL)</span>
                     <span className="font-mono text-cyan-500">{inputDbHl} dB HL</span>
                   </div>
                   <input
@@ -315,17 +315,17 @@ export const ToolsSuite: React.FC = () => {
 
             <div className="lg:col-span-5 bg-zinc-950 rounded-2xl p-6 border border-zinc-800 text-white space-y-6">
               <div>
-                <span className="text-[10px] font-bold uppercase text-cyan-400">Converted Sound Pressure Level</span>
+                <span className="text-[10px] font-bold uppercase text-cyan-400">سطح فشار صوت تبدیل‌شده</span>
                 <div className="text-4xl font-extrabold font-mono text-cyan-400 mt-1">
                   {calculatedSpl} <span className="text-sm text-zinc-400">dB SPL</span>
                 </div>
                 <div className="text-xs text-zinc-400 mt-1">
-                  RETSPL Constant for {selectedFreq} Hz = {RETSPL_VALUES[selectedFreq]} dB
+                  مقدار ثابت RETSPL برای {selectedFreq} هرتز = {RETSPL_VALUES[selectedFreq]} dB
                 </div>
               </div>
 
               <div className="p-4 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-zinc-300 leading-relaxed font-mono">
-                Formula: dB SPL = dB HL + RETSPL<br/>
+                فرمول: dB SPL = dB HL + RETSPL<br/>
                 {inputDbHl} + {RETSPL_VALUES[selectedFreq]} = {calculatedSpl} dB SPL
               </div>
             </div>
@@ -337,26 +337,26 @@ export const ToolsSuite: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-7 space-y-6">
               <h3 className="text-lg font-bold text-zinc-900 dark:text-white font-display">
-                Clinical Masking Calculator & Effective Plateau Analyzer
+                ماشین‌حساب ماسکینگ بالینی و تحلیل‌گر پلاتوی مؤثر
               </h3>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-1">
-                  <label className="text-[11px] font-bold text-zinc-400">Test Ear Air (dB)</label>
+                  <label className="text-[11px] font-bold text-zinc-400">هدایت هوایی گوش آزمون (dB)</label>
                   <input
                     type="number" value={testEarAir} onChange={(e) => setTestEarAir(parseInt(e.target.value, 10) || 0)}
                     className="w-full p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-sm font-mono font-bold"
                   />
                 </div>
                 <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-1">
-                  <label className="text-[11px] font-bold text-zinc-400">Non-Test Ear Air (dB)</label>
+                  <label className="text-[11px] font-bold text-zinc-400">هدایت هوایی گوش غیرآزمون (dB)</label>
                   <input
                     type="number" value={nonTestEarAir} onChange={(e) => setNonTestEarAir(parseInt(e.target.value, 10) || 0)}
                     className="w-full p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-sm font-mono font-bold"
                   />
                 </div>
                 <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-1">
-                  <label className="text-[11px] font-bold text-zinc-400">Test Ear Bone (dB)</label>
+                  <label className="text-[11px] font-bold text-zinc-400">هدایت استخوانی گوش آزمون (dB)</label>
                   <input
                     type="number" value={testEarBone} onChange={(e) => setTestEarBone(parseInt(e.target.value, 10) || 0)}
                     className="w-full p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-sm font-mono font-bold"
@@ -367,26 +367,26 @@ export const ToolsSuite: React.FC = () => {
 
             <div className="lg:col-span-5 bg-zinc-950 rounded-2xl p-6 border border-zinc-800 text-white space-y-6">
               <div>
-                <span className="text-[10px] font-bold uppercase text-indigo-400">Clinical Masking Status</span>
+                <span className="text-[10px] font-bold uppercase text-indigo-400">وضعیت ماسکینگ بالینی</span>
                 <div className="text-xl font-bold text-white mt-1">
-                  {needsMasking ? 'Masking Required' : 'Masking Not Required'}
+                  {needsMasking ? 'ماسکینگ لازم است' : 'ماسکینگ لازم نیست'}
                 </div>
               </div>
 
               {needsMasking && (
                 <div className="space-y-3 text-xs">
                   <div className="flex justify-between border-b border-zinc-800 pb-2">
-                    <span className="text-zinc-400">Minimum Effective Masking:</span>
+                    <span className="text-zinc-400">حداقل ماسکینگ مؤثر:</span>
                     <span className="font-mono font-bold text-indigo-400">{minMasking} dB EM</span>
                   </div>
                   <div className="flex justify-between border-b border-zinc-800 pb-2">
-                    <span className="text-zinc-400">Maximum Permissible Masking:</span>
+                    <span className="text-zinc-400">حداکثر ماسکینگ مجاز:</span>
                     <span className="font-mono font-bold text-indigo-400">{maxMasking} dB EM</span>
                   </div>
 
                   {isMaskingDilemma && (
                     <div className="p-3 rounded-xl bg-rose-500/20 border border-rose-500/30 text-rose-300">
-                      <strong>Masking Dilemma Detected!</strong> Minimum masking level exceeds maximum level. Use insertion earphones to increase interaural attenuation (IA) to 60 dB.
+                      <strong>تناقض ماسکینگ شناسایی شد!</strong> سطح حداقل ماسکینگ از حداکثر بیشتره. از ایرفون داخل‌گوشی برای افزایش تضعیف بین‌گوشی (IA) به ۶۰ دسی‌بل استفاده کن.
                     </div>
                   )}
                 </div>

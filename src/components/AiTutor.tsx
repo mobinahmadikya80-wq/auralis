@@ -159,13 +159,13 @@ export const AiTutor: React.FC = () => {
       <div className="bg-gradient-to-r from-purple-900 via-indigo-900 to-zinc-900 rounded-3xl p-6 sm:p-8 border border-purple-800/60 text-white shadow-xl space-y-3">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 text-xs font-semibold border border-purple-500/30">
           <Sparkles className="w-3.5 h-3.5" />
-          <span>Client-Side Audiology AI Tutor</span>
+          <span>دستیار هوشمند شنوایی‌شناسی</span>
         </div>
         <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight font-display">
-          Auralis AI Clinical Study Partner
+          دستیار مطالعه بالینی هوشمند اورالیس
         </h2>
         <p className="text-xs sm:text-sm text-purple-200 max-w-2xl">
-          Ask questions regarding electrophysiology waveforms, acoustic reflex arcs, pediatric audiology protocols, vestibular nystagmus interpretation, or clinical hearing aid fitting formulas.
+          سوالاتت رو درباره الکتروفیزیولوژی، رفلکس آکوستیک، پروتکل‌های شنوایی‌شناسی کودکان، نیستاگموس دهلیزی یا فرمول‌های تنظیم سمعک بپرس.
         </p>
       </div>
 
@@ -202,7 +202,7 @@ export const AiTutor: React.FC = () => {
                   ? 'bg-cyan-500 text-zinc-950 font-medium'
                   : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200/80 dark:border-zinc-700/80 whitespace-pre-wrap leading-relaxed'
               }`}>
-                <div>{m.text}</div>
+                <div dir="auto">{m.text}</div>
                 <div className="text-[10px] opacity-60 text-right mt-1 font-mono">{m.timestamp}</div>
               </div>
             </div>
@@ -211,7 +211,7 @@ export const AiTutor: React.FC = () => {
           {isLoading && (
             <div className="flex items-center gap-3 text-zinc-400 text-xs py-2">
               <Loader2 className="w-4 h-4 animate-spin text-purple-500" />
-              <span>Analyzing audiology scientific knowledge base...</span>
+              <span>در حال بررسی پایگاه دانش شنوایی‌شناسی...</span>
             </div>
           )}
         </div>
@@ -223,7 +223,7 @@ export const AiTutor: React.FC = () => {
             value={inputQuery}
             onChange={(e) => setInputQuery(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-            placeholder="Ask a clinical question about Audiology..."
+            placeholder="یک سوال بالینی درباره شنوایی‌شناسی بپرس..."
             className="flex-1 px-4 py-3 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-purple-500/30"
           />
           <button
