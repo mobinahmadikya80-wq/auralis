@@ -1,19 +1,19 @@
 ---
-title: VNG & Video Head Impulse Test (vHIT) Diagnostic Battery Guide
+title: 'راهنمای بسته تشخیصی VNG و آزمون تکانه سر ویدیویی (vHIT)'
 type: note
 topic: Vestibular & Balance
 level: Advanced
 author: Prof. Marcus Thorne, Ph.D.
 institution: Harvard Medical School Neuro-Otology
-description: In-depth clinical guide covering Videonystagmography (VNG) oculomotor tests, positional testing, caloric stimulation (COWS mnemonic), and vHIT vestibulo-ocular reflex (VOR) gain calculation.
-readTimeOrDuration: 18 min read
+description: 'راهنمای بالینی عمیق شامل آزمون‌های چشمی-حرکتی VNG، آزمون وضعیتی، تحریک کالریک (قاعده حفظی COWS) و محاسبه گین رفلکس دهلیزی-چشمی (VOR) با vHIT.'
+readTimeOrDuration: '۱۸ دقیقه مطالعه'
 tags:
   - VNG
   - vHIT
-  - Vestibular
-  - Caloric
+  - دهلیزی
+  - کالریک
   - VOR
-  - Vertigo
+  - ورتیگو
 rating: 4.95
 featured: true
 dateAdded: '2026-04-02'

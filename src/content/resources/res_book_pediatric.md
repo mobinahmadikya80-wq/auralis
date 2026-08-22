@@ -1,21 +1,21 @@
 ---
-title: 'Clinical Pediatric Audiology: Assessment, Amplification & Intervention'
+title: 'شنوایی‌شناسی بالینی کودکان: ارزیابی، تقویت و مداخله'
 type: book
 topic: Pediatric Audiology
 level: Intermediate
 author: Dr. Sarah Lin, Au.D., CCC-A
 institution: Children's Hospital Hearing Center
-description: Open-access pediatric textbook covering Behavioral Observation Audiometry (BOA), Visual Reinforcement Audiometry (VRA), Conditioned Play Audiometry (CPA), and pediatric hearing aid verification with RECD.
-readTimeOrDuration: 340 Pages (PDF Textbook)
+description: 'کتاب درسی آزاد کودکان شامل آدیومتری رفتاری (BOA)، تقویت بینایی (VRA)، آدیومتری بازی مشروط (CPA) و صحه‌گذاری سمعک کودکان با RECD.'
+readTimeOrDuration: '۳۴۰ صفحه (کتاب PDF)'
 downloadUrl: '#'
 pdfPages: 340
 fileSize: 14.2 MB
 tags:
-  - Pediatric
+  - کودکان
   - VRA
   - CPA
   - RECD
-  - Infant Hearing
+  - شنوایی نوزادان
   - UNHS
 rating: 4.88
 featured: true

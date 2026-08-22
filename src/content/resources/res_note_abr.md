@@ -1,18 +1,18 @@
 ---
-title: Auditory Brainstem Response (ABR) Waveform Analysis & Latency Interpretation
+title: 'تحلیل موج ABR و تفسیر لیتنسی'
 type: note
 topic: Electrophysiology (ABR/OAE)
 level: Intermediate
 author: Dr. Evelyn Vance, Au.D.
 institution: Johns Hopkins Hearing & Speech Sciences
-description: Comprehensive lecture guide detailing Waves I through V generation sites, absolute and interwave latencies (I-III, III-V, I-V), rate and intensity study protocols, and neurodiagnostic vs threshold ABR.
-readTimeOrDuration: 12 min read
+description: 'راهنمای جامع درسی با جزئیات محل تولید موج‌های I تا V، لیتنسی‌های مطلق و بین‌موجی (I-III، III-V، I-V)، پروتکل‌های مطالعه نرخ و شدت، و ABR تشخیصی در برابر آستانه.'
+readTimeOrDuration: '۱۲ دقیقه مطالعه'
 tags:
   - ABR
-  - Electrophysiology
-  - Wave V
-  - Retrocochlear
-  - Evoked Potentials
+  - الکتروفیزیولوژی
+  - موج V
+  - رتروکوکلئار
+  - پتانسیل برانگیخته
 rating: 4.9
 featured: true
 dateAdded: '2026-03-10'
