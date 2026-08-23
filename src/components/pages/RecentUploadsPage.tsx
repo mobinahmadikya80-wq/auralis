@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Upload, Video, Presentation, FileText, Download, Filter } from 'lucide-react';
-import { getRecentUploads, RecentUploadType } from '../../content/loader';
+import { getRecentUploads, RecentUploadType } from '../../content/recentUploads';
 
 const TYPE_FILTERS: { id: 'all' | RecentUploadType; label: string }[] = [
   { id: 'all', label: 'همه' },
