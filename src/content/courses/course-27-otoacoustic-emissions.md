@@ -2,12 +2,26 @@
 title: اندازه‌گیری گسیل‌های صوتی گوش
 code: '27'
 category: ارزیابی فیزیولوژیک شنوایی / OAE
-level: Intermediate
-instructor: هیئت علمی گروه
-modulesCount: 10
-duration: ۳۶ ساعت
-description: اصول، ثبت و تفسیر گسیل‌های صوتی گوش (OAE).
+level: Advanced
+instructor: دکتر فراهانی
+modulesCount: 12
+duration: ۲۶ ساعت
+description: آشنایی با اصول و مبانی آزمون فیزیولوژیک OAE، نحوه انجام آزمون و تفسیر نتایج آن برای تشخیص اختلالات شنوایی و بررسی یکپارچگی سیستم شنوایی.
+syllabus:
+- کاربرد مفاهیم فیزیکی در OAE
+- اصول اندازه‌گیری OAE
+- طبقه‌بندی انواع OAE
+- عوامل مؤثر بر پاسخ OAE
+- تأثیر اختلالات گوش بر پاسخ OAE
+- کاربرد OAE در تشخیص افتراقی
+- کاربرد OAE در غربالگری شنوایی
+- کاربرد OAE در تجویز سمعک
+- کاربردهای ویژه OAE
+- اختلالات رشدی
+- نوروپاتی شنوایی
+- کاربردهای بالینی OAE
 enrolled: 0
+
 videos:
   - title: "جلسه 1: فیزیولوژی حلزون و OAE"
     fileUrl: "https://example.com/auralis/27/videos/session-01"
