@@ -1,19 +1,19 @@
 /**
  * Auralis AI Proxy — Cloudflare Worker
  *
- * Keeps the OpenAI API key server-side. The frontend only talks to this Worker.
+ * Keeps the Gemini API key server-side. The frontend only talks to this Worker.
  *
  * SETUP:
- * 1. Cloudflare Dashboard → Workers & Pages → Create → Create Worker
- * 2. Paste this entire file as the Worker code
- * 3. Settings → Variables and Secrets → Add secret:
- *      OPENAI_API_KEY = (your OpenAI key, sk-proj-...)
- * 4. Deploy. Copy the Worker URL, e.g.:
+ * 1. Get a Gemini API key at https://aistudio.google.com/apikey
+ * 2. Cloudflare Dashboard → Workers & Pages → your existing "auralis-ai-proxy" Worker
+ *      (or Create → Create Worker, if you don't have one yet)
+ * 3. Paste this entire file as the Worker code (replacing whatever is there)
+ * 4. Settings → Variables and Secrets → Add secret:
+ *      GEMINI_API_KEY = (your Gemini key, AIza...)
+ *    (You can delete the old OPENAI_API_KEY secret, it's no longer used.)
+ * 5. Deploy. The Worker URL stays the same as before, e.g.:
  *      https://auralis-ai-proxy.YOUR_SUBDOMAIN.workers.dev
- * 5. In the GitHub repo → Settings → Secrets and variables → Actions
- *      Add secret: VITE_AI_PROXY_URL = https://auralis-ai-proxy.YOUR_SUBDOMAIN.workers.dev/chat
- * 6. Re-run the CI/CD workflow (or push a small commit) so the frontend is rebuilt
- *    with the proxy URL.
+ *    Your GitHub repo's VITE_AI_PROXY_URL secret does NOT need to change.
  *
  * Optional: restrict CORS to your GitHub Pages origin only by editing the
  * allowedOrigins array below.
@@ -22,6 +22,8 @@
 const SYSTEM_PROMPT = `You are Auralis AI Tutor, a senior professor and clinical audiologist specializing in Audiological Science, Psychoacoustics, Electrophysiology (ABR, ASSR, OAEs), Vestibular Diagnostics (VNG, cVEMP/oVEMP, vHIT), Pediatric Audiology, Hearing Aid fitting (WDRC, REM), and related clinical topics.
 
 Answer in the same language the student uses (Persian/Farsi or English). Provide clear, evidence-based, educational explanations suitable for Au.D. students and clinicians. Be concise but complete. Use markdown structure when it helps readability. Do not invent clinical guidelines; prefer established standards (ANSI, ASHA, NIOSH, etc.).`;
+
+const GEMINI_MODEL = 'gemini-2.5-flash';
 
 export default {
   async fetch(request, env) {
@@ -57,8 +59,8 @@ export default {
       });
     }
 
-    if (!env.OPENAI_API_KEY) {
-      return new Response(JSON.stringify({ error: 'OPENAI_API_KEY is not configured on the Worker' }), {
+    if (!env.GEMINI_API_KEY) {
+      return new Response(JSON.stringify({ error: 'GEMINI_API_KEY is not configured on the Worker' }), {
         status: 500,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
@@ -68,49 +70,54 @@ export default {
       const body = await request.json();
       const incoming = Array.isArray(body.messages) ? body.messages : [];
 
-      // Build OpenAI messages: system + history (user/assistant only)
-      const openaiMessages = [
-        { role: 'system', content: SYSTEM_PROMPT },
-        ...incoming
-          .filter((m) => m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string')
-          .map((m) => ({ role: m.role, content: m.content.slice(0, 8000) }))
-          .slice(-20), // keep last 20 turns for context + cost control
-      ];
+      // Build Gemini "contents": alternating user/model turns, no system role
+      // (Gemini takes the system instruction separately via systemInstruction).
+      const contents = incoming
+        .filter((m) => m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string')
+        .map((m) => ({
+          role: m.role === 'assistant' ? 'model' : 'user',
+          parts: [{ text: m.content.slice(0, 8000) }],
+        }))
+        .slice(-20); // keep last 20 turns for context + cost control
 
-      if (openaiMessages.length < 2) {
+      if (contents.length === 0 || contents[contents.length - 1].role !== 'user') {
         return new Response(JSON.stringify({ error: 'No user message provided' }), {
           status: 400,
           headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         });
       }
 
-      const openaiRes = await fetch('https://api.openai.com/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${env.OPENAI_API_KEY}`,
+      const geminiRes = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${env.GEMINI_API_KEY}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            systemInstruction: { role: 'system', parts: [{ text: SYSTEM_PROMPT }] },
+            contents,
+            generationConfig: {
+              temperature: 0.45,
+              maxOutputTokens: 1600,
+            },
+          }),
         },
-        body: JSON.stringify({
-          model: 'gpt-4o-mini',
-          messages: openaiMessages,
-          temperature: 0.45,
-          max_tokens: 1600,
-        }),
-      });
+      );
 
-      if (!openaiRes.ok) {
-        const errText = await openaiRes.text();
+      if (!geminiRes.ok) {
+        const errText = await geminiRes.text();
         return new Response(
-          JSON.stringify({ error: `OpenAI API error ${openaiRes.status}`, details: errText.slice(0, 500) }),
+          JSON.stringify({ error: `Gemini API error ${geminiRes.status}`, details: errText.slice(0, 500) }),
           {
-            status: openaiRes.status >= 500 ? 502 : openaiRes.status,
+            status: geminiRes.status >= 500 ? 502 : geminiRes.status,
             headers: { ...corsHeaders, 'Content-Type': 'application/json' },
           },
         );
       }
 
-      const data = await openaiRes.json();
-      const reply = data.choices?.[0]?.message?.content?.trim() || 'پاسخی تولید نشد.';
+      const data = await geminiRes.json();
+      const reply =
+        data?.candidates?.[0]?.content?.parts?.map((p) => p.text || '').join('').trim() ||
+        'پاسخی تولید نشد.';
 
       return new Response(JSON.stringify({ reply }), {
         status: 200,
@@ -124,3 +131,4 @@ export default {
     }
   },
 };
+
