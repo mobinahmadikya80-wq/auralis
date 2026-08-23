@@ -50,6 +50,12 @@ export default function App() {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState<boolean>(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const [selectedResource, setSelectedResource] = useState<EducationalResource | null>(null);
+  const [pendingCourseId, setPendingCourseId] = useState<string | null>(null);
+
+  const handleNavigateToCourse = (courseId: string) => {
+    setPendingCourseId(courseId);
+    setActiveTab('courses');
+  };
 
   // Saved Bookmarks Persistence
   const [savedIds, setSavedIds] = useState<string[]>(() => {
@@ -177,6 +183,7 @@ export default function App() {
               <HomePage
                 onNavigate={setActiveTab}
                 onSelectResource={(res) => setSelectedResource(res)}
+                onNavigateToCourse={handleNavigateToCourse}
               />
             )}
 
@@ -187,7 +194,10 @@ export default function App() {
             )}
 
             {activeTab === 'courses' && (
-              <CoursesPage />
+              <CoursesPage
+                initialCourseId={pendingCourseId}
+                onConsumeInitialCourse={() => setPendingCourseId(null)}
+              />
             )}
 
             {activeTab === 'recent-uploads' && (

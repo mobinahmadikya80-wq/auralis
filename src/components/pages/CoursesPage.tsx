@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
   GraduationCap, 
   BookOpen, 
@@ -13,12 +13,31 @@ import {
 } from 'lucide-react';
 import { getCourses, CourseFrontmatter } from '../../content/loader';
 import { CourseDetailModal } from '../CourseDetailModal';
+import { assetUrl } from '../../utils/assetPath';
 
-export const CoursesPage: React.FC = () => {
+interface CoursesPageProps {
+  /** When set (e.g. navigated here from a homepage course icon), the matching course's detail modal opens automatically. */
+  initialCourseId?: string | null;
+  /** Called once the initialCourseId has been consumed/opened, so the parent can clear it. */
+  onConsumeInitialCourse?: () => void;
+}
+
+export const CoursesPage: React.FC<CoursesPageProps> = ({ initialCourseId, onConsumeInitialCourse }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [selectedCourse, setSelectedCourse] = useState<(CourseFrontmatter & { id: string }) | null>(null);
 
   const courses = getCourses();
+
+  useEffect(() => {
+    if (!initialCourseId) return;
+    const found = courses.find((c) => c.id === initialCourseId);
+    if (found) {
+      setSelectedCategory('All');
+      setSelectedCourse(found);
+    }
+    onConsumeInitialCourse?.();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialCourseId]);
 
   const categories = ['All', ...Array.from(new Set(courses.map((c) => c.category)))];
 
@@ -81,7 +100,7 @@ export const CoursesPage: React.FC = () => {
                 <div className="flex items-center gap-3">
                   {c.icon && (
                     <img
-                      src={c.icon}
+                      src={assetUrl(c.icon)}
                       alt=""
                       className="w-11 h-11 rounded-xl object-cover border border-zinc-200 dark:border-zinc-800 shrink-0"
                     />

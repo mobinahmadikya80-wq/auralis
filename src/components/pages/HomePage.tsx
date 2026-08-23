@@ -22,14 +22,18 @@ import { EducationalResource } from '../../types';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '../motion/ScrollReveal';
 import { TiltCard } from '../motion/TiltCard';
 import { Magnetic } from '../motion/Magnetic';
+import { getCourses } from '../../content/loader';
+import { assetUrl } from '../../utils/assetPath';
 
 interface HomePageProps {
   onNavigate: (tab: string) => void;
   onSelectResource: (res: EducationalResource) => void;
+  onNavigateToCourse: (courseId: string) => void;
 }
 
-export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource }) => {
+export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource, onNavigateToCourse }) => {
   const featuredResources = EDUCATIONAL_RESOURCES.filter(r => r.featured).slice(0, 4);
+  const coursesWithIcons = getCourses().filter((c) => !!c.icon);
 
   const stats = [
     { label: 'دروس بالینی', value: '+۳۸' },
@@ -120,6 +124,28 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource
                 </button>
               </Magnetic>
             </div>
+
+            {/* Direct course-icon shortcuts */}
+            {coursesWithIcons.length > 0 && (
+              <div className="flex flex-wrap items-center gap-2.5 pt-1">
+                {coursesWithIcons.map((course) => (
+                  <Magnetic key={course.id} strength={0.2}>
+                    <button
+                      onClick={() => onNavigateToCourse(course.id)}
+                      title={course.title}
+                      aria-label={course.title}
+                      className="w-11 h-11 rounded-xl overflow-hidden border border-zinc-700 hover:border-cyan-400 hover:scale-110 transition-all shadow-md cursor-pointer"
+                    >
+                      <img
+                        src={assetUrl(course.icon)}
+                        alt={course.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </button>
+                  </Magnetic>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Decorative ambient orb */}
