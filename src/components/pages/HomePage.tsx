@@ -14,7 +14,8 @@ import {
   Calendar,
   CheckCircle2,
   Ear,
-  Search
+  Search,
+  Upload
 } from 'lucide-react';
 import { EDUCATIONAL_RESOURCES } from '../../data/resources';
 import { EducationalResource } from '../../types';
@@ -106,6 +107,16 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource
                 >
                   <Activity className="w-4 h-4 text-cyan-400" />
                   <span>ورود به آزمایشگاه آدیوگرام</span>
+                </button>
+              </Magnetic>
+
+              <Magnetic strength={0.25}>
+                <button
+                  onClick={() => onNavigate('recent-uploads')}
+                  className="px-6 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-xs sm:text-sm border border-zinc-700 transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <Upload className="w-4 h-4 text-emerald-400" />
+                  <span>فایل‌های اخیراً آپلود‌شده</span>
                 </button>
               </Magnetic>
             </div>
