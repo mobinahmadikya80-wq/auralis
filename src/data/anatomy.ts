@@ -4,202 +4,202 @@ export const ANATOMICAL_STRUCTURES: AnatomicalStructure[] = [
   // Outer Ear
   {
     id: 'pinna',
-    name: 'Pinna (Auricle)',
+    name: 'لاله گوش (Pinna)',
     latinName: 'Auricula',
     region: 'outer',
-    description: 'The visible external cartilaginous structure of the ear that collects sound waves and channels them into the ear canal.',
-    clinicalSignificance: 'Aids in vertical localization and high-frequency spectral filtering (~2-5 kHz resonance peak).',
-    pathologyAssociation: ['Microtia', 'Anotia', 'Cauliflower Ear', 'Preauricular Pit'],
+    description: 'ساختار غضروفی قابل‌مشاهده خارجی گوش که امواج صوتی را جمع‌آوری کرده و به داخل مجرای گوش هدایت می‌کند.',
+    clinicalSignificance: 'به موقعیت‌یابی عمودی صدا و فیلترسازی طیفی فرکانس‌های بالا کمک می‌کند (پیک رزونانس حدود ۲ تا ۵ کیلوهرتز).',
+    pathologyAssociation: ['میکروشیا', 'آنوشیا', 'گوش گل‌کلمی', 'حفره پره‌اوریکولار'],
     svgCoordinates: { cx: 70, cy: 180, r: 28 },
     position3D: [-3.2, 0.2, 0],
     keyFunctions: [
-      'Acoustic sound funneling into external auditory meatus',
-      'Spatial localization (front-vs-back discrimination)',
-      'Pinna resonance boosts 2000 - 5000 Hz by 5 to 10 dB'
+      'قیف‌کردن صدا به سمت مجرای شنوایی خارجی',
+      'موقعیت‌یابی فضایی (تشخیص جلو در برابر عقب)',
+      'رزونانس لاله گوش صدای ۲۰۰۰ تا ۵۰۰۰ هرتز را ۵ تا ۱۰ دسی‌بل تقویت می‌کند'
     ]
   },
   {
     id: 'ear_canal',
-    name: 'External Auditory Canal',
+    name: 'مجرای شنوایی خارجی',
     latinName: 'Meatus Acusticus Externus',
     region: 'outer',
-    description: 'S-shaped canal roughly 2.5 cm long, consisting of outer cartilaginous (ceruminous) and inner osseous portions.',
-    clinicalSignificance: 'Quarter-wave resonator with peak acoustic resonance at approximately 2700 - 3000 Hz.',
-    pathologyAssociation: ['Otitis Externa (Swimmer Ear)', 'Cerumen Impaction', 'Exostosis (Surfer Ear)', 'Canal Collapse'],
+    description: 'مجرایی S شکل به طول تقریبی ۲.۵ سانتی‌متر، شامل بخش غضروفی خارجی (سرومینوس) و بخش استخوانی داخلی.',
+    clinicalSignificance: 'رزونانس‌گر یک‌چهارم موج با پیک رزونانس آکوستیک تقریباً در ۲۷۰۰ تا ۳۰۰۰ هرتز.',
+    pathologyAssociation: ['اوتیت خارجی (گوش شناگر)', 'انسداد جرم گوش', 'اگزوستوز (گوش موج‌سوار)', 'کولاپس مجرا'],
     svgCoordinates: { cx: 140, cy: 180, r: 18 },
     position3D: [-1.8, 0, 0],
     keyFunctions: [
-      'Channels sound pressure waves directly to tympanic membrane',
-      'Cerumen (earwax) production for antibacterial/fungal protection',
-      'Provides ~15 dB acoustic boost around 2.7 kHz'
+      'هدایت مستقیم موج‌های فشار صوتی به پرده صماخ',
+      'تولید جرم گوش برای محافظت ضدباکتری/ضدقارچ',
+      'ایجاد تقویت آکوستیک حدود ۱۵ دسی‌بل در محدوده ۲.۷ کیلوهرتز'
     ]
   },
   {
     id: 'tympanic_membrane',
-    name: 'Tympanic Membrane (Eardrum)',
+    name: 'پرده صماخ',
     latinName: 'Membrana Tympani',
     region: 'outer',
-    description: 'A translucent, 3-layered cone-shaped membrane separating the external ear canal from the middle ear cavity.',
-    clinicalSignificance: 'Converts acoustic air pressure variations into mechanical vibration of ossicular chain.',
-    pathologyAssociation: ['Tympanic Membrane Perforation', 'Bullous Myringitis', 'Tympanosclerosis', 'Retraction Pockets'],
+    description: 'غشایی نیمه‌شفاف و مخروطی‌شکل با سه لایه که مجرای گوش خارجی را از حفره گوش میانی جدا می‌کند.',
+    clinicalSignificance: 'تغییرات فشار هوای صوتی را به ارتعاش مکانیکی زنجیره استخوانچه‌ها تبدیل می‌کند.',
+    pathologyAssociation: ['پارگی پرده صماخ', 'میرنژیت بولوز', 'تمپانواسکلروز', 'جیب‌های رتراکسیون'],
     svgCoordinates: { cx: 200, cy: 180, r: 16 },
     position3D: [-0.6, 0, 0],
     keyFunctions: [
-      'Pars tensa (4/5th lower stiff area) vibrates mechanically',
-      'Pars flaccida (Shrapnell membrane) upper flexible area',
-      'Areal ratio transformation (55 mm² effective area to 3.2 mm² stapes footplate)'
+      'پارس تنسا (۴/۵ ناحیه سفت پایینی) به‌صورت مکانیکی می‌لرزد',
+      'پارس فلاسیدا (غشای شراپنل) ناحیه انعطاف‌پذیر بالایی',
+      'تبدیل نسبت سطح (سطح مؤثر ۵۵ میلی‌متر مربع به صفحه پایه رکابی ۳.۲ میلی‌متر مربع)'
     ]
   },
 
   // Middle Ear
   {
     id: 'malleus',
-    name: 'Malleus (Hammer)',
+    name: 'چکشی (Malleus)',
     latinName: 'Malleus',
     region: 'middle',
-    description: 'The largest ossicle, attached directly to the umbo of the tympanic membrane via its manubrium (handle).',
-    clinicalSignificance: 'Forms the first mechanical lever link in impedance matching.',
-    pathologyAssociation: ['Ossicular Discontinuity', 'Malleus Head Fixation', 'Glomus Tumor Pressure'],
+    description: 'بزرگ‌ترین استخوانچه، که از طریق دسته خود (مانوبریوم) مستقیماً به ناف پرده صماخ متصل است.',
+    clinicalSignificance: 'اولین حلقه اهرمی مکانیکی در تطبیق امپدانس را تشکیل می‌دهد.',
+    pathologyAssociation: ['گسستگی زنجیره استخوانچه‌ها', 'تثبیت سر چکشی', 'فشار تومور گلوموس'],
     svgCoordinates: { cx: 240, cy: 155, r: 14 },
     position3D: [-0.2, 0.3, 0.1],
     keyFunctions: [
-      'Manubrium moves inward/outward with eardrum displacement',
-      'Transfers kinetic energy to the incus via incudomalleolar joint'
+      'مانوبریوم همراه با جابه‌جایی پرده صماخ به داخل/خارج حرکت می‌کند',
+      'انتقال انرژی جنبشی به سندانی از طریق مفصل چکشی-سندانی'
     ]
   },
   {
     id: 'incus',
-    name: 'Incus (Anvil)',
+    name: 'سندانی (Incus)',
     latinName: 'Incus',
     region: 'middle',
-    description: 'The middle ossicle featuring a body, short process, and long process ending in the lenticular process.',
-    clinicalSignificance: 'Lever ratio between malleus manubrium and incus long process provides ~1.3:1 mechanical advantage.',
-    pathologyAssociation: ['Incus Necrosis / Erosion (Post-Otitis)', 'Ossicular Disarticulation'],
+    description: 'استخوانچه میانی شامل بدنه، زائده کوتاه و زائده بلند که به زائده لنتیکولار ختم می‌شود.',
+    clinicalSignificance: 'نسبت اهرمی بین دسته چکشی و زائده بلند سندانی مزیت مکانیکی حدود ۱.۳ به ۱ ایجاد می‌کند.',
+    pathologyAssociation: ['نکروز/فرسایش سندانی (پس از اوتیت)', 'جدایی استخوانچه‌ها'],
     svgCoordinates: { cx: 270, cy: 150, r: 14 },
     position3D: [0.2, 0.2, 0],
     keyFunctions: [
-      'Acts as a pivotal fulcrum in ossicular movement',
-      'Connects malleus to stapes head'
+      'به‌عنوان محور اصلی در حرکت استخوانچه‌ها عمل می‌کند',
+      'چکشی را به سر رکابی متصل می‌کند'
     ]
   },
   {
     id: 'stapes',
-    name: 'Stapes (Stirrup)',
+    name: 'رکابی (Stapes)',
     latinName: 'Stapes',
     region: 'middle',
-    description: 'The smallest bone in the human body, consisting of a head, anterior/posterior crura, and footplate.',
-    clinicalSignificance: 'Footplate sits in the oval window of the cochlea, delivering mechanical fluid displacement.',
-    pathologyAssociation: ['Otosclerosis (Footplate Fixation)', 'Stapedial Reflex Absence', 'Stapedectomy/Stapedotomy'],
+    description: 'کوچک‌ترین استخوان بدن انسان، شامل سر، دو پایه قدامی/خلفی و صفحه پایه.',
+    clinicalSignificance: 'صفحه پایه در پنجره بیضی حلزون قرار می‌گیرد و جابه‌جایی مکانیکی مایع را منتقل می‌کند.',
+    pathologyAssociation: ['اتواسکلروز (تثبیت صفحه پایه)', 'غیبت رفلکس رکابی', 'استاپدکتومی/استاپدوتومی'],
     svgCoordinates: { cx: 305, cy: 160, r: 12 },
     position3D: [0.6, 0.1, 0],
     keyFunctions: [
-      'Piston-like motion into oval window creates perilymph fluid waves',
-      'Stapedius muscle contracts during loud noise (>80 dB SL) to protect inner ear'
+      'حرکت پیستونی به داخل پنجره بیضی موج مایع پریلنف ایجاد می‌کند',
+      'عضله رکابی هنگام صدای بلند (بیش از ۸۰ دسی‌بل SL) منقبض می‌شود تا از گوش داخلی محافظت کند'
     ]
   },
   {
     id: 'eustachian_tube',
-    name: 'Eustachian Tube',
+    name: 'شیپور استاش',
     latinName: 'Tuba Auditiva',
     region: 'middle',
-    description: 'Canal connecting the middle ear cavity to the nasopharynx, opened by Tensor Veli Palatini muscle.',
-    clinicalSignificance: 'Equalizes middle ear pressure with atmospheric pressure and drains secretions.',
-    pathologyAssociation: ['Eustachian Tube Dysfunction (ETD)', 'Patulous Eustachian Tube', 'Otitis Media with Effusion'],
+    description: 'مجرایی که حفره گوش میانی را به نازوفارنکس متصل می‌کند و توسط عضله تنسور ولی پالاتینی باز می‌شود.',
+    clinicalSignificance: 'فشار گوش میانی را با فشار اتمسفر برابر می‌کند و ترشحات را تخلیه می‌کند.',
+    pathologyAssociation: ['اختلال عملکرد شیپور استاش', 'شیپور استاش باز (پاتولوس)', 'اوتیت میانی با افیوژن'],
     svgCoordinates: { cx: 250, cy: 230, r: 16 },
     position3D: [-0.2, -1.2, 0],
     keyFunctions: [
-      'Pressure equalization (Type A tympanometry maintained when functional)',
-      'Mucociliary clearance into nasopharynx'
+      'برابرسازی فشار (تمپانوگرام نوع A هنگام عملکرد طبیعی حفظ می‌شود)',
+      'پاکسازی موکوسیلیاری به سمت نازوفارنکس'
     ]
   },
 
   // Inner Ear
   {
     id: 'cochlea',
-    name: 'Cochlea',
+    name: 'حلزون گوش',
     latinName: 'Cochlea',
     region: 'inner',
-    description: 'Snail-shell shaped spiral fluid-filled structure making 2.5 to 2.75 turns around the central modiolus.',
-    clinicalSignificance: 'Contains the Organ of Corti, sensory transduction apparatus for hearing.',
-    pathologyAssociation: ['SensoriNeural Hearing Loss', 'Presbycusis', 'Cochlear Otosclerosis', 'Meniere Disease (Endolymphatic Hydrops)'],
+    description: 'ساختار مارپیچی حلزونی‌شکل پر از مایع که ۲.۵ تا ۲.۷۵ دور به دور مودیولوس مرکزی می‌چرخد.',
+    clinicalSignificance: 'حاوی ارگان کورتی، دستگاه تبدیل حسی برای شنوایی است.',
+    pathologyAssociation: ['کاهش شنوایی حسی‌عصبی', 'پرزبیکوزیس', 'اتواسکلروز حلزونی', 'بیماری منییر (هیدروپس اندولنفاتیک)'],
     svgCoordinates: { cx: 370, cy: 185, r: 26 },
     position3D: [1.3, -0.2, 0.2],
     keyFunctions: [
-      'Houses 3 compartments: Scala Vestibuli (Perilymph), Scala Media (Endolymph +80mV), Scala Tympani (Perilymph)',
-      'Tonotopic organization: Base = High Frequencies (20,000 Hz), Apex = Low Frequencies (20 Hz)'
+      'شامل ۳ محفظه: اسکالا وستیبولی (پریلنف)، اسکالا مدیا (اندولنف با ولتاژ ۸۰+ میلی‌ولت)، اسکالا تمپانی (پریلنف)',
+      'سازمان‌دهی تونوتوپیک: قاعده = فرکانس‌های بالا (۲۰,۰۰۰ هرتز)، راس = فرکانس‌های پایین (۲۰ هرتز)'
     ]
   },
   {
     id: 'organ_of_corti',
-    name: 'Organ of Corti & Hair Cells',
+    name: 'ارگان کورتی و سلول‌های مویی',
     latinName: 'Organum Spirale',
     region: 'inner',
-    description: 'Sensory epithelial structure sitting on the basilar membrane containing ~3,500 Inner Hair Cells (IHCs) and ~12,000 Outer Hair Cells (OHCs).',
-    clinicalSignificance: 'OHCs provide cochlear amplification via electromotility (Prestin protein); IHCs release glutamate to auditory nerve fibers.',
-    pathologyAssociation: ['Ototoxicity (Gentamicin, Cisplatin)', 'Noise-Induced Hearing Loss (Hair Cell Loss)', 'OAE Loss'],
+    description: 'ساختار اپیتلیال حسی روی غشای پایه که حاوی حدود ۳,۵۰۰ سلول مویی داخلی (IHC) و حدود ۱۲,۰۰۰ سلول مویی خارجی (OHC) است.',
+    clinicalSignificance: 'سلول‌های مویی خارجی از طریق الکتروموتیلیتی (پروتئین پرستین) تقویت حلزونی ایجاد می‌کنند؛ سلول‌های مویی داخلی گلوتامات را به فیبرهای عصب شنوایی آزاد می‌کنند.',
+    pathologyAssociation: ['اتوتوکسیسیته (جنتامایسین، سیس‌پلاتین)', 'کاهش شنوایی ناشی از نویز (از دست رفتن سلول مویی)', 'غیبت OAE'],
     svgCoordinates: { cx: 400, cy: 220, r: 18 },
     position3D: [1.5, -0.6, 0.4],
     keyFunctions: [
-      'OHCs tune frequency sharpness and amplify soft sounds by ~40-50 dB',
-      'IHC stereocilia deflection opens MET (Mechanically-Gated) channels'
+      'سلول‌های مویی خارجی دقت فرکانسی را تنظیم و صداهای ملایم را حدود ۴۰ تا ۵۰ دسی‌بل تقویت می‌کنند',
+      'خمش استریوسیلیای سلول‌های مویی داخلی کانال‌های MET (دریچه‌دار مکانیکی) را باز می‌کند'
     ]
   },
   {
     id: 'semicircular_canals',
-    name: 'Semicircular Canals & Vestibule',
+    name: 'کانال‌های نیم‌دایره و وستیبول',
     latinName: 'Canales Semicirculares',
     region: 'inner',
-    description: 'Three orthogonal fluid-filled canals (Anterior, Posterior, Horizontal) sensing angular acceleration of the head.',
-    clinicalSignificance: 'Core sensory organ of the Vestibulo-Ocular Reflex (VOR) and dynamic balance balance system.',
-    pathologyAssociation: ['BPPV (Benign Paroxysmal Positional Vertigo)', 'Vestibular Neuritis', 'Labyrinthitis'],
+    description: 'سه کانال متعامد پر از مایع (قدامی، خلفی، افقی) که شتاب زاویه‌ای سر را حس می‌کنند.',
+    clinicalSignificance: 'اندام حسی اصلی رفلکس دهلیزی-چشمی (VOR) و سیستم تعادل پویا.',
+    pathologyAssociation: ['BPPV (سرگیجه وضعیتی خوش‌خیم حمله‌ای)', 'نوریت دهلیزی', 'لابیرنتیت'],
     svgCoordinates: { cx: 370, cy: 120, r: 22 },
     position3D: [1.2, 1.2, -0.2],
     keyFunctions: [
-      'Ampulla crista ampullaris cupula deflection detects head rotation',
-      'Drives VOR to stabilize gaze during head movement'
+      'خمش کوپولای کریستا آمپولاریس آمپولا، چرخش سر را تشخیص می‌دهد',
+      'محرک VOR برای تثبیت نگاه هنگام حرکت سر'
     ]
   },
 
   // Neural Pathway
   {
     id: 'auditory_nerve',
-    name: 'Auditory Nerve (CN VIII)',
+    name: 'عصب شنوایی (زوج جمجمه‌ای هشتم)',
     latinName: 'Nervus Vestibulocochlearis',
     region: 'neural',
-    description: 'Cranial nerve VIII containing ~30,000 bipolar spiral ganglion neurons projecting through the internal auditory canal.',
-    clinicalSignificance: 'Generates Wave I and Wave II of the Auditory Brainstem Response (ABR).',
-    pathologyAssociation: ['Acoustic Neuroma / Vestibular Schwannoma', 'Auditory Neuropathy Spectrum Disorder (ANSD)'],
+    description: 'عصب جمجمه‌ای هشتم شامل حدود ۳۰,۰۰۰ نورون دوقطبی گانگلیون مارپیچی که از مجرای شنوایی داخلی عبور می‌کنند.',
+    clinicalSignificance: 'موج I و موج II پاسخ برانگیخته شنوایی ساقه مغز (ABR) را تولید می‌کند.',
+    pathologyAssociation: ['نوروم آکوستیک / شوانوم دهلیزی', 'اختلال طیف نوروپاتی شنوایی (ANSD)'],
     svgCoordinates: { cx: 460, cy: 185, r: 16 },
     position3D: [2.5, 0.2, -0.2],
     keyFunctions: [
-      'Transmits phase-locked neural action potentials to the cochlear nucleus',
-      'Wave I (distal nerve) & Wave II (proximal nerve) on ABR'
+      'انتقال پتانسیل‌های عمل عصبی قفل‌شده به فاز به هسته حلزونی',
+      'موج I (عصب دیستال) و موج II (عصب پروگزیمال) در ABR'
     ]
   },
   {
     id: 'central_auditory_pathway',
-    name: 'Central Auditory Brainstem & Cortex',
+    name: 'مسیر شنوایی مرکزی ساقه مغز و قشر',
     latinName: 'Systema Auditorium Centrale',
     region: 'neural',
-    description: 'Ascending auditory pathway: Cochlear Nucleus -> Superior Olivary Complex (Binaural Localization) -> Inferior Colliculus -> Medial Geniculate Body -> Primary Auditory Cortex (A1, Heschl Gyri).',
-    clinicalSignificance: 'Processes binaural timing differences (ITD/ILD), speech in noise, and complex auditory cues.',
-    pathologyAssociation: ['Central Auditory Processing Disorder (CAPD)', 'Auditory Cortex Infarct', 'ABR Wave Latency Delay'],
+    description: 'مسیر صعودی شنوایی: هسته حلزونی ← مجموعه زیتونی فوقانی (موقعیت‌یابی دوگوشی) ← کولیکولوس تحتانی ← جسم زانویی داخلی ← قشر شنوایی اولیه (A1، شکنج هشل).',
+    clinicalSignificance: 'تفاوت‌های زمانی دوگوشی (ITD/ILD)، درک گفتار در نویز و سرنخ‌های پیچیده شنوایی را پردازش می‌کند.',
+    pathologyAssociation: ['اختلال پردازش شنوایی مرکزی (CAPD)', 'انفارکت قشر شنوایی', 'تأخیر لیتنسی موج ABR'],
     svgCoordinates: { cx: 520, cy: 140, r: 24 },
     position3D: [3.6, 0.6, -0.5],
     keyFunctions: [
-      'Superior Olivary Complex (Wave IV) calculates Interaural Time & Intensity Differences',
-      'Inferior Colliculus (Wave V) integrates spectral & spatial cues',
-      'A1 Temporal Lobe interprets phonemes and language acoustics'
+      'مجموعه زیتونی فوقانی (موج IV) اختلاف زمانی و شدتی بین‌گوشی را محاسبه می‌کند',
+      'کولیکولوس تحتانی (موج V) سرنخ‌های طیفی و فضایی را یکپارچه می‌کند',
+      'لوب تمپورال A1 واج‌ها و آکوستیک زبان را تفسیر می‌کند'
     ]
   }
 ];
 
 export const COCHLEAR_TONOTOPIC_MAP = [
-  { freq: 16000, regionName: 'Cochlear Base (High Freq)', description: 'Stiff, light basilar membrane vibrating to high pitch sounds. First damaged by aminoglycosides & aging.', color: '#ef4444' },
-  { freq: 8000, regionName: 'Upper Base (8,000 Hz)', description: 'Crucial for high-frequency consonant acoustics (/s/, /th/, /f/). Primary region for noise notches.', color: '#f97316' },
-  { freq: 4000, regionName: 'Mid-Base (4,000 Hz)', description: 'Peak acoustic vulnerability region for acoustic trauma (industrial noise, gunshots).', color: '#f59e0b' },
-  { freq: 2000, regionName: 'Mid-Turn (2,000 Hz)', description: 'Essential speech clarity zone for formant transitions and vowel recognition.', color: '#10b981' },
-  { freq: 1000, regionName: 'Mid-Apex (1,000 Hz)', description: 'Vowel fundamental and lower formant resonance zone.', color: '#06b6d4' },
-  { freq: 500, regionName: 'Upper Apex (500 Hz)', description: 'Low frequency bass tone zone. Affected in early Meniere disease (endolymphatic hydrops).', color: '#3b82f6' },
-  { freq: 250, regionName: 'Helicotrema Apex (250 Hz)', description: 'Apex tip where basilar membrane is widest and most flexible. Resonates to deep bass frequencies.', color: '#8b5cf6' }
+  { freq: 16000, regionName: 'قاعده حلزون (فرکانس بالا)', description: 'غشای پایه سفت و سبک که به صداهای زیر می‌لرزد. اولین ناحیه آسیب‌دیده توسط آمینوگلیکوزیدها و افزایش سن.', color: '#ef4444' },
+  { freq: 8000, regionName: 'قاعده بالایی (۸,۰۰۰ هرتز)', description: 'حیاتی برای آکوستیک صامت‌های فرکانس بالا (/s/، /th/، /f/). ناحیه اصلی برای notch های نویز.', color: '#f97316' },
+  { freq: 4000, regionName: 'میان-قاعده (۴,۰۰۰ هرتز)', description: 'ناحیه اوج آسیب‌پذیری آکوستیک برای تروما (نویز صنعتی، شلیک گلوله).', color: '#f59e0b' },
+  { freq: 2000, regionName: 'میان‌پیچ (۲,۰۰۰ هرتز)', description: 'ناحیه حیاتی وضوح گفتار برای انتقال فورمنت و تشخیص واکه.', color: '#10b981' },
+  { freq: 1000, regionName: 'میان-راس (۱,۰۰۰ هرتز)', description: 'ناحیه فرکانس پایه واکه و رزونانس فورمنت پایین‌تر.', color: '#06b6d4' },
+  { freq: 500, regionName: 'راس بالایی (۵۰۰ هرتز)', description: 'ناحیه تن باس فرکانس پایین. در مراحل اولیه بیماری منییر (هیدروپس اندولنفاتیک) درگیر می‌شود.', color: '#3b82f6' },
+  { freq: 250, regionName: 'نوک هلیکوترما (۲۵۰ هرتز)', description: 'نوک راس که غشای پایه در آن پهن‌ترین و انعطاف‌پذیرترین حالت را دارد. با فرکانس‌های بم عمیق تشدید می‌شود.', color: '#8b5cf6' }
 ];
