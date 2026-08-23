@@ -17,7 +17,6 @@ import {
   Search,
   Upload
 } from 'lucide-react';
-import { EDUCATIONAL_RESOURCES } from '../../data/resources';
 import { EducationalResource } from '../../types';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '../motion/ScrollReveal';
 import { TiltCard } from '../motion/TiltCard';
@@ -32,7 +31,6 @@ interface HomePageProps {
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource, onNavigateToCourse }) => {
-  const featuredResources = EDUCATIONAL_RESOURCES.filter(r => r.featured).slice(0, 4);
   const coursesWithIcons = getCourses().filter((c) => !!c.icon);
 
   const stats = [
@@ -217,63 +215,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource
               </StaggerItem>
             );
           })}
-        </StaggerContainer>
-      </section>
-
-      {/* Featured Resources Section */}
-      <section className="space-y-6">
-        <ScrollReveal direction="up">
-          <div className="flex items-center justify-between">
-            <div className="space-y-1">
-              <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white font-display">
-                منابع بالینی برگزیده
-              </h2>
-              <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
-                فصل‌ها، مقالات و جلسات ویدیویی منتخب و پرکاربرد.
-              </p>
-            </div>
-            <button
-              onClick={() => onNavigate('library')}
-              className="text-xs font-bold text-cyan-500 hover:text-cyan-400 flex items-center gap-1"
-            >
-              <span>مشاهده کل آرشیو</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        </ScrollReveal>
-
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {featuredResources.map((res) => (
-            <StaggerItem key={res.id}>
-              <TiltCard
-                className="bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm cursor-pointer space-y-4 group"
-                onClick={() => onSelectResource(res)}
-              >
-                <div className="flex items-center justify-between">
-                  <span dir="auto" className="px-2.5 py-1 rounded-md text-[10px] font-bold font-mono bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
-                    {res.topic}
-                  </span>
-                  <span className="text-[10px] font-mono text-zinc-400">
-                    {res.readTimeOrDuration}
-                  </span>
-                </div>
-
-                <div className="space-y-1">
-                  <h3 dir="auto" className="text-base font-bold text-zinc-900 dark:text-white group-hover:text-cyan-500 transition-colors">
-                    {res.title}
-                  </h3>
-                  <p dir="auto" className="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2 leading-relaxed">
-                    {res.description}
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between text-xs text-zinc-400">
-                  <span dir="auto">نویسنده: {res.author}</span>
-                  <span className="text-cyan-500 font-bold group-hover:translate-x-1 transition-transform">مطالعه ←</span>
-                </div>
-              </TiltCard>
-            </StaggerItem>
-          ))}
         </StaggerContainer>
       </section>
 

@@ -85,11 +85,6 @@ const TAB_SEO_DATA: Record<string, { title: string; description: string; path: s
     description: 'Consult our AI Clinical Tutor for instant diagnostic guidance, electrophysiology explanation, and literature synthesis.',
     path: 'aitutor',
   },
-  library: {
-    title: 'Resource Archive & Learning Hub — Auralis Audiology',
-    description: 'Explore the entire Auralis repository of open educational literature and interactive learning assets.',
-    path: 'library',
-  },
   saved: {
     title: 'Saved Bookmarks & Personal Clinical Notes — Auralis',
     description: 'Your saved audiological resources, bookmarked papers, and personal diagnostic case notes.',

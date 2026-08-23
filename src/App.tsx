@@ -1,6 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
 import { ResourceDetailModal } from './components/ResourceDetailModal';
 import { CommandPalette } from './components/CommandPalette';
 import { Footer } from './components/Footer';
@@ -14,7 +13,6 @@ import { SidebarDrawer } from './components/layout/SidebarDrawer';
 import { HomePage } from './components/pages/HomePage';
 
 // Lazy load heavy modules & secondary views for optimal bundle splitting
-const ResourceHub = lazy(() => import('./components/ResourceHub').then(m => ({ default: m.ResourceHub })));
 const InteractiveEarAnatomy = lazy(() => import('./components/InteractiveEarAnatomy').then(m => ({ default: m.InteractiveEarAnatomy })));
 const AudiogramSimulator = lazy(() => import('./components/AudiogramSimulator').then(m => ({ default: m.AudiogramSimulator })));
 const ToolsSuite = lazy(() => import('./components/ToolsSuite').then(m => ({ default: m.ToolsSuite })));
@@ -167,14 +165,6 @@ export default function App() {
         savedCount={savedIds.length}
       />
 
-      {/* Hero Section (Rendered on Resource Hub tab) */}
-      {activeTab === 'library' && (
-        <Hero
-          onSearchClick={() => setIsCommandPaletteOpen(true)}
-          onNavigate={setActiveTab}
-        />
-      )}
-
       {/* Main Workspace Body */}
       <main id="main-content" className="relative z-10 flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Suspense fallback={<PageSkeleton />}>
@@ -242,14 +232,6 @@ export default function App() {
 
             {activeTab === 'contact' && (
               <ContactPage />
-            )}
-
-            {activeTab === 'library' && (
-              <ResourceHub
-                onSelectResource={(res) => setSelectedResource(res)}
-                savedIds={savedIds}
-                onToggleBookmark={toggleBookmark}
-              />
             )}
 
             {activeTab === 'anatomy' && (

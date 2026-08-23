@@ -2,7 +2,6 @@ import React from 'react';
 import { 
   Ear, 
   Search, 
-  BookOpen, 
   Activity, 
   Calculator, 
   Stethoscope, 
@@ -30,7 +29,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   savedCount
 }) => {
   const navItems = [
-    { id: 'library', label: 'مرکز منابع', icon: BookOpen },
     { id: 'anatomy', label: 'آناتومی سه‌بعدی گوش', icon: Ear },
     { id: 'simulator', label: 'آزمایشگاه آدیوگرام', icon: Activity },
     { id: 'tools', label: 'ابزارهای محاسباتی', icon: Calculator },
@@ -53,7 +51,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <Menu className="w-4 h-4" />
             </button>
 
-            <div className="flex items-center gap-2.5 cursor-pointer" onClick={() => setActiveTab('library')}>
+            <div className="flex items-center gap-2.5 cursor-pointer" onClick={() => setActiveTab('home')}>
               <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-600 via-blue-600 to-indigo-600 p-0.5 shadow-md shadow-blue-500/10 flex items-center justify-center">
                 <div className="w-full h-full bg-zinc-950 rounded-[9px] flex items-center justify-center">
                   <BrainCircuit className="w-4 h-4 text-cyan-400" />

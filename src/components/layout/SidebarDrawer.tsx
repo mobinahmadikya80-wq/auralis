@@ -2,7 +2,6 @@ import React from 'react';
 import { 
   X, 
   Home,
-  BookOpen, 
   Ear, 
   Activity, 
   Calculator, 
@@ -65,7 +64,6 @@ export const SidebarDrawer: React.FC<SidebarDrawerProps> = ({
     {
       title: 'گنجینه رسانه و منابع',
       items: [
-        { id: 'library', label: 'مرکز منابع', icon: BookOpen, desc: 'کتاب‌ها و جزوات' },
         { id: 'videos', label: 'ویدیوهای آموزشی', icon: Video, desc: 'ویدیوهای اتوسکوپی و ABR' },
         { id: 'pdf', label: 'راهنماهای بالینی PDF', icon: FileText, desc: 'دستورالعمل‌های ANSI/BSA' },
         { id: 'slides', label: 'اسلایدهای درسی', icon: Presentation, desc: 'فایل‌های پاورپوینت' },

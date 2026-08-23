@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { 
-  BookOpen, 
   Ear, 
   Activity, 
   Calculator, 
@@ -24,7 +23,6 @@ export const FloatingDock: React.FC<FloatingDockProps> = ({
 }) => {
   const dockItems = [
     { id: 'home', label: 'خانه', icon: Home },
-    { id: 'library', label: 'منابع', icon: BookOpen },
     { id: 'anatomy', label: 'گوش سه‌بعدی', icon: Ear },
     { id: 'simulator', label: 'آزمایشگاه', icon: Activity },
     { id: 'tools', label: 'ابزارها', icon: Calculator },
