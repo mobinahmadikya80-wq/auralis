@@ -1,5 +1,6 @@
 ---
 title: زبان‌آموزی کودکان کم‌شنوا
+icon: /uploads/course-icons/course-24-language-acquisition-hearing-impaired-children.jpg
 code: '24'
 category: توانبخشی شنوایی / رشد زبان و گفتار
 level: Advanced

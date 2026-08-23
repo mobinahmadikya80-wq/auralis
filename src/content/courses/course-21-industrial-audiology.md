@@ -1,5 +1,6 @@
 ---
 title: شنوایی‌شناسی صنعتی
+icon: /uploads/course-icons/course-21-industrial-audiology.jpg
 code: "21"
 category: شنوایی‌شناسی صنعتی و حفاظت شنوایی
 level: Advanced

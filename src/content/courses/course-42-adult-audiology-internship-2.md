@@ -1,5 +1,6 @@
 ---
 title: کارآموزی ارزیابی شنوایی بزرگسالان ۲
+icon: /uploads/course-icons/course-42-adult-audiology-internship-2.jpg
 code: '42'
 category: کارآموزی بالینی / ارزیابی شنوایی بزرگسالان
 level: Advanced

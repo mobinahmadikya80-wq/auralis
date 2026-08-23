@@ -59,6 +59,7 @@ export interface CourseMaterialItem {
 
 export interface CourseFrontmatter {
   title: string;
+  icon?: string;
   code: string;
   category: string;
   level: string;

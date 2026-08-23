@@ -1,5 +1,6 @@
 ---
 title: اندازه‌گیری گسیل‌های صوتی گوش
+icon: /uploads/course-icons/course-27-otoacoustic-emissions.jpg
 code: '27'
 category: ارزیابی فیزیولوژیک شنوایی / OAE
 level: Advanced

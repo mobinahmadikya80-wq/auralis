@@ -1,5 +1,6 @@
 ---
 title: کارآموزی گوش، گلو و بینی
+icon: /uploads/course-icons/course-44-ent-internship.jpg
 code: '44'
 category: کارآموزی بالینی / بیماری‌های گوش و ENT
 level: Advanced

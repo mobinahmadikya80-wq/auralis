@@ -20,6 +20,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Icon / آیکون درس", name: "icon", widget: "image", required: false, hint: "تصویر مربعی کوچک که کنار نام درس نمایش داده می‌شود" }
       - { label: "Course Code", name: "code", widget: "string" }
       - { label: "Category", name: "category", widget: "string" }
       - { label: "Level", name: "level", widget: "select", options: ["Beginner", "Intermediate", "Advanced"] }

@@ -1,5 +1,6 @@
 ---
 title: آزمون‌های رفتاری سیستم شنوایی مرکزی
+icon: /uploads/course-icons/course-26-central-auditory-behavioral-tests.jpg
 code: '26'
 category: ارزیابی شنوایی مرکزی / پردازش شنوایی
 level: Advanced

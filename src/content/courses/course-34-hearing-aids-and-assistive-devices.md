@@ -1,5 +1,6 @@
 ---
 title: اصول و مبانی سمعک و کمک‌افزارهای شنوایی و ارتباطی
+icon: /uploads/course-icons/course-34-hearing-aids-and-assistive-devices.jpg
 code: '34'
 category: سمعک و فناوری‌های کمک‌شنوایی
 level: Advanced

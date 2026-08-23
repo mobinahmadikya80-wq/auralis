@@ -1,5 +1,6 @@
 ---
 title: اخلاق در شنوایی‌شناسی
+icon: /uploads/course-icons/course-39-ethics-in-audiology.jpg
 code: '39'
 category: اخلاق حرفه‌ای و قوانین شنوایی‌شناسی
 level: Intermediate

@@ -78,9 +78,18 @@ export const CoursesPage: React.FC = () => {
               </div>
 
               <div>
-                <h3 dir="auto" className="text-lg font-bold text-zinc-900 dark:text-white font-display">
-                  {c.title}
-                </h3>
+                <div className="flex items-center gap-3">
+                  {c.icon && (
+                    <img
+                      src={c.icon}
+                      alt=""
+                      className="w-11 h-11 rounded-xl object-cover border border-zinc-200 dark:border-zinc-800 shrink-0"
+                    />
+                  )}
+                  <h3 dir="auto" className="text-lg font-bold text-zinc-900 dark:text-white font-display">
+                    {c.title}
+                  </h3>
+                </div>
                 <p dir="auto" className="text-xs text-zinc-500 dark:text-zinc-400 mt-2 leading-relaxed">
                   {c.description}
                 </p>

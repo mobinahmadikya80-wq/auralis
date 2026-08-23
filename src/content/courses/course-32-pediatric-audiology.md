@@ -1,5 +1,6 @@
 ---
 title: شنوایی‌شناسی کودکان
+icon: /uploads/course-icons/course-32-pediatric-audiology.jpg
 code: '32'
 category: شنوایی‌شناسی کودکان
 level: Advanced

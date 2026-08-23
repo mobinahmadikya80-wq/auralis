@@ -1,5 +1,6 @@
 ---
 title: تربیت شنوایی
+icon: /uploads/course-icons/course-25-auditory-training.jpg
 code: '25'
 category: توانبخشی شنوایی / تربیت شنیداری
 level: Advanced
