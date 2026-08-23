@@ -134,7 +134,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource
                       onClick={() => onNavigateToCourse(course.id)}
                       title={course.title}
                       aria-label={course.title}
-                      className="w-11 h-11 rounded-xl overflow-hidden border border-zinc-700 hover:border-cyan-400 hover:scale-110 transition-all shadow-md cursor-pointer"
+                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-zinc-700 hover:border-cyan-400 hover:scale-110 transition-all shadow-md cursor-pointer"
                     >
                       <img
                         src={assetUrl(course.icon)}
