@@ -18,7 +18,7 @@ import {
 } from '../utils/audiology';
 
 export const ToolsSuite: React.FC = () => {
-  const [activeTool, setActiveTool] = useState<'sii' | 'noise' | 'unit' | 'masking'>('sii');
+  const [activeTool, setActiveTool] = useState<'sii' | 'noise' | 'unit' | 'masking' | 'shadow'>('sii');
 
   // SII State
   const [sii500, setSii500] = useState<number>(20);
@@ -114,12 +114,35 @@ export const ToolsSuite: React.FC = () => {
           >
             ماشین‌حساب ماسکینگ
           </button>
+          <button
+            onClick={() => setActiveTool('shadow')}
+            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+              activeTool === 'shadow'
+                ? 'bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 shadow-md'
+                : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200'
+            }`}
+          >
+            شبیه‌ساز منحنی سایه و ماسکینگ
+          </button>
         </div>
       </div>
 
       {/* Tool Content Views */}
       <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-8 border border-zinc-200 dark:border-zinc-800 shadow-sm">
         
+        {/* Tool 5: Masking & Shadow Curve Simulator (embedded standalone tool) */}
+        {activeTool === 'shadow' && (
+          <div className="-m-6 sm:-m-8">
+            <iframe
+              src="/tools/masking-shadow-simulator.html"
+              title="شبیه‌ساز منحنی سایه و ماسکینگ"
+              className="w-full rounded-3xl border-0"
+              style={{ height: '1400px' }}
+              loading="lazy"
+            />
+          </div>
+        )}
+
         {/* Tool 1: SII Count the Dots */}
         {activeTool === 'sii' && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">

@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinical Audiology Masking & Shadow Curve Simulator</title>
+  <!-- Plotly.js CDN -->
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-card: #1e293b;
+      --bg-input: #334155;
+      --border-color: #475569;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-red: #ef4444;
+      --accent-green: #22c55e;
+      --accent-purple: #c084fc;
+      --accent-yellow: #eab308;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      padding: 1.5rem;
+      min-height: 100vh;
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .badge {
+      background-color: rgba(56, 189, 248, 0.15);
+      color: var(--accent-blue);
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 0.5rem;
+    }
+
+    /* SECTION 1: TOP-LEVEL EQUAL-HEIGHT GRID LAYOUT */
+    .top-grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 1.5rem;
+      align-items: stretch;
+      margin-bottom: 1.5rem;
+    }
+
+    .controls-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .graph-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chart-box {
+      width: 100%;
+      flex: 1;
+      min-height: 480px;
+    }
+
+    /* SECTION 2: SUBORDINATE DASHBOARD LAYOUT */
+    .bottom-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 1.5rem;
+    }
+
+    .bottom-right-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 1024px) {
+      .top-grid, .bottom-grid {
+        grid-template-columns: 1fr;
+      }
+      .chart-box {
+        min-height: 400px;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 0.85rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    select, input[type="range"] {
+      width: 100%;
+      background-color: var(--bg-input);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.5rem;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    select:focus, input:focus {
+      border-color: var(--accent-blue);
+    }
+
+    .range-val {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .range-val span {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-blue);
+    }
+
+    .ear-section {
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      margin-bottom: 0.75rem;
+      border-left: 4px solid var(--border-color);
+    }
+
+    .ear-section.te {
+      border-left-color: var(--accent-red);
+      background-color: rgba(239, 68, 68, 0.05);
+    }
+
+    .ear-section.nte {
+      border-left-color: var(--accent-blue);
+      background-color: rgba(56, 189, 248, 0.05);
+    }
+
+    .ear-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .ear-section.te .ear-title { color: var(--accent-red); }
+    .ear-section.nte .ear-title { color: var(--accent-blue); }
+
+    .btn-reset {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 0.3rem 0.6rem;
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-reset:hover {
+      background-color: var(--bg-input);
+      color: var(--text-main);
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .metric-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      padding: 0.75rem;
+      text-align: center;
+    }
+
+    .metric-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .metric-value {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .status-banner {
+      padding: 0.85rem 1.25rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .status-normal { background-color: rgba(34, 197, 94, 0.15); border: 1px solid var(--accent-green); color: var(--accent-green); }
+    .status-warning { background-color: rgba(234, 179, 8, 0.15); border: 1px solid var(--accent-yellow); color: var(--accent-yellow); }
+    .status-dilemma { background-color: rgba(239, 68, 68, 0.15); border: 1px solid var(--accent-red); color: var(--accent-red); }
+
+    .mini-chart-box {
+      width: 100%;
+      height: 340px;
+    }
+
+    .alert-box {
+      font-size: 0.75rem;
+      color: var(--accent-yellow);
+      margin-top: 0.25rem;
+      display: none;
+    }
+
+    /* Summary Table Styling */
+    .summary-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+
+    .summary-table th {
+      background-color: var(--bg-input);
+      color: var(--text-muted);
+      padding: 0.6rem 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .summary-table td {
+      padding: 0.65rem 0.8rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .summary-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cell-alert {
+      background-color: rgba(239, 68, 68, 0.18) !important;
+      color: var(--accent-red) !important;
+      font-weight: 700;
+    }
+
+    .table-badge {
+      display: inline-block;
+      padding: 0.15rem 0.4rem;
+      border-radius: 0.25rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .table-badge.shift {
+      background-color: rgba(239, 68, 68, 0.25);
+      color: var(--accent-red);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+    }
+
+    .table-badge.true {
+      background-color: rgba(34, 197, 94, 0.15);
+      color: var(--accent-green);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h5l2 5 4-10 2 5h7"/></svg>
+      Audiology Masking & Shadow Curve Simulator
+    </h1>
+    <span class="badge">Clinical Educational Tool</span>
+  </header>
+
+  <!-- TOP SECTION: SIDE-BY-SIDE CONTROLS & PLATEAU GRAPH -->
+  <section class="top-grid">
+    
+    <!-- Left Column: Test Configuration Controls Card -->
+    <div class="card controls-card">
+      <div>
+        <div class="card-title">
+          <span>Test Configuration</span>
+          <button class="btn-reset" onclick="resetDefaults()">Reset Defaults</button>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modeSelect">Frequency / Mode</label>
+            <select id="modeSelect" onchange="onSetupChange()">
+              <option value="250">250 Hz</option>
+              <option value="500">500 Hz</option>
+              <option value="1000" selected>1000 Hz</option>
+              <option value="2000">2000 Hz</option>
+              <option value="4000">4000 Hz</option>
+              <option value="SRT">Speech (SRT)</option>
+              <option value="WRS">Speech (WRS)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="transducerSelect">Transducer</label>
+            <select id="transducerSelect" onchange="onSetupChange()">
+              <option value="supra" selected>Supra-aural (TDH-39)</option>
+              <option value="insert">Insert Earphones (ER-3A)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="teEarSelect">Test Ear (TE)</label>
+            <select id="teEarSelect" onchange="onSetupChange()">
+              <option value="right" selected>Right Ear (TE)</option>
+              <option value="left">Left Ear (TE)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="testTypeSelect">Test Parameter</label>
+            <select id="testTypeSelect" onchange="calculateAndRender()">
+              <option value="AC" selected>Air Conduction (AC)</option>
+              <option value="BC">Bone Conduction (BC)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- TE Inputs -->
+        <div class="ear-section te">
+          <div class="ear-title" id="teEarTitle">Test Ear (TE) - Right</div>
+          <div class="form-group">
+            <div class="range-val"><label>True AC Threshold</label><span id="teAcVal">60 dB HL</span></div>
+            <input type="range" id="teAcInput" min="-10" max="120" step="5" value="60" oninput="onThresholdChange('teAC')">
+          </div>
+          <div class="form-group">
+            <div class="range-val"><label>True BC Threshold</label><span id="teBcVal">50 dB HL</span></div>
+            <input type="range" id="teBcInput" min="-10" max="120" step="5" value="50" oninput="onThresholdChange('teBC')">
+            <div class="alert-box" id="teBcAlert">BC threshold auto-adjusted (BC ≤ AC rule).</div>
+          </div>
+        </div>
+
+        <!-- NTE Inputs -->
+        <div class="ear-section nte">
+          <div class="ear-title" id="nteEarTitle">Non-Test Ear (NTE) - Left</div>
+          <div class="form-group">
+            <div class="range-val"><label>True AC Threshold</label><span id="nteAcVal">10 dB HL</span></div>
+            <input type="range" id="nteAcInput" min="-10" max="120" step="5" value="10" oninput="onThresholdChange('nteAC')">
+          </div>
+          <div class="form-group">
+            <div class="range-val"><label>True BC Threshold</label><span id="nteBcVal">10 dB HL</span></div>
+            <input type="range" id="nteBcInput" min="-10" max="120" step="5" value="10" oninput="onThresholdChange('nteBC')">
+            <div class="alert-box" id="nteBcAlert">BC threshold auto-adjusted (BC ≤ AC rule).</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Acoustic Constants Sliders -->
+      <div>
+        <div class="card-title" style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
+          <span>Acoustic Constants</span>
+        </div>
+        <div class="form-group">
+          <div class="range-val"><label for="iaInput">Air Interaural Attenuation (IA)</label><span id="iaVal">40 dB</span></div>
+          <input type="range" id="iaInput" min="0" max="100" step="5" value="40" oninput="onAcousticChange()">
+        </div>
+        <div class="form-group" style="margin-bottom: 0;">
+          <div class="range-val"><label for="oeInput">Occlusion Effect (OE)</label><span id="oeVal">10 dB</span></div>
+          <input type="range" id="oeInput" min="0" max="40" step="5" value="10" oninput="onAcousticChange()">
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Interactive Plateau Graph Card -->
+    <div class="card graph-card">
+      <div class="card-title">
+        <span>Interactive Plateau Curve & Masking Dynamics Graph</span>
+      </div>
+      <div id="plateauGraph" class="chart-box"></div>
+    </div>
+
+  </section>
+
+  <!-- BOTTOM SECTION: SUBORDINATE DASHBOARD & METRICS -->
+  <section class="bottom-section">
+    
+    <!-- Status Banner -->
+    <div id="statusBanner" class="status-banner status-normal">
+      <span>Calculating masking dynamics...</span>
+    </div>
+
+    <div class="bottom-grid">
+      <!-- Mini Threshold Strip Card -->
+      <div class="card">
+        <div class="card-title">Unmasked Frequency Strip</div>
+        <div id="miniAudiogram" class="mini-chart-box"></div>
+      </div>
+
+      <!-- Metrics & Summary Table Column -->
+      <div class="bottom-right-container">
+        <!-- Calculated Metrics Summary Grid -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-label">TE Air-Bone Gap</div>
+            <div class="metric-value" id="mTeAbg" style="color: var(--accent-red);">10 dB</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Cross-Hearing</div>
+            <div class="metric-value" id="mCrossHearing">Yes</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Initial Noise Level</div>
+            <div class="metric-value" id="mInitMask">20 dB EM</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Min Mask (Plateau Start)</div>
+            <div class="metric-value" id="mMinMask" style="color: var(--accent-green);">20 dB EM</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Max Mask (Overmask)</div>
+            <div class="metric-value" id="mMaxMask" style="color: var(--accent-purple);">85 dB EM</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Plateau Width</div>
+            <div class="metric-value" id="mPlateauWidth" style="color: var(--accent-blue);">65 dB</div>
+          </div>
+        </div>
+
+        <!-- Unmasked / Apparent Thresholds Summary Table Card -->
+        <div class="card">
+          <div class="card-title" style="margin-bottom: 0.75rem;">
+            <span>Unmasked / Apparent Thresholds Summary Table</span>
+          </div>
+          <table class="summary-table">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>True Input</th>
+                <th>Apparent / Unmasked (Measured)</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="summaryTableBody">
+              <!-- Dynamically populated by updateSummaryTable() -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <script>
+    // --- DEFAULTS & CONSTANTS ---
+    const DEFAULT_IA = {
+      supra: { '250': 40, '500': 40, '1000': 40, '2000': 40, '4000': 40, 'SRT': 30, 'WRS': 25 },
+      insert: { '250': 70, '500': 70, '1000': 70, '2000': 70, '4000': 70, 'SRT': 60, 'WRS': 60 }
+    };
+
+    const DEFAULT_OE = {
+      supra: { '250': 30, '500': 20, '1000': 10, '2000': 0, '4000': 0, 'SRT': 0, 'WRS': 0 },
+      insert: { '250': 10, '500': 10, '1000': 0, '2000': 0, '4000': 0, 'SRT': 0, 'WRS': 0 }
+    };
+
+    // --- STATE INITIALIZATION ---
+    let state = {
+      teEar: 'right',
+      mode: '1000',
+      transducer: 'supra',
+      testType: 'AC',
+      teAC: 60,
+      teBC: 50,
+      nteAC: 10,
+      nteBC: 10,
+      ia: 40,
+      oe: 10
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+      onSetupChange();
+    });
+
+    // Reset defaults according to current transducer/frequency
+    function resetDefaults() {
+      state.teAC = 60;
+      state.teBC = 50;
+      state.nteAC = 10;
+      state.nteBC = 10;
+      document.getElementById('teAcInput').value = state.teAC;
+      document.getElementById('teBcInput').value = state.teBC;
+      document.getElementById('nteAcInput').value = state.nteAC;
+      document.getElementById('nteBcInput').value = state.nteBC;
+      onSetupChange();
+    }
+
+    // Called when Transducer, Frequency, or TE Side changes
+    function onSetupChange() {
+      state.mode = document.getElementById('modeSelect').value;
+      state.transducer = document.getElementById('transducerSelect').value;
+      state.teEar = document.getElementById('teEarSelect').value;
+
+      // Update titles
+      const teName = state.teEar === 'right' ? 'Right' : 'Left';
+      const nteName = state.teEar === 'right' ? 'Left' : 'Right';
+      document.getElementById('teEarTitle').innerText = `Test Ear (TE) - ${teName}`;
+      document.getElementById('nteEarTitle').innerText = `Non-Test Ear (NTE) - ${nteName}`;
+
+      // Populate auto acoustic constants
+      state.ia = DEFAULT_IA[state.transducer][state.mode] || 40;
+      state.oe = DEFAULT_OE[state.transducer][state.mode] || 0;
+
+      document.getElementById('iaInput').value = state.ia;
+      document.getElementById('iaVal').innerText = `${state.ia} dB`;
+      document.getElementById('oeInput').value = state.oe;
+      document.getElementById('oeVal').innerText = `${state.oe} dB`;
+
+      calculateAndRender();
+    }
+
+    // Called when IA or OE range sliders move
+    function onAcousticChange() {
+      state.ia = parseInt(document.getElementById('iaInput').value) || 0;
+      state.oe = parseInt(document.getElementById('oeInput').value) || 0;
+      document.getElementById('iaVal').innerText = `${state.ia} dB`;
+      document.getElementById('oeVal').innerText = `${state.oe} dB`;
+
+      calculateAndRender();
+    }
+
+    // Called when threshold sliders move
+    function onThresholdChange(changedInput) {
+      state.teAC = parseInt(document.getElementById('teAcInput').value);
+      state.teBC = parseInt(document.getElementById('teBcInput').value);
+      state.nteAC = parseInt(document.getElementById('nteAcInput').value);
+      state.nteBC = parseInt(document.getElementById('nteBcInput').value);
+
+      // Rule: BC must ALWAYS be better than or equal to AC (BC <= AC)
+      let teAlert = false;
+      let nteAlert = false;
+
+      if (state.teBC > state.teAC) {
+        if (changedInput === 'teBC') {
+          state.teAC = state.teBC;
+          document.getElementById('teAcInput').value = state.teAC;
+        } else {
+          state.teBC = state.teAC;
+          document.getElementById('teBcInput').value = state.teBC;
+        }
+        teAlert = true;
+      }
+
+      if (state.nteBC > state.nteAC) {
+        if (changedInput === 'nteBC') {
+          state.nteAC = state.nteBC;
+          document.getElementById('nteAcInput').value = state.nteAC;
+        } else {
+          state.nteBC = state.nteAC;
+          document.getElementById('nteBcInput').value = state.nteBC;
+        }
+        nteAlert = true;
+      }
+
+      document.getElementById('teBcAlert').style.display = teAlert ? 'block' : 'none';
+      document.getElementById('nteBcAlert').style.display = nteAlert ? 'block' : 'none';
+
+      // Update labels
+      document.getElementById('teAcVal').innerText = `${state.teAC} dB HL`;
+      document.getElementById('teBcVal').innerText = `${state.teBC} dB HL`;
+      document.getElementById('nteAcVal').innerText = `${state.nteAC} dB HL`;
+      document.getElementById('nteBcVal').innerText = `${state.nteBC} dB HL`;
+
+      calculateAndRender();
+    }
+
+    // Master calculation engine & render coordinator
+    function calculateAndRender() {
+      state.ia = parseInt(document.getElementById('iaInput').value) || 0;
+      state.oe = parseInt(document.getElementById('oeInput').value) || 0;
+      state.testType = document.getElementById('testTypeSelect').value;
+
+      const abgTE = state.teAC - state.teBC;
+      const abgNTE = state.nteAC - state.nteBC;
+
+      // Unmasked BC for BOTH ears is ALWAYS the minimum of True BC TE and True BC NTE (IA_BC = 0 dB)
+      const apparentBcGlobal = Math.min(state.teBC, state.nteBC);
+
+      // Conditional check for Cross-Hearing / Masking requirement:
+      // AC: Cross-hearing exists ONLY if AC_TE - BC_NTE >= IA
+      // BC: Cross-hearing / Masking exists ONLY if ABG_TE > 10 dB or True_BC_TE > True_BC_NTE
+      const crossHearingAC = (state.teAC - state.nteBC) >= state.ia;
+      const crossHearingBC = (abgTE > 10) || (state.teBC > state.nteBC);
+      const crossHearing = state.testType === 'AC' ? crossHearingAC : crossHearingBC;
+
+      let minMask = 0;
+      let initialMask = 0;
+
+      if (state.testType === 'AC') {
+        initialMask = state.nteAC + 10;
+        minMask = state.teAC - state.ia + abgNTE;
+      } else { // BC
+        initialMask = state.nteAC + state.oe + 10;
+        minMask = state.teBC + abgNTE + state.oe;
+      }
+
+      const maxMask = state.teBC + state.ia - 5;
+      const plateauWidth = maxMask - minMask;
+
+      // Update Dashboard Metrics UI
+      document.getElementById('mTeAbg').innerText = `${abgTE} dB`;
+      document.getElementById('mCrossHearing').innerText = crossHearing ? "YES" : "NO";
+      document.getElementById('mCrossHearing').style.color = crossHearing ? "var(--accent-red)" : "var(--accent-green)";
+      
+      if (crossHearing) {
+        document.getElementById('mInitMask').innerText = `${initialMask} dB EM`;
+        document.getElementById('mMinMask').innerText = `${minMask} dB EM`;
+        document.getElementById('mMaxMask').innerText = `${maxMask} dB EM`;
+        document.getElementById('mPlateauWidth').innerText = `${plateauWidth} dB`;
+      } else {
+        document.getElementById('mInitMask').innerText = "N/A";
+        document.getElementById('mMinMask').innerText = "N/A";
+        document.getElementById('mMaxMask').innerText = "N/A";
+        document.getElementById('mPlateauWidth').innerText = "N/A";
+      }
+
+      // Status Banner Logic
+      const banner = document.getElementById('statusBanner');
+      if (!crossHearing) {
+        banner.className = "status-banner status-normal";
+        banner.innerHTML = `✓ <strong>NO CROSS-HEARING DETECTED:</strong> Unmasked threshold is clinically valid. Masking is not required.`;
+      } else if (plateauWidth < 0) {
+        banner.className = "status-banner status-dilemma";
+        banner.innerHTML = "⚠️ <strong>MASKING DILEMMA DETECTED:</strong> Minimum masking level exceeds maximum masking level. Overmasking occurs before cross-hearing is eliminated.";
+      } else if (plateauWidth < 15) {
+        banner.className = "status-banner status-warning";
+        banner.innerHTML = `⚡ <strong>NARROW PLATEAU (${plateauWidth} dB):</strong> Masking range is tightly constrained. Precise noise step titration required.`;
+      } else {
+        banner.className = "status-banner status-normal";
+        banner.innerHTML = `✓ <strong>CROSS-HEARING PRESENT:</strong> Clinical masking required. Valid plateau available (${plateauWidth} dB width).`;
+      }
+
+      updateSummaryTable(crossHearingAC, crossHearingBC, apparentBcGlobal);
+      renderMiniAudiogram(apparentBcGlobal);
+      renderPlateauGraph(minMask, maxMask, initialMask, plateauWidth, crossHearing, apparentBcGlobal, abgNTE);
+    }
+
+    // --- SUMMARY TABLE UPDATE (Physiological BC IA = 0 dB Logic) ---
+    function updateSummaryTable(crossHearingAC, crossHearingBC, apparentBcGlobal) {
+      const teLabel = state.teEar === 'right' ? 'Right' : 'Left';
+      const nteLabel = state.teEar === 'right' ? 'Left' : 'Right';
+
+      // Apparent AC Calculation
+      const apparentTeAC = crossHearingAC ? (state.nteBC + state.ia) : state.teAC;
+      const crossHearingNteAC = (state.nteAC - state.teBC) >= state.ia;
+      const apparentNteAC = crossHearingNteAC ? (state.teBC + state.ia) : state.nteAC;
+
+      // Apparent BC is ALWAYS Math.min(True_BC_TE, True_BC_NTE) due to IA_BC = 0 dB
+      const apparentTeBC = apparentBcGlobal;
+      const apparentNteBC = apparentBcGlobal;
+
+      const rows = [
+        {
+          name: `TE Air Conduction (${teLabel})`,
+          trueVal: state.teAC,
+          apparentVal: apparentTeAC,
+          hasShift: crossHearingAC && (apparentTeAC !== state.teAC)
+        },
+        {
+          name: `TE Bone Conduction (${teLabel})`,
+          trueVal: state.teBC,
+          apparentVal: apparentTeBC,
+          hasShift: apparentTeBC !== state.teBC
+        },
+        {
+          name: `NTE Air Conduction (${nteLabel})`,
+          trueVal: state.nteAC,
+          apparentVal: apparentNteAC,
+          hasShift: crossHearingNteAC && (apparentNteAC !== state.nteAC)
+        },
+        {
+          name: `NTE Bone Conduction (${nteLabel})`,
+          trueVal: state.nteBC,
+          apparentVal: apparentNteBC,
+          hasShift: apparentNteBC !== state.nteBC
+        }
+      ];
+
+      const tbody = document.getElementById('summaryTableBody');
+      tbody.innerHTML = rows.map(r => {
+        const alertClass = r.hasShift ? 'cell-alert' : '';
+        const badge = r.hasShift 
+          ? `<span class="table-badge shift">Shadow Shift (${r.apparentVal - r.trueVal} dB)</span>`
+          : `<span class="table-badge true">True Value</span>`;
+
+        return `
+          <tr>
+            <td><strong>${r.name}</strong></td>
+            <td>${r.trueVal} dB HL</td>
+            <td class="${alertClass}">${r.apparentVal} dB HL</td>
+            <td>${badge}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // --- RENDER MINI AUDIOGRAM STRIP ---
+    function renderMiniAudiogram(apparentBcGlobal) {
+      const isRightTE = state.teEar === 'right';
+      
+      const teAcSym = isRightTE ? 'O' : 'X';
+      const teBcSym = isRightTE ? '<' : '>';
+      const nteAcSym = isRightTE ? 'X' : 'O';
+      const nteBcSym = isRightTE ? '>' : '<';
+
+      const teColor = isRightTE ? '#ef4444' : '#38bdf8';
+      const nteColor = isRightTE ? '#38bdf8' : '#ef4444';
+
+      // Apparent unmasked values plotted on audiogram strip
+      const apparentTeAC = (state.teAC - state.nteBC >= state.ia) ? (state.nteBC + state.ia) : state.teAC;
+      const apparentNteAC = (state.nteAC - state.teBC >= state.ia) ? (state.teBC + state.ia) : state.nteAC;
+
+      const traceTE_AC = {
+        x: ['TE'], y: [apparentTeAC], mode: 'text',
+        text: [teAcSym], textfont: { size: 18, color: teColor, family: 'Arial Black' },
+        name: `TE AC`
+      };
+
+      // Unmasked BC symbol is ALWAYS plotted at apparentBcGlobal = Math.min(True_BC_TE, True_BC_NTE)
+      const traceTE_BC = {
+        x: ['TE'], y: [apparentBcGlobal], mode: 'text',
+        text: [teBcSym], textfont: { size: 18, color: teColor, family: 'Arial Black' },
+        name: `TE BC`
+      };
+
+      const traceNTE_AC = {
+        x: ['NTE'], y: [apparentNteAC], mode: 'text',
+        text: [nteAcSym], textfont: { size: 18, color: nteColor, family: 'Arial Black' },
+        name: `NTE AC`
+      };
+
+      const traceNTE_BC = {
+        x: ['NTE'], y: [apparentBcGlobal], mode: 'text',
+        text: [nteBcSym], textfont: { size: 18, color: nteColor, family: 'Arial Black' },
+        name: `NTE BC`
+      };
+
+      const layout = {
+        paper_bgcolor: 'transparent',
+        plot_bgcolor: '#0f172a',
+        margin: { l: 40, r: 20, t: 20, b: 40 },
+        showlegend: false,
+        yaxis: {
+          title: 'Unmasked Threshold (dB HL)',
+          range: [125, -15],
+          tickmode: 'linear', dtick: 20,
+          gridcolor: '#334155', zerolinecolor: '#475569', color: '#94a3b8'
+        },
+        xaxis: { color: '#f8fafc', gridcolor: '#334155' }
+      };
+
+      Plotly.newPlot('miniAudiogram', [traceTE_AC, traceTE_BC, traceNTE_AC, traceNTE_BC], layout, { responsive: true, displayModeBar: false });
+    }
+
+    // --- RENDER MAIN PLATEAU GRAPH ---
+    function renderPlateauGraph(minMask, maxMask, initialMask, plateauWidth, crossHearing, apparentBcGlobal, abgNTE) {
+      
+      // Handle Clean Execution when No Cross-Hearing / No Masking Required
+      if (!crossHearing) {
+        const emptyLayout = {
+          paper_bgcolor: 'transparent',
+          plot_bgcolor: '#0f172a',
+          margin: { l: 50, r: 30, t: 30, b: 50 },
+          showlegend: false,
+          annotations: [{
+            text: "<b>NO CROSS-HEARING DETECTED</b><br>Unmasked threshold is valid. Masking is not required.",
+            xref: "paper", yref: "paper",
+            x: 0.5, y: 0.5,
+            showarrow: false,
+            font: { size: 16, color: "#22c55e" },
+            align: "center"
+          }],
+          xaxis: {
+            title: 'Effective Noise Level in NTE (dB EM / HL)',
+            range: [0, 120], gridcolor: '#334155', zerolinecolor: '#475569', color: '#94a3b8'
+          },
+          yaxis: {
+            title: 'Observed Threshold in Test Ear (dB HL)',
+            range: [-10, 120], tickmode: 'linear', dtick: 10,
+            gridcolor: '#334155', zerolinecolor: '#475569', color: '#94a3b8'
+          }
+        };
+
+        Plotly.newPlot('plateauGraph', [], emptyLayout, { responsive: true });
+        return;
+      }
+
+      // Mathematical definition of Observed Threshold on Graph
+      const getObserved = (N) => {
+        if (state.testType === 'AC') {
+          const yUnder = state.teAC - (minMask - N);
+          const yOver = state.teAC + (N - maxMask);
+          const teApparent = Math.max(state.teAC, yOver);
+          return Math.min(teApparent, yUnder);
+        } else {
+          // BC Graph logic starting at Math.min(True_BC_TE, True_BC_NTE)
+          const effectiveNoiseInNTE = Math.max(0, N - state.oe - abgNTE);
+          const nteCochleaThresh = state.nteBC + effectiveNoiseInNTE;
+          
+          // Before overmasking: threshold shifts upward from apparentBcGlobal to True BC TE
+          let yObs = Math.min(state.teBC, nteCochleaThresh);
+
+          // Overmasking check: noise in NTE crosses over to TE when N > maxMask
+          if (N > maxMask) {
+            yObs = state.teBC + (N - maxMask);
+          }
+          return yObs;
+        }
+      };
+
+      const xNoise = [];
+      const yObserved = [];
+      const hoverTexts = [];
+
+      const pointsSet = new Set([0, initialMask, minMask, maxMask, 120]);
+      for (let N = 0; N <= 120; N += 2.5) {
+        pointsSet.add(N);
+      }
+
+      const sortedX = Array.from(pointsSet).sort((a,b) => a-b);
+
+      sortedX.forEach(N => {
+        xNoise.push(N);
+        const yObs = getObserved(N);
+        yObserved.push(yObs);
+
+        let zone = "Plateau Region";
+        if (N < minMask) zone = "Undermasking Zone (Shadow Curve)";
+        else if (N > maxMask) zone = "Overmasking Zone";
+
+        hoverTexts.push(`NTE Noise: ${N.toFixed(1)} dB EM<br>Observed TE Threshold: ${yObs.toFixed(1)} dB HL<br>Status: ${zone}`);
+      });
+
+      const plateauCurveTrace = {
+        x: xNoise,
+        y: yObserved,
+        mode: 'lines',
+        line: { color: '#38bdf8', width: 4 },
+        text: hoverTexts,
+        hoverinfo: 'text',
+        name: 'Observed TE Threshold'
+      };
+
+      const markerX = [];
+      const markerY = [];
+      const markerColors = [];
+      const markerSymbols = [];
+      const markerTexts = [];
+      const markerPos = [];
+
+      if (initialMask <= 120) {
+        markerX.push(initialMask);
+        markerY.push(getObserved(initialMask));
+        markerColors.push('#eab308');
+        markerSymbols.push('circle');
+        markerTexts.push('Initial Level');
+        markerPos.push('top right');
+      }
+      if (minMask >= 0 && minMask <= 120) {
+        markerX.push(minMask);
+        markerY.push(getObserved(minMask));
+        markerColors.push('#22c55e');
+        markerSymbols.push('diamond');
+        markerTexts.push('MinMask (Plateau Start)');
+        markerPos.push('bottom right');
+      }
+      if (maxMask >= 0 && maxMask <= 120) {
+        markerX.push(maxMask);
+        markerY.push(getObserved(maxMask));
+        markerColors.push('#c084fc');
+        markerSymbols.push('square');
+        markerTexts.push('MaxMask (Overmask)');
+        markerPos.push('top left');
+      }
+
+      const markersTrace = {
+        x: markerX,
+        y: markerY,
+        mode: 'markers+text',
+        marker: { size: 12, color: markerColors, symbol: markerSymbols },
+        text: markerTexts,
+        textposition: markerPos,
+        textfont: { color: '#f8fafc', size: 11 },
+        name: 'Key Masking Points'
+      };
+
+      const shapes = [];
+
+      if (plateauWidth >= 0) {
+        if (minMask > 0) {
+          shapes.push({
+            type: 'rect', xref: 'x', yref: 'paper',
+            x0: 0, x1: minMask, y0: 0, y1: 1,
+            fillcolor: 'rgba(234, 179, 8, 0.08)', line: { width: 0 }
+          });
+        }
+        if (maxMask > minMask) {
+          shapes.push({
+            type: 'rect', xref: 'x', yref: 'paper',
+            x0: minMask, x1: maxMask, y0: 0, y1: 1,
+            fillcolor: 'rgba(34, 197, 94, 0.12)', line: { width: 1, color: 'rgba(34, 197, 94, 0.4)', dash: 'dot' }
+          });
+        }
+        if (120 > maxMask) {
+          shapes.push({
+            type: 'rect', xref: 'x', yref: 'paper',
+            x0: maxMask, x1: 120, y0: 0, y1: 1,
+            fillcolor: 'rgba(192, 132, 252, 0.08)', line: { width: 0 }
+          });
+        }
+      } else {
+        shapes.push({
+          type: 'rect', xref: 'x', yref: 'paper',
+          x0: 0, x1: 120, y0: 0, y1: 1,
+          fillcolor: 'rgba(239, 68, 68, 0.12)', line: { width: 0 }
+        });
+      }
+
+      const layout = {
+        paper_bgcolor: 'transparent',
+        plot_bgcolor: '#0f172a',
+        margin: { l: 50, r: 30, t: 30, b: 50 },
+        showlegend: false,
+        shapes: shapes,
+        xaxis: {
+          title: 'Effective Noise Level in NTE (dB EM / HL)',
+          range: [0, 120], gridcolor: '#334155', zerolinecolor: '#475569', color: '#94a3b8'
+        },
+        yaxis: {
+          title: 'Observed Threshold in Test Ear (dB HL)',
+          range: [-10, 120], tickmode: 'linear', dtick: 10,
+          gridcolor: '#334155', zerolinecolor: '#475569', color: '#94a3b8'
+        }
+      };
+
+      Plotly.newPlot('plateauGraph', [plateauCurveTrace, markersTrace], layout, { responsive: true });
+    }
+  </script>
+</body>
+</html>
