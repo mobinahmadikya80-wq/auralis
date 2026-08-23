@@ -134,7 +134,7 @@ export const ToolsSuite: React.FC = () => {
         {activeTool === 'shadow' && (
           <div className="-m-6 sm:-m-8">
             <iframe
-              src="/tools/masking-shadow-simulator.html"
+              src={`${import.meta.env.BASE_URL}tools/masking-shadow-simulator.html`}
               title="شبیه‌ساز منحنی سایه و ماسکینگ"
               className="w-full rounded-3xl border-0"
               style={{ height: '1400px' }}
