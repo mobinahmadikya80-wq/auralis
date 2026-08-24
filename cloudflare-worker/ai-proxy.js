@@ -93,7 +93,7 @@ export default {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            systemInstruction: { role: 'system', parts: [{ text: SYSTEM_PROMPT }] },
+            system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
             contents,
             generationConfig: {
               temperature: 0.45,
