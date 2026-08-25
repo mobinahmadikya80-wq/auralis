@@ -9,7 +9,8 @@ import {
   Bookmark, 
   BrainCircuit,
   Command,
-  Menu
+  Menu,
+  ClipboardList
 } from 'lucide-react';
 import { DarkModeToggle } from './layout/DarkModeToggle';
 
@@ -33,6 +34,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'simulator', label: 'آزمایشگاه آدیوگرام', icon: Activity },
     { id: 'tools', label: 'ابزارهای محاسباتی', icon: Calculator },
     { id: 'cases', label: 'مطالعات موردی', icon: Stethoscope },
+    { id: 'exams', label: 'آزمون‌های هفتگی', icon: ClipboardList },
     { id: 'aitutor', label: 'دستیار هوشمند', icon: Sparkles, badge: 'AI' },
   ];
 

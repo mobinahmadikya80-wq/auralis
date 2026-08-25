@@ -34,6 +34,7 @@ const AboutPage = lazy(() => import('./components/pages/AboutPage').then(m => ({
 const ContactPage = lazy(() => import('./components/pages/ContactPage').then(m => ({ default: m.ContactPage })));
 const SearchPage = lazy(() => import('./components/pages/SearchPage').then(m => ({ default: m.SearchPage })));
 const NotFoundPage = lazy(() => import('./components/pages/NotFoundPage').then(m => ({ default: m.NotFoundPage })));
+const ExamsPage = lazy(() => import('./components/pages/ExamsPage').then(m => ({ default: m.ExamsPage })));
 
 import { MouseSpotlight } from './components/motion/MouseSpotlight';
 import { PageTransition } from './components/motion/PageTransition';
@@ -248,6 +249,10 @@ export default function App() {
 
             {activeTab === 'cases' && (
               <ClinicalCasesView />
+            )}
+
+            {activeTab === 'exams' && (
+              <ExamsPage />
             )}
 
             {activeTab === 'aitutor' && (

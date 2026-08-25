@@ -51,6 +51,7 @@ const announcementFiles = import.meta.glob('/src/content/announcements/*.md', { 
 const downloadFiles = import.meta.glob('/src/content/downloads/*.md', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>;
 const resourceFiles = import.meta.glob('/src/content/resources/*.md', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>;
 const caseFiles = import.meta.glob('/src/content/cases/*.md', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>;
+const examFiles = import.meta.glob('/src/content/exams/*.md', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>;
 
 export interface CourseMaterialItem {
   title: string;
@@ -251,6 +252,10 @@ export function getCourseDerivedResourceEntries(): Array<{
 
 export function getCaseFiles(): Record<string, string> {
   return caseFiles;
+}
+
+export function getExamFiles(): Record<string, string> {
+  return examFiles;
 }
 
 export { parseFrontmatter };

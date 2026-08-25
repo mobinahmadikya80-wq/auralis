@@ -108,3 +108,23 @@ export interface NoteItem {
   updatedAt: string;
   resourceId?: string;
 }
+
+export interface WeeklyExam {
+  id: string;
+  title: string;
+  topic: string;
+  dateGenerated: string; // ISO date, e.g. "2026-08-24"
+  durationMinutes: number;
+  mcqQuestions: {
+    id: string;
+    question: string;
+    options: string[];
+    correctIndex: number;
+    explanation: string;
+  }[];
+  essayQuestions: {
+    id: string;
+    question: string;
+    modelAnswerPoints: string[];
+  }[];
+}

@@ -7,7 +7,8 @@ import {
   Stethoscope, 
   Sparkles, 
   Bookmark,
-  Home
+  Home,
+  ClipboardList
 } from 'lucide-react';
 
 interface FloatingDockProps {
@@ -27,6 +28,7 @@ export const FloatingDock: React.FC<FloatingDockProps> = ({
     { id: 'simulator', label: 'آزمایشگاه', icon: Activity },
     { id: 'tools', label: 'ابزارها', icon: Calculator },
     { id: 'cases', label: 'موارد', icon: Stethoscope },
+    { id: 'exams', label: 'آزمون‌ها', icon: ClipboardList },
     { id: 'aitutor', label: 'دستیار AI', icon: Sparkles, highlight: true },
     { id: 'saved', label: 'ذخیره‌ها', icon: Bookmark, count: savedCount },
   ];

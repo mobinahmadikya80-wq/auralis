@@ -21,7 +21,8 @@ import {
   Info,
   Mail,
   Search,
-  ChevronRight
+  ChevronRight,
+  ClipboardList
 } from 'lucide-react';
 
 interface SidebarDrawerProps {
@@ -58,6 +59,7 @@ export const SidebarDrawer: React.FC<SidebarDrawerProps> = ({
         { id: 'simulator', label: 'شبیه‌ساز آدیوگرام', icon: Activity, desc: 'آزمایشگاه آدیوگرام تن خالص' },
         { id: 'tools', label: 'ماشین‌حساب‌های بالینی', icon: Calculator, desc: 'ابزارهای SII، نویز و RETSPL' },
         { id: 'cases', label: 'موارد بالینی', icon: Stethoscope, desc: 'بسته تشخیصی بیماران' },
+        { id: 'exams', label: 'آزمون‌های هفتگی', icon: ClipboardList, desc: 'آزمون تولیدشده با هوش مصنوعی' },
         { id: 'aitutor', label: 'دستیار هوشمند بالینی', icon: Sparkles, desc: 'مدرس مجهز به هوش مصنوعی', badge: 'AI' },
       ]
     },
