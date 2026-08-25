@@ -1,0 +1,44 @@
+name: Weekly AI Content Generator
+
+# Runs every Sunday at 05:00 UTC (~08:30 Tehran time) and can also be
+# triggered manually from the Actions tab for testing.
+on:
+  schedule:
+    - cron: '0 5 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-and-publish:
+    name: Generate weekly case + exam, commit & push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install js-yaml (only dependency the script needs)
+        run: npm install --no-save js-yaml
+
+      - name: Generate new case + exam via Gemini
+        env:
+          GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
+        run: node scripts/generate-weekly-content.mjs
+
+      - name: Commit and push new content
+        run: |
+          git config user.name "Auralis AI Content Bot"
+          git config user.email "actions@github.com"
+          git add src/content/cases src/content/exams
+          if git diff --cached --quiet; then
+            echo "No new content generated, nothing to commit."
+          else
+            git commit -m "🤖 افزودن خودکار مورد بالینی و آزمون هفتگی جدید"
+            git push
+          fi
