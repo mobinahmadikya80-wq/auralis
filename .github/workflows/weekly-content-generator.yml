@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   generate-and-publish:
@@ -32,13 +33,26 @@ jobs:
         run: node scripts/generate-weekly-content.mjs
 
       - name: Commit and push new content
+        id: commit
         run: |
           git config user.name "Auralis AI Content Bot"
           git config user.email "actions@github.com"
           git add src/content/cases src/content/exams
           if git diff --cached --quiet; then
             echo "No new content generated, nothing to commit."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "🤖 افزودن خودکار مورد بالینی و آزمون هفتگی جدید"
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      # A push made with the default GITHUB_TOKEN does NOT automatically
+      # trigger other workflows (GitHub's built-in loop-prevention). So we
+      # explicitly kick off the site build/deploy workflow here — otherwise
+      # the new content would sit in the repo without ever going live.
+      - name: Trigger site rebuild & deploy
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run ci-cd.yml --ref main
