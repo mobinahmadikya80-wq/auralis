@@ -23,6 +23,7 @@ import { TiltCard } from '../motion/TiltCard';
 import { Magnetic } from '../motion/Magnetic';
 import { getCourses } from '../../content/loader';
 import { assetUrl } from '../../utils/assetPath';
+import { CourseScrollShowcase } from '../motion/CourseScrollShowcase';
 
 interface HomePageProps {
   onNavigate: (tab: string) => void;
@@ -122,34 +123,21 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource
                 </button>
               </Magnetic>
             </div>
-
-            {/* Direct course-icon shortcuts */}
-            {coursesWithIcons.length > 0 && (
-              <div className="flex flex-wrap items-center gap-2.5 pt-1">
-                {coursesWithIcons.map((course) => (
-                  <Magnetic key={course.id} strength={0.2}>
-                    <button
-                      onClick={() => onNavigateToCourse(course.id)}
-                      title={course.title}
-                      aria-label={course.title}
-                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-zinc-700 hover:border-cyan-400 hover:scale-110 transition-all shadow-md cursor-pointer"
-                    >
-                      <img
-                        src={assetUrl(course.icon)}
-                        alt={course.title}
-                        className="w-full h-full object-cover"
-                      />
-                    </button>
-                  </Magnetic>
-                ))}
-              </div>
-            )}
           </div>
 
           {/* Decorative ambient orb */}
           <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
         </section>
       </ScrollReveal>
+
+      {/* Course Scroll Showcase — Awwwards-style pinned scrollytelling */}
+      {coursesWithIcons.length > 0 && (
+        <CourseScrollShowcase
+          courses={coursesWithIcons}
+          onNavigateToCourse={onNavigateToCourse}
+          onSkip={() => onNavigate('courses')}
+        />
+      )}
 
       {/* Stats Counter Bar */}
       <ScrollReveal direction="up" delay={0.1}>
