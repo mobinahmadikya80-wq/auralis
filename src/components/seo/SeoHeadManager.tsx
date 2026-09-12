@@ -80,11 +80,6 @@ const TAB_SEO_DATA: Record<string, { title: string; description: string; path: s
     description: 'Interactive diagnostic case batteries with otoscopy images, tympanometry curves, ABR waveforms, and final patient management plans.',
     path: 'cases',
   },
-  aitutor: {
-    title: 'Gemini AI Clinical Tutor & Assistant — Auralis Audiology',
-    description: 'Consult our AI Clinical Tutor for instant diagnostic guidance, electrophysiology explanation, and literature synthesis.',
-    path: 'aitutor',
-  },
   saved: {
     title: 'Saved Bookmarks & Personal Clinical Notes — Auralis',
     description: 'Your saved audiological resources, bookmarked papers, and personal diagnostic case notes.',

@@ -5,7 +5,6 @@ import {
   Activity, 
   Calculator, 
   Stethoscope, 
-  Sparkles, 
   Bookmark,
   Home,
   ClipboardList
@@ -29,7 +28,6 @@ export const FloatingDock: React.FC<FloatingDockProps> = ({
     { id: 'tools', label: 'ابزارها', icon: Calculator },
     { id: 'cases', label: 'موارد', icon: Stethoscope },
     { id: 'exams', label: 'آزمون‌ها', icon: ClipboardList },
-    { id: 'aitutor', label: 'دستیار AI', icon: Sparkles, highlight: true },
     { id: 'saved', label: 'ذخیره‌ها', icon: Bookmark, count: savedCount },
   ];
 
@@ -54,8 +52,6 @@ export const FloatingDock: React.FC<FloatingDockProps> = ({
             className={`relative flex flex-col items-center justify-center px-2.5 py-1.5 rounded-xl cursor-pointer group ${
               isActive
                 ? 'bg-cyan-500 text-zinc-950 font-bold shadow-lg shadow-cyan-500/25'
-                : item.highlight
-                ? 'text-indigo-400 hover:text-indigo-300 hover:bg-indigo-500/10'
                 : 'text-zinc-400 hover:text-white hover:bg-zinc-800/60'
             }`}
           >

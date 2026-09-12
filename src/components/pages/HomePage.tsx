@@ -63,13 +63,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource
       tab: 'tools',
       color: 'from-emerald-500 to-teal-600',
     },
-    {
-      title: 'دستیار هوشمند بالینی',
-      desc: 'برای سوالات مربوط به الکتروفیزیولوژی، لیتنسی ABR و مسائل دهلیزی از دستیار هوش مصنوعی ما کمک بگیرید.',
-      icon: Sparkles,
-      tab: 'aitutor',
-      color: 'from-purple-500 to-pink-600',
-    },
   ];
 
   return (

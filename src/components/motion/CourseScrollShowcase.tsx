@@ -40,7 +40,7 @@ const ShowcaseSlide: React.FC<{
 
   const opacity = useTransform(progress, [start, inEnd, outStart, end], [0, 1, 1, 0]);
   const y = useTransform(progress, [start, inEnd, outStart, end], [40, 0, 0, -40]);
-  const iconScale = useTransform(progress, [start, mid, end], [0.85, 1, 0.85]);
+  const iconScale = useTransform(progress, [start, mid, end], [0.55, 1.25, 0.55]);
   const iconRotate = useTransform(progress, [start, end], [-6, 6]);
 
   return (
@@ -55,7 +55,7 @@ const ShowcaseSlide: React.FC<{
       >
         <motion.span
           style={{ scale: iconScale, rotate: iconRotate }}
-          className="shrink-0 w-28 h-28 sm:w-36 sm:h-36 rounded-[2rem] overflow-hidden border-2 border-cyan-400/40 shadow-[0_0_40px_rgba(34,211,238,0.15)] group-hover:border-cyan-400 transition-colors"
+          className="shrink-0 w-40 h-40 sm:w-56 sm:h-56 rounded-[2.5rem] overflow-hidden border-2 border-cyan-400/40 shadow-[0_0_60px_rgba(34,211,238,0.2)] group-hover:border-cyan-400 transition-colors"
         >
           {course.icon && (
             <img src={assetUrl(course.icon)} alt="" className="w-full h-full object-cover" />

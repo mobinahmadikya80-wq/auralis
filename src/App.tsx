@@ -17,7 +17,6 @@ const InteractiveEarAnatomy = lazy(() => import('./components/InteractiveEarAnat
 const AudiogramSimulator = lazy(() => import('./components/AudiogramSimulator').then(m => ({ default: m.AudiogramSimulator })));
 const ToolsSuite = lazy(() => import('./components/ToolsSuite').then(m => ({ default: m.ToolsSuite })));
 const ClinicalCasesView = lazy(() => import('./components/ClinicalCasesView').then(m => ({ default: m.ClinicalCasesView })));
-const AiTutor = lazy(() => import('./components/AiTutor').then(m => ({ default: m.AiTutor })));
 const SavedWorkspace = lazy(() => import('./components/SavedWorkspace').then(m => ({ default: m.SavedWorkspace })));
 
 const CoursesPage = lazy(() => import('./components/pages/CoursesPage').then(m => ({ default: m.CoursesPage })));
@@ -253,10 +252,6 @@ export default function App() {
 
             {activeTab === 'exams' && (
               <ExamsPage />
-            )}
-
-            {activeTab === 'aitutor' && (
-              <AiTutor />
             )}
 
             {activeTab === 'saved' && (

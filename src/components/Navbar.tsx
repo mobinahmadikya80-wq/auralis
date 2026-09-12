@@ -5,7 +5,6 @@ import {
   Activity, 
   Calculator, 
   Stethoscope, 
-  Sparkles, 
   Bookmark, 
   BrainCircuit,
   Command,
@@ -35,7 +34,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'tools', label: 'ابزارهای محاسباتی', icon: Calculator },
     { id: 'cases', label: 'مطالعات موردی', icon: Stethoscope },
     { id: 'exams', label: 'آزمون‌های هفتگی', icon: ClipboardList },
-    { id: 'aitutor', label: 'دستیار هوشمند', icon: Sparkles, badge: 'AI' },
   ];
 
   return (
@@ -89,11 +87,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                 >
                   <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-cyan-500' : ''}`} />
                   <span>{item.label}</span>
-                  {item.badge && (
-                    <span className="text-[9px] font-bold px-1.5 py-0.2 rounded bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
-                      {item.badge}
-                    </span>
-                  )}
                 </button>
               );
             })}

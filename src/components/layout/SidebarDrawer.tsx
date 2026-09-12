@@ -6,7 +6,6 @@ import {
   Activity, 
   Calculator, 
   Stethoscope, 
-  Sparkles, 
   Bookmark, 
   BrainCircuit,
   GraduationCap,
@@ -60,7 +59,6 @@ export const SidebarDrawer: React.FC<SidebarDrawerProps> = ({
         { id: 'tools', label: 'ماشین‌حساب‌های بالینی', icon: Calculator, desc: 'ابزارهای SII، نویز و RETSPL' },
         { id: 'cases', label: 'موارد بالینی', icon: Stethoscope, desc: 'بسته تشخیصی بیماران' },
         { id: 'exams', label: 'آزمون‌های هفتگی', icon: ClipboardList, desc: 'آزمون تولیدشده با هوش مصنوعی' },
-        { id: 'aitutor', label: 'دستیار هوشمند بالینی', icon: Sparkles, desc: 'مدرس مجهز به هوش مصنوعی', badge: 'AI' },
       ]
     },
     {
@@ -151,11 +149,6 @@ export const SidebarDrawer: React.FC<SidebarDrawerProps> = ({
                         <div>
                           <div className="text-xs font-semibold flex items-center gap-1.5">
                             <span>{item.label}</span>
-                            {item.badge && (
-                              <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-indigo-500/20 text-indigo-400">
-                                {item.badge}
-                              </span>
-                            )}
                           </div>
                         </div>
                       </div>

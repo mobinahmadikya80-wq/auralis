@@ -116,11 +116,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   موارد بالینی بیماران
                 </button>
               </li>
-              <li>
-                <button onClick={() => onNavigate('aitutor')} className="hover:text-cyan-500 transition-colors text-left">
-                  دستیار هوشمند بالینی
-                </button>
-              </li>
             </ul>
           </div>
 
