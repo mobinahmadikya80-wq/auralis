@@ -26,7 +26,7 @@ syllabus:
 enrolled: 0
 videos:
   - title: "جلسه 1: مقدمات شنوایی‌شناسی صنعتی"
-    fileUrl: https://tumsaud.ir/term4/arzyabi-paye/videos/session2.mp4
+    fileUrl: https://tumsaud.ir/term5/CAPD/VOICES/session1.m4a
   - title: "جلسه 2: صدا و اندازه‌گیری نویز"
     fileUrl: https://example.com/auralis/21/videos/session-02
   - title: "جلسه 3: استانداردهای OSHA و NIOSH"
