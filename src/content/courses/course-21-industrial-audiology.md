@@ -25,25 +25,25 @@ syllabus:
   - ارزیابی مواجهه شغلی با صدا
 enrolled: 0
 videos:
-  - title: "جلسه 1: مقدمات شنوایی‌شناسی صنعتی"
+  - title: جلسه 1
     fileUrl: https://tumsaud.ir/term5/CAPD/VOICES/session1.m4a
-  - title: "جلسه 2: صدا و اندازه‌گیری نویز"
+  - title: جلسه 2
     fileUrl: https://example.com/auralis/21/videos/session-02
-  - title: "جلسه 3: استانداردهای OSHA و NIOSH"
+  - title: "جلسه 3 "
     fileUrl: https://example.com/auralis/21/videos/session-03
-  - title: "جلسه 4: دوز صدا و TWA"
+  - title: جلسه 4
     fileUrl: https://example.com/auralis/21/videos/session-04
-  - title: "جلسه 5: حفاظت شنوایی فردی"
+  - title: جلسه 5
     fileUrl: https://example.com/auralis/21/videos/session-05
-  - title: "جلسه 6: برنامه حفاظت شنوایی کارگاهی"
+  - title: جلسه 6
     fileUrl: https://example.com/auralis/21/videos/session-06
-  - title: "جلسه 7: ادیومتری صنعتی"
+  - title: جلسه 7
     fileUrl: https://example.com/auralis/21/videos/session-07
-  - title: "جلسه 8: پایش دوره‌ای شنوایی"
+  - title: جلسه 8
     fileUrl: https://example.com/auralis/21/videos/session-08
-  - title: "جلسه 9: گزارش‌دهی و مستندسازی"
+  - title: جلسه 9
     fileUrl: https://example.com/auralis/21/videos/session-09
-  - title: "جلسه 10: مطالعه موردی کارخانه"
+  - title: جلسه 10
     fileUrl: https://example.com/auralis/21/videos/session-10
 slides:
   - title: "جلسه 1: مقدمات شنوایی‌شناسی صنعتی"
