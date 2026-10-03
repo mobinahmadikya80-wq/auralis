@@ -37,43 +37,11 @@ videos:
     fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/VOICES/session1.m4a
   - title: جلسه 2
     fileUrl: https://example.com/auralis/25/videos/session-02
-  - title: جلسه 3
-    fileUrl: https://example.com/auralis/25/videos/session-03
-  - title: جلسه 4
-    fileUrl: https://example.com/auralis/25/videos/session-04
-  - title: جلسه 5
-    fileUrl: https://example.com/auralis/25/videos/session-05
-  - title: جلسه 6
-    fileUrl: https://example.com/auralis/25/videos/session-06
-  - title: جلسه 7
-    fileUrl: https://example.com/auralis/25/videos/session-07
-  - title: جلسه 8
-    fileUrl: https://example.com/auralis/25/videos/session-08
-  - title: جلسه 9
-    fileUrl: https://example.com/auralis/25/videos/session-09
-  - title: جلسه 10
-    fileUrl: https://example.com/auralis/25/videos/session-10
 slides:
-  - title: "جلسه 1: اصول تربیت شنوایی"
-    fileUrl: https://example.com/auralis/25/slides/session-01
-  - title: "جلسه 2: مراحل شنیدن و تمایز"
-    fileUrl: https://example.com/auralis/25/slides/session-02
-  - title: "جلسه 3: تمرین تشخیص صدا"
-    fileUrl: https://example.com/auralis/25/slides/session-03
-  - title: "جلسه 4: درک گفتار در سکوت"
-    fileUrl: https://example.com/auralis/25/slides/session-04
-  - title: "جلسه 5: درک گفتار در نویز"
-    fileUrl: https://example.com/auralis/25/slides/session-05
-  - title: "جلسه 6: تربیت شنوایی کودکان"
-    fileUrl: https://example.com/auralis/25/slides/session-06
-  - title: "جلسه 7: تربیت شنوایی بزرگسالان"
-    fileUrl: https://example.com/auralis/25/slides/session-07
-  - title: "جلسه 8: نرم‌افزار و اپ‌های تمرین"
-    fileUrl: https://example.com/auralis/25/slides/session-08
-  - title: "جلسه 9: پروتکل جلسات"
-    fileUrl: https://example.com/auralis/25/slides/session-09
-  - title: "جلسه 10: ارزیابی پیشرفت"
-    fileUrl: https://example.com/auralis/25/slides/session-10
+  - title: جلسه 1
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_%d9%8fSlide_Session%201.pdf
+  - title: جلسه 2
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_%d9%8fSlide_Session%201.pdf
 notes:
   - title: "جلسه 1: اصول تربیت شنوایی"
     fileUrl: https://example.com/auralis/25/notes/session-01
