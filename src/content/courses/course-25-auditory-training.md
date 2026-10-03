@@ -42,25 +42,5 @@ slides:
     fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_%d9%8fSlide_Session%201.pdf
   - title: جلسه 2
     fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_%d9%8fSlide_Session%201.pdf
-notes:
-  - title: "جلسه 1: اصول تربیت شنوایی"
-    fileUrl: https://example.com/auralis/25/notes/session-01
-  - title: "جلسه 2: مراحل شنیدن و تمایز"
-    fileUrl: https://example.com/auralis/25/notes/session-02
-  - title: "جلسه 3: تمرین تشخیص صدا"
-    fileUrl: https://example.com/auralis/25/notes/session-03
-  - title: "جلسه 4: درک گفتار در سکوت"
-    fileUrl: https://example.com/auralis/25/notes/session-04
-  - title: "جلسه 5: درک گفتار در نویز"
-    fileUrl: https://example.com/auralis/25/notes/session-05
-  - title: "جلسه 6: تربیت شنوایی کودکان"
-    fileUrl: https://example.com/auralis/25/notes/session-06
-  - title: "جلسه 7: تربیت شنوایی بزرگسالان"
-    fileUrl: https://example.com/auralis/25/notes/session-07
-  - title: "جلسه 8: نرم‌افزار و اپ‌های تمرین"
-    fileUrl: https://example.com/auralis/25/notes/session-08
-  - title: "جلسه 9: پروتکل جلسات"
-    fileUrl: https://example.com/auralis/25/notes/session-09
-  - title: "جلسه 10: ارزیابی پیشرفت"
-    fileUrl: https://example.com/auralis/25/notes/session-10
+notes: []
 ---
