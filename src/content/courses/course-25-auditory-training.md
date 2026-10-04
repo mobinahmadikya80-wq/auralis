@@ -36,7 +36,7 @@ videos:
   - title: جلسه 1
     fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/VOICES/session1.m4a
   - title: جلسه 2
-    fileUrl: https://example.com/auralis/25/videos/session-02
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/VOICES/session2.mp4
 slides:
   - title: جلسه 1
     fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_%d9%8fSlide_Session%201.pdf
