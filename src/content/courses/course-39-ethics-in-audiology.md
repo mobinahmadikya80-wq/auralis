@@ -28,8 +28,10 @@ syllabus:
   - پروتکل‌های تصمیم‌گیری اخلاقی
 enrolled: 0
 videos:
-  - title: جلسه 1
-    fileUrl: .
+  - title: جلسه 1 پارت 1
+    fileUrl: https://tumsaud.ir/term5/akhlagh/voices/session1-part1.mp3
+  - title: جلسه 1 پارت 2
+    fileUrl: https://tumsaud.ir/term5/akhlagh/voices/session1-part2.mp3
 slides: []
 notes: []
 ---
