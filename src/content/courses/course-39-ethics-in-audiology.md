@@ -55,5 +55,7 @@ slides:
     fileUrl: https://tumsaud.ir/term5/akhlagh/slides/9.pdf
   - title: جلسه 10
     fileUrl: https://tumsaud.ir/term5/akhlagh/slides/10.pdf
+  - title: کتاب
+    fileUrl: https://tumsaud.ir/term5/akhlagh/slides/ketab.pdf
 notes: []
 ---
