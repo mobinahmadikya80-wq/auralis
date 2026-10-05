@@ -32,6 +32,28 @@ videos:
     fileUrl: https://tumsaud.ir/term5/akhlagh/voices/session1-part1.mp3
   - title: جلسه 1 پارت 2
     fileUrl: https://tumsaud.ir/term5/akhlagh/voices/session1-part2.mp3
-slides: []
+  - title: جلسه دوم
+    fileUrl: https://tumsaud.ir/term5/akhlagh/voices/session2.mp4
+slides:
+  - title: جلسه یک
+    fileUrl: https://tumsaud.ir/term5/akhlagh/slides/1.pdf
+  - title: جلسه دو
+    fileUrl: https://tumsaud.ir/term5/akhlagh/slides/2.pdf
+  - title: جلسه سه
+    fileUrl: https://tumsaud.ir/term5/akhlagh/slides/3.pdf
+  - title: جلسه چهار
+    fileUrl: https://tumsaud.ir/term5/akhlagh/slides/4.pdf
+  - title: جلسه پنج
+    fileUrl: https://tumsaud.ir/term5/akhlagh/slides/5.pdf
+  - title: جلسه شش
+    fileUrl: https://tumsaud.ir/term5/akhlagh/slides/6.pdf
+  - title: جلسه هفت
+    fileUrl: https://tumsaud.ir/term5/akhlagh/slides/7.pdf
+  - title: جلسه هشت
+    fileUrl: https://tumsaud.ir/term5/akhlagh/slides/8.pdf
+  - title: جلسه نه
+    fileUrl: https://tumsaud.ir/term5/akhlagh/slides/9.pdf
+  - title: جلسه 10
+    fileUrl: https://tumsaud.ir/term5/akhlagh/slides/10.pdf
 notes: []
 ---
