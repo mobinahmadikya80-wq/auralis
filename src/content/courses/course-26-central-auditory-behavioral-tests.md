@@ -35,6 +35,6 @@ slides:
   - title: جلسه 1
     fileUrl: https://tumsaud.ir/term5/CAPD/SLIDES/Introduction%20.1405.pdf
   - title: جلسه 1 پارت دو
-    fileUrl: https://tumsaud.ir/term5/CAPD/SLIDES/Introduction%20.1405.pdf
+    fileUrl: https://tumsaud.ir/term5/CAPD/SLIDES/tests.1405.pdf
 notes: []
 ---
