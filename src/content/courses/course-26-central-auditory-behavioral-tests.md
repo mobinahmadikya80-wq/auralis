@@ -36,5 +36,7 @@ slides:
     fileUrl: https://tumsaud.ir/term5/CAPD/SLIDES/Introduction%20.1405.pdf
   - title: جلسه 1 پارت دو
     fileUrl: https://tumsaud.ir/term5/CAPD/SLIDES/tests.1405.pdf
+  - title: "جزوه "
+    fileUrl: https://tumsaud.ir/term5/CAPD/SLIDES/capd405-msc.pdf
 notes: []
 ---
