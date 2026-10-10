@@ -33,6 +33,8 @@ videos:
     fileUrl: https://tumsaud.ir/term5/CAPD/VOICES/session2.m4a
   - title: جلسه 3
     fileUrl: https://tumsaud.ir/term5/CAPD/VOICES/session3.m4a
+  - title: جلسه 4
+    fileUrl: https://tumsaud.ir/term5/CAPD/VOICES/session4.mp4
 slides:
   - title: جلسه 1
     fileUrl: https://tumsaud.ir/term5/CAPD/SLIDES/Introduction%20.1405.pdf
