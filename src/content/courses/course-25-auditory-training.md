@@ -37,6 +37,10 @@ videos:
     fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/VOICES/session1.m4a
   - title: جلسه 2
     fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/VOICES/session2.mp4
+  - title: جلسه 4
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/VOICES/session4.mp4
+  - title: جلسه 3
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/VOICES/session3.mp4
 slides:
   - title: جلسه 1
     fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_%d9%8fSlide_Session%201.pdf
