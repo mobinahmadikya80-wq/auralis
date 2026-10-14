@@ -32,6 +32,10 @@ enrolled: 0
 videos:
   - title: جلسه 1
     fileUrl: https://tumsaud.ir/term5/zabanamoozi/voices/session1.m4a
+  - title: جلسه 2
+    fileUrl: https://tumsaud.ir/term5/zabanamoozi/voices/session2.mp4
+  - title: جلسه 3
+    fileUrl: https://tumsaud.ir/term5/zabanamoozi/voices/session3.mp4
 slides:
   - title: جلسه 1
     fileUrl: https://tumsaud.ir/term5/zabanamoozi/slides/zaban%20amoozi%201th%20session.pdf
