@@ -41,5 +41,7 @@ videos:
 slides:
   - title: جلسه 1
     fileUrl: https://tumsaud.ir/term5/zabanamoozi/slides/zaban%20amoozi%201th%20session.pdf
+  - title: جلسه 2
+    fileUrl: https://tumsaud.ir/term5/zabanamoozi/slides/session2.pdf
 notes: []
 ---
