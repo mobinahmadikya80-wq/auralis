@@ -37,6 +37,14 @@ videos:
     fileUrl: https://tumsaud.ir/term5/CAPD/VOICES/session4.mp4
   - title: جلسه 5
     fileUrl: https://tumsaud.ir/term5/CAPD/VOICES/session5.m4a
+  - title: SSW
+    fileUrl: https://tumsaud.ir/term5/CAPD/files%20of%20myan%20term/SSW.mp4
+  - title: Pysical features of speech signals
+    fileUrl: https://tumsaud.ir/term5/CAPD/files%20of%20myan%20term/Pysical%20features%20of%20speech%20signals.mp4
+  - title: Effect of CANS disorders
+    fileUrl: https://tumsaud.ir/term5/CAPD/files%20of%20myan%20term/Effect%20of%20CANS%20disorders.mp4
+  - title: Binaural separation
+    fileUrl: https://tumsaud.ir/term5/CAPD/files%20of%20myan%20term/Binaural%20separation.mp4
 slides:
   - title: جلسه 1
     fileUrl: https://tumsaud.ir/term5/CAPD/SLIDES/Introduction%20.1405.pdf
