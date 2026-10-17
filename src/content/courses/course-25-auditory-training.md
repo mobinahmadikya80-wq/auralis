@@ -50,5 +50,39 @@ slides:
     fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_%d9%8fSlide_Session%201.pdf
   - title: جلسه 2
     fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_%d9%8fSlide_Session%201.pdf
+  - title: جلسه 3
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_%d9%8fSlide_Session%203.pdf
+  - title: جلسه 3.2
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_%d9%8fSlide_Session3_%202.pptx
+  - title: جلسه 4
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_Slide_Ssetion%204.pdf
+  - title: جلسه 4.2
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_%d9%8fSlide_Session4_2.pptx
+  - title: جلسه 5
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_Slide_Session%205.pdf
+  - title: جلسه 5.2
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_Slide_Session%205.2.pdf
+  - title: جلسه 6
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_Slide_Session%206.pdf
+  - title: جلسه 6.2
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training6.2.pptx
+  - title: جلسه 7
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_Slides_Session%207.pdf
+  - title: جلسه 8
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_Slides_Session%208.pdf
+  - title: جلسه 9
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_Slides_Session%209.pdf
+  - title: جلسه 10
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_Slides_Session%2010.1.pdf
+  - title: جلسه 10.2
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_Slide_Session%2010.2.pptx
+  - title: جلسه 11
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_Slide_Session%2011.pdf
+  - title: جلسه 12
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_Slide_Session12.pdf
+  - title: جلسه 13
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_Slide_Session%2013.pdf
+  - title: جلسه 14
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_Slide_Session14.pdf
 notes: []
 ---
