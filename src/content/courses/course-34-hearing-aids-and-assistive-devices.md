@@ -40,8 +40,10 @@ videos:
     fileUrl: https://tumsaud.ir/term5/samak-1/VOICES/session2-part1.m4a
   - title: جلسه 2 پارت 2
     fileUrl: https://tumsaud.ir/term5/samak-1/VOICES/session2-part2.m4a
-  - title: جلسه 3
-    fileUrl: https://tumsaud.ir/term5/CAPD/VOICES/session6.mp3
+  - title: جلسه 3 پارت 1
+    fileUrl: https://tumsaud.ir/term5/samak-1/VOICES/session3-part1.m4a
+  - fileUrl: https://tumsaud.ir/term5/samak-1/VOICES/session3-part2.m4a
+    title: جلسه 3 پارت 2
 slides: []
 notes: []
 ---
