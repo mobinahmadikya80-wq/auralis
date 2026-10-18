@@ -45,6 +45,8 @@ videos:
     fileUrl: https://tumsaud.ir/term5/CAPD/files%20of%20myan%20term/Effect%20of%20CANS%20disorders.mp4
   - title: Binaural separation
     fileUrl: https://tumsaud.ir/term5/CAPD/files%20of%20myan%20term/Binaural%20separation.mp4
+  - title: جلسه 6
+    fileUrl: https://tumsaud.ir/term5/CAPD/VOICES/session6.mp3
 slides:
   - title: جلسه 1
     fileUrl: https://tumsaud.ir/term5/CAPD/SLIDES/Introduction%20.1405.pdf
