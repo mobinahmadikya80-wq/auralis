@@ -34,6 +34,10 @@ videos:
     fileUrl: https://tumsaud.ir/term5/akhlagh/voices/session1-part2.mp3
   - title: جلسه دوم
     fileUrl: https://tumsaud.ir/term5/akhlagh/voices/session2.mp4
+  - title: جلسه سوم
+    fileUrl: https://tumsaud.ir/term5/akhlagh/voices/session3.mp4
+  - title: "جلسه چهارم "
+    fileUrl: https://tumsaud.ir/term5/akhlagh/voices/session4.m4a
 slides:
   - title: جلسه یک
     fileUrl: https://tumsaud.ir/term5/akhlagh/slides/1.pdf
