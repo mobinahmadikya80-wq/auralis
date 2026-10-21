@@ -26,6 +26,8 @@ enrolled: 0
 videos:
   - title: جلسه 1
     fileUrl: https://tumsaud.ir/term5/OAE/VOICES/session1.m4a
+  - title: جلسه 2
+    fileUrl: https://tumsaud.ir/term5/OAE/VOICES/session2.mp3
 slides: []
 notes: []
 ---
