@@ -49,6 +49,18 @@ videos:
     fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/VOICES/session7.m4a
   - title: "جلسه 8 "
     fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/VOICES/session8.mp3
+  - title: ضمیمه 10
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/addendum/Auditory%20Training_Video_Session%2010.mp4
+  - title: ضمیمه 11
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/addendum/Auditory%20Training_Video_Session%2011.mp4
+  - title: ضمیمه 12
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/addendum/Auditory%20Training_Video_Session12.rar
+  - title: ضمیمه 13-1
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/addendum/Auditory%20Training_Video_Session%2013-1.rar
+  - title: ضمیمه 13-2
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/addendum/Auditory%20Training_Video_Session%2013-2.rar
+  - title: ضمیمه 14
+    fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/addendum/Auditory%20Training_Video_Session14.rar
 slides:
   - title: جلسه 1
     fileUrl: https://tumsaud.ir/term5/TARBIAT-SHENAVAEI/SLIDES/Auditory%20Training_%d9%8fSlide_Session%201.pdf
