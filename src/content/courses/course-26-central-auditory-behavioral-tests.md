@@ -54,5 +54,9 @@ slides:
     fileUrl: https://tumsaud.ir/term5/CAPD/SLIDES/tests.1405.pdf
   - title: "جزوه "
     fileUrl: https://tumsaud.ir/term5/CAPD/SLIDES/capd405-msc.pdf
+  - title: CHAPS
+    fileUrl: https://tumsaud.ir/term5/CAPD/SLIDES/CHAPS%20(1).pdf
+  - title: Fisher&Sifter
+    fileUrl: https://tumsaud.ir/term5/CAPD/SLIDES/Fisher&Sifter.pdf
 notes: []
 ---
