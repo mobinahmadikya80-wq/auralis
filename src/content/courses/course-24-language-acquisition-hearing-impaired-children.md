@@ -43,5 +43,7 @@ slides:
     fileUrl: https://tumsaud.ir/term5/zabanamoozi/slides/zaban%20amoozi%201th%20session.pdf
   - title: جلسه 2
     fileUrl: https://tumsaud.ir/term5/zabanamoozi/slides/session2.pdf
+  - title: جلسه 4
+    fileUrl: https://tumsaud.ir/term5/zabanamoozi/slides/session4.pdf
 notes: []
 ---
