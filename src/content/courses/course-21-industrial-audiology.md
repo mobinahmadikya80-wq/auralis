@@ -36,9 +36,9 @@ videos:
   - title: جلسه 3 پارت 2
     fileUrl: https://tumsaud.ir/term5/SHENAVAIE-SANATI/VOICES/session3-part2.m4a
   - title: جلسه 4 پارت 1
-    fileUrl: https://tumsaud.ir/term5/samak-1/VOICES/session4-part1.m4a
+    fileUrl: https://tumsaud.ir/term5/SHENAVAIE-SANATI/VOICES/session4-part1.m4a
   - title: جلسه 4 پارت 2
-    fileUrl: https://tumsaud.ir/term5/samak-1/VOICES/session4-part2.m4a
+    fileUrl: https://tumsaud.ir/term5/SHENAVAIE-SANATI/VOICES/session4-part2.m4a
 slides: []
 notes: []
 ---
