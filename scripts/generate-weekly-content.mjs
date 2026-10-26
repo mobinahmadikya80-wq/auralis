@@ -23,7 +23,7 @@ if (!GEMINI_API_KEY) {
   process.exit(1);
 }
 
-const GEMINI_MODEL = 'gemini-2.5-flash';
+const GEMINI_MODEL = 'gemini-3.8-flash';
 const ROOT = path.resolve(new URL('.', import.meta.url).pathname, '..');
 const CASES_DIR = path.join(ROOT, 'src/content/cases');
 const EXAMS_DIR = path.join(ROOT, 'src/content/exams');
