@@ -28,6 +28,8 @@ videos:
     fileUrl: https://tumsaud.ir/term5/OAE/VOICES/session1.m4a
   - title: جلسه 2
     fileUrl: https://tumsaud.ir/term5/OAE/VOICES/session2.mp3
+  - title: جلسه 3
+    fileUrl: https://tumsaud.ir/term5/OAE/VOICES/session3.mp3
 slides: []
 notes: []
 ---
