@@ -40,6 +40,8 @@ videos:
     fileUrl: https://tumsaud.ir/term5/zabanamoozi/voices/session4.mp3
   - title: جلسه 5
     fileUrl: https://tumsaud.ir/term5/zabanamoozi/voices/session5.mp3
+  - title: جلسه 6
+    fileUrl: https://tumsaud.ir/term5/zabanamoozi/voices/session6.m4a
 slides:
   - title: جلسه 1
     fileUrl: https://tumsaud.ir/term5/zabanamoozi/slides/zaban%20amoozi%201th%20session.pdf
