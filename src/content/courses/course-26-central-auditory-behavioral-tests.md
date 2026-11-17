@@ -51,6 +51,10 @@ videos:
     fileUrl: https://tumsaud.ir/term5/CAPD/VOICES/session7.mp3
   - title: جلسه 8
     fileUrl: https://tumsaud.ir/term5/CAPD/VOICES/session8.m4a
+  - title: جلسه نهم
+    fileUrl: https://tumsaud.ir/term5/CAPD/VOICES/Session9.m4a
+  - title: جلسه دهم
+    fileUrl: https://tumsaud.ir/term5/CAPD/VOICES/session10.m4a
 slides:
   - title: جلسه 1
     fileUrl: https://tumsaud.ir/term5/CAPD/SLIDES/Introduction%20.1405.pdf
