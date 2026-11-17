@@ -27,15 +27,15 @@ syllabus:
 enrolled: 0
 videos:
   - title: جلسه 1
-    fileUrl: https://tumsaud.ir/term5/SHENAVAIE-KOODAKAN/VOICES/session1.m4a
+    fileUrl: https://tumsaud.ir/term5/SHENAVAIE-KOODAKAN/VOICES/session1-F.m4a
   - title: جلسه 2
-    fileUrl: https://tumsaud.ir/term5/SHENAVAIE-KOODAKAN/VOICES/session2.m4a
+    fileUrl: https://tumsaud.ir/term5/SHENAVAIE-KOODAKAN/VOICES/session2-F.m4a
   - title: جلسه 2 پارت 2
-    fileUrl: https://tumsaud.ir/term5/SHENAVAIE-KOODAKAN/VOICES/session2-part2.m4a
+    fileUrl: https://tumsaud.ir/term5/SHENAVAIE-KOODAKAN/VOICES/session2-part2-F.m4a
   - title: جلسه 3
-    fileUrl: https://tumsaud.ir/term5/SHENAVAIE-KOODAKAN/VOICES/session3.m4a
+    fileUrl: https://tumsaud.ir/term5/SHENAVAIE-KOODAKAN/VOICES/session3-F.m4a
   - title: جلسه 4
-    fileUrl: https://tumsaud.ir/term5/SHENAVAIE-KOODAKAN/VOICES/session4.m4a
+    fileUrl: https://tumsaud.ir/term5/SHENAVAIE-KOODAKAN/VOICES/session4-F.m4a
   - title: جلسه 5
     fileUrl: https://tumsaud.ir/term5/SHENAVAIE-KOODAKAN/VOICES/session5-R.mp4
 slides:
