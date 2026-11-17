@@ -26,7 +26,7 @@ syllabus:
 enrolled: 0
 videos:
   - title: جلسه 1
-    fileUrl: https://tumsaud.ir/term5/CAPD/VOICES/session1.m4a
+    fileUrl: https://tumsaud.ir/term5/SHENAVAIE-SANATI/VOICES/session1.m4a
   - title: جلسه 2 پارت 1
     fileUrl: https://tumsaud.ir/term5/SHENAVAIE-SANATI/VOICES/session2-part1.m4a
   - title: جلسه 2 پارت 2
@@ -43,6 +43,10 @@ videos:
     fileUrl: https://tumsaud.ir/term5/SHENAVAIE-SANATI/VOICES/session5-part1.m4a
   - title: جلسه 5 پارت 2
     fileUrl: https://tumsaud.ir/term5/SHENAVAIE-SANATI/VOICES/session5-part2.m4a
+  - title: جلسه 6 پارت 1
+    fileUrl: https://tumsaud.ir/term5/SHENAVAIE-SANATI/VOICES/Session6-part1.m4a
+  - title: جلسه 6 پارت 2
+    fileUrl: https://tumsaud.ir/term5/SHENAVAIE-SANATI/VOICES/Session6-part2.m4a
 slides: []
 notes: []
 ---
