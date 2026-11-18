@@ -23,6 +23,13 @@
     font-family: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
   }
 
+  /* The full-bleed Helix uses 100vw, which includes the scrollbar width —
+     clip (not hide) so no horizontal scroll appears and sticky keeps working. */
+  html,
+  body {
+    overflow-x: clip;
+  }
+
   body {
     font-family: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
   }
