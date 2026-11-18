@@ -1,1 +1,457 @@
-aW1wb3J0IFJlYWN0LCB7IHVzZUNhbGxiYWNrLCB1c2VFZmZlY3QsIHVzZU1lbW8sIHVzZVJlZiwgdXNlU3RhdGUgfSBmcm9tICdyZWFjdCc7CmltcG9ydCB7IEFycm93TGVmdCwgQm9va09wZW4sIE1pY3Jvc2NvcGUsIFVwbG9hZCB9IGZyb20gJ2x1Y2lkZS1yZWFjdCc7CmltcG9ydCB7IENvdXJzZUZyb250bWF0dGVyIH0gZnJvbSAnLi4vLi4vY29udGVudC9sb2FkZXInOwppbXBvcnQgeyBnZXRSZWNlbnRVcGxvYWRzIH0gZnJvbSAnLi4vLi4vY29udGVudC9yZWNlbnRVcGxvYWRzJzsKaW1wb3J0IHsgYXNzZXRVcmwgfSBmcm9tICcuLi8uLi91dGlscy9hc3NldFBhdGgnOwoKLyoqCiAqIENvdXJzZUhlbGl4IOKAlCBIZWxpeC1zdHlsZSBzcGlyYWwgc2hvd2Nhc2UgKG1vZGVsbGVkIG9uIHRoZSAiSGVsaXgiIG1vdGlvbgogKiBmcm9tIG1vdGlvbmluLmRlc2lnbjogYW4gZW5kbGVzcyBkZXNjZW5kaW5nIHNwaXJhbCBvZiBwaG90b2dyYXBocyB3aW5kaW5nCiAqIGRvd24gYSBibGFjayB2b2lkOyBzY3JvbGxpbmcgZGVzY2VuZHMgdGhlIHNwaXJhbDsgaG92ZXJpbmcgYSBwcmludCBzd2luZ3MKICogaXQgdG8gdGhlIGNlbnRyZSBhbmQgYSBjYXB0aW9uIGJlbG93IHVwZGF0ZXMgd2l0aCBpdHMgdGl0bGUgYW5kIGEKICogIkZSQU1FIG4gLyBOIiBjb3VudGVyKS4KICoKICogVGhlIHNlY3Rpb24gaXMgYSB0YWxsIHNjcm9sbCBhcmVhICh+MzAwdmgpIHdpdGggYSBzdGlja3kgZnVsbC1zY3JlZW4KICogdmlld3BvcnQuIFNjcm9sbCBwcm9ncmVzcyByb3RhdGVzIGEgQ1NTLTNEIGhlbGl4IChwcmVzZXJ2ZS0zZCwgcm90YXRlWSAvCiAqIHRyYW5zbGF0ZVogLyB0cmFuc2xhdGVZKTsgZnJhbWVzIG9uIHRoZSBmYXIgc2lkZSBnZXQgc21hbGxlciAocGVyc3BlY3RpdmUpLAogKiBtb3JlIHRyYW5zcGFyZW50IGFuZCBzbGlnaHRseSBibHVycmVkLiBGcmFtZXMgYXJlIGJpbGxib2FyZGVkIOKAlCBlYWNoIG9uZQogKiBjb3VudGVyLXJvdGF0ZXMgc28gaXQgYWx3YXlzIGZhY2VzIHRoZSBjYW1lcmEg4oCUIHNvIHRoZSBQZXJzaWFuIHRpdGxlcyBzdGF5CiAqIHJlYWRhYmxlIGluc3RlYWQgb2YgbWlycm9yaW5nIG9uIHRoZSBmYXIgc2lkZS4gSG92ZXJpbmcgKG9yIHRhcHBpbmcpIGEKICogZnJhbWUgc3dpbmdzIGl0IHRvIHRoZSBjZW50cmU7IGNsaWNraW5nIGFuIGFscmVhZHktY2VudHJlZCBmcmFtZSBvcGVucyBpdAogKiAoY291cnNlIGRldGFpbCwgb3IgdGhlIGxhYiB0YWIpLiBUaHJlZSB0YWJzIHN3YXAgdGhlIHNwaXJhbCdzIGZyYW1lczoKICogY291cnNlcywgbGFicywgbGF0ZXN0IHVwbG9hZGVkIGxlc3NvbnMuIFJlc3BlY3RzIHByZWZlcnMtcmVkdWNlZC1tb3Rpb24KICogKHN0YXRpYyBncmlkIGZhbGxiYWNrKS4gVGhlIGFuaW1hdGlvbiBsb29wIG9ubHkgd3JpdGVzIHRyYW5zZm9ybSAvIG9wYWNpdHkKICogLyBmaWx0ZXIg4oCUIG5vIGxheW91dCB3b3JrLgogKi8KCi8qKiBPbmUgbGFiIGVudHJ5LCBhcyBkZWZpbmVkIGlubGluZSBpbiBIb21lUGFnZSAocXVpY2tGZWF0dXJlcykuICovCmV4cG9ydCBpbnRlcmZhY2UgSGVsaXhMYWIgewogIHRpdGxlOiBzdHJpbmc7CiAgZGVzYzogc3RyaW5nOwogIGljb246IFJlYWN0LkNvbXBvbmVudFR5cGU8eyBjbGFzc05hbWU/OiBzdHJpbmcgfT47CiAgdGFiOiBzdHJpbmc7CiAgLyoqIFRhaWx3aW5kIGdyYWRpZW50IGNsYXNzZXMsIGUuZy4gJ2Zyb20tY3lhbi01MDAgdG8tYmx1ZS02MDAnLiAqLwogIGNvbG9yOiBzdHJpbmc7Cn0KCmludGVyZmFjZSBDb3Vyc2VIZWxpeFByb3BzIHsKICBjb3Vyc2VzOiAoQ291cnNlRnJvbnRtYXR0ZXIgJiB7IGlkOiBzdHJpbmcgfSlbXTsKICBsYWJzOiBIZWxpeExhYltdOwogIG9uTmF2aWdhdGVUb0NvdXJzZTogKGNvdXJzZUlkOiBzdHJpbmcpID0+IHZvaWQ7CiAgb25OYXZpZ2F0ZTogKHRhYjogc3RyaW5nKSA9PiB2b2lkOwp9Cgp0eXBlIFRhYklkID0gJ2NvdXJzZXMnIHwgJ2xhYnMnIHwgJ2xhdGVzdCc7Cgp0eXBlIEhlbGl4RnJhbWUgPQogIHwgeyBraW5kOiAnY291cnNlJzsgaWQ6IHN0cmluZzsgdGl0bGU6IHN0cmluZzsgc3VidGl0bGU6IHN0cmluZzsgaW1hZ2U6IHN0cmluZzsgY291cnNlSWQ6IHN0cmluZyB9CiAgfCB7IGtpbmQ6ICdsYWInOyBpZDogc3RyaW5nOyB0aXRsZTogc3RyaW5nOyBzdWJ0aXRsZTogc3RyaW5nOyBpY29uOiBSZWFjdC5Db21wb25lbnRUeXBlPHsgY2xhc3NOYW1lPzogc3RyaW5nIH0+OyBncmFkaWVudDogc3RyaW5nOyB0YWI6IHN0cmluZyB9CiAgfCB7IGtpbmQ6ICdsYXRlc3QnOyBpZDogc3RyaW5nOyB0aXRsZTogc3RyaW5nOyBzdWJ0aXRsZTogc3RyaW5nOyBpbWFnZTogc3RyaW5nOyBjb3Vyc2VJZDogc3RyaW5nIH07Cgpjb25zdCBGQV9ESUdJVFMgPSAn27Dbsduy27PbtNu127bbt9u427knOwpjb25zdCB0b0ZhID0gKG46IG51bWJlciB8IHN0cmluZyk6IHN0cmluZyA9PgogIFN0cmluZyhuKS5yZXBsYWNlKC9cZC9nLCAoZCkgPT4gRkFfRElHSVRTW051bWJlcihkKV0pOwoKZnVuY3Rpb24gdXNlUmVkdWNlZE1vdGlvbigpOiBib29sZWFuIHsKICBjb25zdCBbcmVkdWNlZCwgc2V0UmVkdWNlZF0gPSB1c2VTdGF0ZShmYWxzZSk7CiAgdXNlRWZmZWN0KCgpID0+IHsKICAgIGNvbnN0IG1xID0gd2luZG93Lm1hdGNoTWVkaWEoJyhwcmVmZXJzLXJlZHVjZWQtbW90aW9uOiByZWR1Y2UpJyk7CiAgICBzZXRSZWR1Y2VkKG1xLm1hdGNoZXMpOwogICAgY29uc3QgaGFuZGxlciA9IChlOiBNZWRpYVF1ZXJ5TGlzdEV2ZW50KSA9PiBzZXRSZWR1Y2VkKGUubWF0Y2hlcyk7CiAgICBtcS5hZGRFdmVudExpc3RlbmVyKCdjaGFuZ2UnLCBoYW5kbGVyKTsKICAgIHJldHVybiAoKSA9PiBtcS5yZW1vdmVFdmVudExpc3RlbmVyKCdjaGFuZ2UnLCBoYW5kbGVyKTsKICB9LCBbXSk7CiAgcmV0dXJuIHJlZHVjZWQ7Cn0KCmZ1bmN0aW9uIHVzZVZpZXdwb3J0V2lkdGgoKTogbnVtYmVyIHsKICBjb25zdCBbdywgc2V0V10gPSB1c2VTdGF0ZSgoKSA9PiAodHlwZW9mIHdpbmRvdyA9PT0gJ3VuZGVmaW5lZCcgPyAxMjgwIDogd2luZG93LmlubmVyV2lkdGgpKTsKICB1c2VFZmZlY3QoKCkgPT4gewogICAgY29uc3Qgb25SZXNpemUgPSAoKSA9PiBzZXRXKHdpbmRvdy5pbm5lcldpZHRoKTsKICAgIHdpbmRvdy5hZGRFdmVudExpc3RlbmVyKCdyZXNpemUnLCBvblJlc2l6ZSk7CiAgICByZXR1cm4gKCkgPT4gd2luZG93LnJlbW92ZUV2ZW50TGlzdGVuZXIoJ3Jlc2l6ZScsIG9uUmVzaXplKTsKICB9LCBbXSk7CiAgcmV0dXJuIHc7Cn0KCmNvbnN0IFRBQlM6IHsgaWQ6IFRhYklkOyBsYWJlbDogc3RyaW5nOyBpY29uOiBSZWFjdC5Db21wb25lbnRUeXBlPHsgY2xhc3NOYW1lPzogc3RyaW5nIH0+IH1bXSA9IFsKICB7IGlkOiAnY291cnNlcycsIGxhYmVsOiAn2LPYsdmB2LXZhOKAjNmH2KcnLCBpY29uOiBCb29rT3BlbiB9LAogIHsgaWQ6ICdsYWJzJywgbGFiZWw6ICfYotiy2YXYp9uM2LTar9in2YcnLCBpY29uOiBNaWNyb3Njb3BlIH0sCiAgeyBpZDogJ2xhdGVzdCcsIGxhYmVsOiAn2KLYrtix24zZhiDYr9ix2LPigIzZh9in24wg2KLZvtmE2YjYryDYtNiv2YcnLCBpY29uOiBVcGxvYWQgfSwKXTsKCmNvbnN0IFNFQ1RJT05fSEVJR0hUX1ZIID0gMzAwOwpjb25zdCBUSUxUX0RFRyA9IDEyOwpjb25zdCBNQVhfQkxVUl9QWCA9IDQ7CgovKiogVGhlIGNhcmQgY29udGVudCBvZiBvbmUgZnJhbWU6IGltYWdlICsgbmFtZSB1bmRlcm5lYXRoIChjb3Vyc2VzL2xhdGVzdCksIG9yIGdyYWRpZW50ICsgaWNvbiArIG5hbWUgKGxhYnMpLiAqLwpjb25zdCBIZWxpeEZyYW1lSW5uZXI6IFJlYWN0LkZDPHsgZnJhbWU6IEhlbGl4RnJhbWUgfT4gPSAoeyBmcmFtZSB9KSA9PiB7CiAgaWYgKGZyYW1lLmtpbmQgPT09ICdsYWInKSB7CiAgICBjb25zdCBJY29uID0gZnJhbWUuaWNvbjsKICAgIHJldHVybiAoCiAgICAgIDxkaXYKICAgICAgICBjbGFzc05hbWU9e2BmbGV4IGgtWzE3MHB4XSBzbTpoLVsyMDJweF0gZmxleC1jb2wgaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIGdhcC0yLjUgYmctZ3JhZGllbnQtdG8tYnIgJHtmcmFtZS5ncmFkaWVudH0gcC0zIHRleHQtY2VudGVyYH0KICAgICAgPgogICAgICAgIDxzcGFuIGNsYXNzTmFtZT0iZmxleCBoLTEyIHctMTIgc206aC0xNCBzbTp3LTE0IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciByb3VuZGVkLTJ4bCBiZy13aGl0ZS8yMCB0ZXh0LXdoaXRlIHNoYWRvdy1pbm5lciI+CiAgICAgICAgICA8SWNvbiBjbGFzc05hbWU9ImgtNiB3LTYgc206aC03IHNtOnctNyIgLz4KICAgICAgICA8L3NwYW4+CiAgICAgICAgPHNwYW4gZGlyPSJhdXRvIiBjbGFzc05hbWU9ImxpbmUtY2xhbXAtMiB0ZXh0LVsxM3B4XSBzbTp0ZXh0LXNtIGZvbnQtYm9sZCBsZWFkaW5nLXNudWcgdGV4dC13aGl0ZSI+CiAgICAgICAgICB7ZnJhbWUudGl0bGV9CiAgICAgICAgPC9zcGFuPgogICAgICA8L2Rpdj4KICAgICk7CiAgfQogIHJldHVybiAoCiAgICA8ZGl2IGNsYXNzTmFtZT0iZmxleCBmbGV4LWNvbCBiZy16aW5jLTkwMCI+CiAgICAgIDxkaXYgY2xhc3NOYW1lPSJoLVsxMThweF0gc206aC1bMTQ4cHhdIHctZnVsbCBvdmVyZmxvdy1oaWRkZW4gYmctemluYy04MDAiPgogICAgICAgIHtmcmFtZS5pbWFnZSA/ICgKICAgICAgICAgIDxpbWcgc3JjPXthc3NldFVybChmcmFtZS5pbWFnZSl9IGFsdD0iIiBkcmFnZ2FibGU9e2ZhbHNlfSBjbGFzc05hbWU9ImgtZnVsbCB3LWZ1bGwgb2JqZWN0LWNvdmVyIiAvPgogICAgICAgICkgOiAoCiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iZmxleCBoLWZ1bGwgdy1mdWxsIGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBiZy1ncmFkaWVudC10by1iciBmcm9tLWN5YW4tNTAwLzMwIHRvLWluZGlnby01MDAvMzAiPgogICAgICAgICAgICA8Qm9va09wZW4gY2xhc3NOYW1lPSJoLTggdy04IHRleHQtY3lhbi0zMDAiIC8+CiAgICAgICAgICA8L2Rpdj4KICAgICAgICApfQogICAgICA8L2Rpdj4KICAgICAgPGRpdiBjbGFzc05hbWU9ImZsZXggaC1bNTJweF0gc206aC1bNTRweF0gaXRlbXMtY2VudGVyIHB4LTMiPgogICAgICAgIDxzcGFuIGRpcj0iYXV0byIgY2xhc3NOYW1lPSJsaW5lLWNsYW1wLTIgdGV4dC1bMTJweF0gc206dGV4dC1bMTNweF0gZm9udC1ib2xkIGxlYWRpbmctc251ZyB0ZXh0LXdoaXRlIj4KICAgICAgICAgIHtmcmFtZS50aXRsZX0KICAgICAgICA8L3NwYW4+CiAgICAgIDwvZGl2PgogICAgPC9kaXY+CiAgKTsKfTsKCi8qKiBTZWN0aW9uIGhlYWRpbmcgKyAidmlldyBhbGwiICsgdGhlIHRocmVlIHRhYnMuIFNoYXJlZCBieSB0aGUgc3BpcmFsIGFuZCB0aGUgcmVkdWNlZC1tb3Rpb24gZ3JpZC4gKi8KY29uc3QgSGVsaXhIZWFkZXI6IFJlYWN0LkZDPHsKICB0YWI6IFRhYklkOwogIG9uVGFiOiAodDogVGFiSWQpID0+IHZvaWQ7CiAgb25WaWV3QWxsOiAoKSA9PiB2b2lkOwp9PiA9ICh7IHRhYiwgb25UYWIsIG9uVmlld0FsbCB9KSA9PiAoCiAgPGRpdiBjbGFzc05hbWU9InNwYWNlLXktNCI+CiAgICA8ZGl2IGNsYXNzTmFtZT0iZmxleCBmbGV4LXdyYXAgaXRlbXMtZW5kIGp1c3RpZnktYmV0d2VlbiBnYXAtMyI+CiAgICAgIDxkaXYgY2xhc3NOYW1lPSJzcGFjZS15LTEiPgogICAgICAgIDxoMiBjbGFzc05hbWU9InRleHQtbGcgc206dGV4dC0yeGwgZm9udC1ib2xkIHRleHQtd2hpdGUgZm9udC1kaXNwbGF5Ij7ar9i02KrbjCDYr9ixINin2YjYsdin2YTbjNizPC9oMj4KICAgICAgICA8cCBjbGFzc05hbWU9InRleHQteHMgdGV4dC16aW5jLTQwMCI+CiAgICAgICAgICDYp9iz2qnYsdmI2YQg2qnZhtuM2K8g2KrYpyDYr9ixINmF2KfYsdm+24zahiDZvtin24zbjNmGINio2LHZiNuM2K/YmyDYsdmI24wg2YfYsSDZgtin2Kgg2KjYp9uM2LPYqtuM2K8g2KrYpyDYqNmHINmF2LHaqdiyINio24zYp9uM2K/YjCDZiCDYqNix2KfbjCDYqNin2LIg2qnYsdiv2YYg2KLZhiDaqdmE24zaqSDaqdmG24zYry4KICAgICAgICA8L3A+CiAgICAgIDwvZGl2PgogICAgICA8YnV0dG9uCiAgICAgICAgb25DbGljaz17b25WaWV3QWxsfQogICAgICAgIGNsYXNzTmFtZT0iZmxleCBzaHJpbmstMCBpdGVtcy1jZW50ZXIgZ2FwLTEuNSB0ZXh0LXhzIGZvbnQtYm9sZCB0ZXh0LWN5YW4tNDAwIGhvdmVyOnRleHQtY3lhbi0zMDAgdHJhbnNpdGlvbi1jb2xvcnMiCiAgICAgID4KICAgICAgICA8c3Bhbj7Zhdi02KfZh9iv2Ycg2YfZhdmHINiz2LHZgdi12YTigIzZh9inPC9zcGFuPgogICAgICAgIDxBcnJvd0xlZnQgY2xhc3NOYW1lPSJ3LTMuNSBoLTMuNSIgLz4KICAgICAgPC9idXR0b24+CiAgICA8L2Rpdj4KCiAgICA8ZGl2IGNsYXNzTmFtZT0iZmxleCBmbGV4LXdyYXAgaXRlbXMtY2VudGVyIGdhcC0yIiByb2xlPSJ0YWJsaXN0IiBhcmlhLWxhYmVsPSLYr9iz2KrZh+KAjNio2YbYr9uMINmF2KfYsdm+24zahiI+CiAgICAgIHtUQUJTLm1hcCgodCkgPT4gewogICAgICAgIGNvbnN0IEljb24gPSB0Lmljb247CiAgICAgICAgY29uc3QgYWN0aXZlID0gdGFiID09PSB0LmlkOwogICAgICAgIHJldHVybiAoCiAgICAgICAgICA8YnV0dG9uCiAgICAgICAgICAgIGtleT17dC5pZH0KICAgICAgICAgICAgcm9sZT0idGFiIgogICAgICAgICAgICBhcmlhLXNlbGVjdGVkPXthY3RpdmV9CiAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IG9uVGFiKHQuaWQpfQogICAgICAgICAgICBjbGFzc05hbWU9e2BmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMS41IHJvdW5kZWQteGwgcHgtNCBweS0yIHRleHQteHMgZm9udC1ib2xkIHRyYW5zaXRpb24tYWxsICR7CiAgICAgICAgICAgICAgYWN0aXZlCiAgICAgICAgICAgICAgICA/ICdiZy13aGl0ZSB0ZXh0LXppbmMtOTAwIHNoYWRvdycKICAgICAgICAgICAgICAgIDogJ2JvcmRlciBib3JkZXItd2hpdGUvMTAgYmctd2hpdGUvMTAgdGV4dC16aW5jLTMwMCBob3ZlcjpiZy13aGl0ZS8yMCcKICAgICAgICAgICAgfWB9CiAgICAgICAgICA+CiAgICAgICAgICAgIDxJY29uIGNsYXNzTmFtZT0idy0zLjUgaC0zLjUiIC8+CiAgICAgICAgICAgIDxzcGFuPnt0LmxhYmVsfTwvc3Bhbj4KICAgICAgICAgIDwvYnV0dG9uPgogICAgICAgICk7CiAgICAgIH0pfQogICAgPC9kaXY+CiAgPC9kaXY+Cik7CgpleHBvcnQgY29uc3QgQ291cnNlSGVsaXg6IFJlYWN0LkZDPENvdXJzZUhlbGl4UHJvcHM+ID0gKHsgY291cnNlcywgbGFicywgb25OYXZpZ2F0ZVRvQ291cnNlLCBvbk5hdmlnYXRlIH0pID0+IHsKICBjb25zdCBbdGFiLCBzZXRUYWJdID0gdXNlU3RhdGU8VGFiSWQ+KCdjb3Vyc2VzJyk7CiAgY29uc3QgcHJlZmVyc1JlZHVjZWQgPSB1c2VSZWR1Y2VkTW90aW9uKCk7CiAgY29uc3QgdncgPSB1c2VWaWV3cG9ydFdpZHRoKCk7CiAgY29uc3QgaXNNb2JpbGUgPSB2dyA8IDY0MDsKICAvLyBTcGlyYWwgcmFkaXVzOiB3aWRlIGVub3VnaCB0byByZWFkLCBuYXJyb3cgZW5vdWdoIHRoYXQgc2lkZSBmcmFtZXMgc3RheQogIC8vIG1vc3RseSBvbiBzY3JlZW4uIERyb3BzIHBlciBmcmFtZSAodGhlIGhlbGl4IGRlc2NlbmRzIGFzIGl0IHdpbmRzKS4KICBjb25zdCBSID0gTWF0aC5tYXgoMTMwLCBNYXRoLm1pbig0MzAsIHZ3ICogMC4zNikpOwogIGNvbnN0IGRyb3AgPSBpc01vYmlsZSA/IDU2IDogODQ7CgogIGNvbnN0IGNvdXJzZUJ5SWQgPSB1c2VNZW1vKCgpID0+IHsKICAgIGNvbnN0IG0gPSBuZXcgTWFwPHN0cmluZywgQ291cnNlRnJvbnRtYXR0ZXIgJiB7IGlkOiBzdHJpbmcgfT4oKTsKICAgIGNvdXJzZXMuZm9yRWFjaCgoYykgPT4gbS5zZXQoYy5pZCwgYykpOwogICAgcmV0dXJuIG07CiAgfSwgW2NvdXJzZXNdKTsKCiAgLy8gTGF0ZXN0IHVwbG9hZGVkIGxlc3NvbnMg4oCUIHNhbWUgc291cmNlIGFzIFJlY2VudFVwbG9hZHNQYWdlCiAgLy8gKGdldFJlY2VudFVwbG9hZHMsIG5ld2VzdCBmaXJzdCk6IHZpZGVvIHNlc3Npb25zIG9ubHksIGNhcHBlZCBhdCA4LgogIC8vIEVhY2ggZnJhbWUgc2hvd3MgdGhlIHNlc3Npb24gdGl0bGUsIHRoZSBwYXJlbnQgY291cnNlIG5hbWUgYXMgc3VidGl0bGUsCiAgLy8gYW5kIHRoZSBwYXJlbnQgY291cnNlJ3MgaWNvbiBpbWFnZS4KICBjb25zdCBsYXRlc3RGcmFtZXMgPSB1c2VNZW1vPEhlbGl4RnJhbWVbXT4oKCkgPT4gewogICAgcmV0dXJuIGdldFJlY2VudFVwbG9hZHMoODApCiAgICAgIC5maWx0ZXIoKHUpID0+IHUudHlwZSA9PT0gJ3ZpZGVvJykKICAgICAgLnNsaWNlKDAsIDgpCiAgICAgIC5tYXAoKHUpID0+IHsKICAgICAgICBjb25zdCBjb3Vyc2UgPSBjb3Vyc2VCeUlkLmdldCh1LmNvdXJzZUlkKTsKICAgICAgICByZXR1cm4gewogICAgICAgICAga2luZDogJ2xhdGVzdCcgYXMgY29uc3QsCiAgICAgICAgICBpZDogdS5pZCwKICAgICAgICAgIHRpdGxlOiB1LnRpdGxlLAogICAgICAgICAgc3VidGl0bGU6IHUuY291cnNlVGl0bGUsCiAgICAgICAgICBpbWFnZTogY291cnNlPy5pY29uID8/ICcnLAogICAgICAgICAgY291cnNlSWQ6IHUuY291cnNlSWQsCiAgICAgICAgfTsKICAgICAgfSkKICAgICAgLmZpbHRlcigoZikgPT4gZi5pbWFnZSAhPT0gJycpOwogIH0sIFtjb3Vyc2VCeUlkXSk7CgogIGNvbnN0IGZyYW1lczogSGVsaXhGcmFtZVtdID0gdXNlTWVtbygoKSA9PiB7CiAgICBpZiAodGFiID09PSAnbGFicycpIHsKICAgICAgcmV0dXJuIGxhYnMubWFwKChsKSA9PiAoewogICAgICAgIGtpbmQ6ICdsYWInIGFzIGNvbnN0LAogICAgICAgIGlkOiBgbGFiLSR7bC50YWJ9YCwKICAgICAgICB0aXRsZTogbC50aXRsZSwKICAgICAgICBzdWJ0aXRsZTogbC5kZXNjLAogICAgICAgIGljb246IGwuaWNvbiwKICAgICAgICBncmFkaWVudDogbC5jb2xvciwKICAgICAgICB0YWI6IGwudGFiLAogICAgICB9KSk7CiAgICB9CiAgICBpZiAodGFiID09PSAnbGF0ZXN0JykgcmV0dXJuIGxhdGVzdEZyYW1lczsKICAgIHJldHVybiBjb3Vyc2VzLm1hcCgoYykgPT4gKHsKICAgICAga2luZDogJ2NvdXJzZScgYXMgY29uc3QsCiAgICAgIGlkOiBjLmlkLAogICAgICB0aXRsZTogYy50aXRsZSwKICAgICAgc3VidGl0bGU6IGAke2MuY2F0ZWdvcnl9IOKAoiAke2MuZHVyYXRpb259YCwKICAgICAgaW1hZ2U6IGMuaWNvbiA/PyAnJywKICAgICAgY291cnNlSWQ6IGMuaWQsCiAgICB9KSk7CiAgfSwgW3RhYiwgY291cnNlcywgbGFicywgbGF0ZXN0RnJhbWVzXSk7CgogIGNvbnN0IE4gPSBmcmFtZXMubGVuZ3RoOwogIC8vIEZyYW1lcyBzcHJlYWQgb3ZlciByb3VnaGx5IG9uZSBmdWxsIHR1cm4gb2YgdGhlIGhlbGl4LCB3aGF0ZXZlciBOIGlzLgogIGNvbnN0IHN0ZXAgPSBOID4gMCA/IDM2MCAvIE4gOiA1NTsKCiAgY29uc3Qgc2VjdGlvblJlZiA9IHVzZVJlZjxIVE1MRGl2RWxlbWVudD4obnVsbCk7CiAgY29uc3QgW3Byb2dyZXNzLCBzZXRQcm9ncmVzc10gPSB1c2VTdGF0ZSgwKTsKICBjb25zdCBkaXNwbGF5UmVmID0gdXNlUmVmKDApOwogIGNvbnN0IGZvY3VzUmVmID0gdXNlUmVmPG51bWJlciB8IG51bGw+KG51bGwpOwogIGNvbnN0IFtmb2N1c2VkSWR4LCBzZXRGb2N1c2VkSWR4XSA9IHVzZVN0YXRlPG51bWJlciB8IG51bGw+KG51bGwpOwogIGNvbnN0IGhvdmVyVGltZXJSZWYgPSB1c2VSZWY8bnVtYmVyIHwgbnVsbD4obnVsbCk7CgogIGNvbnN0IHNldEZvY3VzID0gdXNlQ2FsbGJhY2soKGk6IG51bWJlciB8IG51bGwpID0+IHsKICAgIGZvY3VzUmVmLmN1cnJlbnQgPSBpOwogICAgc2V0Rm9jdXNlZElkeChpKTsKICB9LCBbXSk7CgogIC8vIFNjcm9sbC1kcml2ZW4gYW5pbWF0aW9uIGxvb3AgKHJBRik6IGVhc2VzIHRoZSBkaXNwbGF5ZWQgcHJvZ3Jlc3MgdG93YXJkCiAgLy8gdGhlIHNjcm9sbCBwcm9ncmVzcywgb3IgdG93YXJkIHRoZSBmb2N1c2VkIGZyYW1lIHdoaWxlIG9uZSBpcyBob3ZlcmVkIC8KICAvLyB0YXBwZWQuIE9ubHkgcnVucyB3aGlsZSB0aGUgc2VjdGlvbiBpcyBuZWFyIHRoZSB2aWV3cG9ydC4KICB1c2VFZmZlY3QoKCkgPT4gewogICAgaWYgKHByZWZlcnNSZWR1Y2VkKSByZXR1cm47CiAgICBsZXQgcmFmID0gMDsKICAgIGxldCBsYXN0U2V0ID0gLTE7CiAgICBjb25zdCB0aWNrID0gKCkgPT4gewogICAgICBjb25zdCBlbCA9IHNlY3Rpb25SZWYuY3VycmVudDsKICAgICAgaWYgKGVsKSB7CiAgICAgICAgY29uc3QgcmVjdCA9IGVsLmdldEJvdW5kaW5nQ2xpZW50UmVjdCgpOwogICAgICAgIGNvbnN0IHZoID0gd2luZG93LmlubmVySGVpZ2h0OwogICAgICAgIGlmIChyZWN0LmJvdHRvbSA+IC12aCAmJiByZWN0LnRvcCA8IHZoICogMS41KSB7CiAgICAgICAgICBjb25zdCB0b3RhbCA9IHJlY3QuaGVpZ2h0IC0gdmg7CiAgICAgICAgICBjb25zdCBzY3JvbGxQID0gdG90YWwgPiAwID8gTWF0aC5taW4oMSwgTWF0aC5tYXgoMCwgLXJlY3QudG9wIC8gdG90YWwpKSA6IDA7CiAgICAgICAgICBjb25zdCBmb2N1cyA9IGZvY3VzUmVmLmN1cnJlbnQ7CiAgICAgICAgICBjb25zdCB0YXJnZXQgPSBmb2N1cyAhPSBudWxsICYmIE4gPiAxID8gZm9jdXMgLyAoTiAtIDEpIDogc2Nyb2xsUDsKICAgICAgICAgIGNvbnN0IHJhdGUgPSBmb2N1cyAhPSBudWxsID8gMC4wOCA6IDAuMjsKICAgICAgICAgIGRpc3BsYXlSZWYuY3VycmVudCArPSAodGFyZ2V0IC0gZGlzcGxheVJlZi5jdXJyZW50KSAqIHJhdGU7CiAgICAgICAgICBpZiAoTWF0aC5hYnModGFyZ2V0IC0gZGlzcGxheVJlZi5jdXJyZW50KSA8IDAuMDAwNCkgZGlzcGxheVJlZi5jdXJyZW50ID0gdGFyZ2V0OwogICAgICAgICAgY29uc3Qgcm91bmRlZCA9IE1hdGgucm91bmQoZGlzcGxheVJlZi5jdXJyZW50ICogMTAwMCkgLyAxMDAwOwogICAgICAgICAgaWYgKHJvdW5kZWQgIT09IGxhc3RTZXQpIHsKICAgICAgICAgICAgbGFzdFNldCA9IHJvdW5kZWQ7CiAgICAgICAgICAgIHNldFByb2dyZXNzKHJvdW5kZWQpOwogICAgICAgICAgfQogICAgICAgIH0KICAgICAgfQogICAgICByYWYgPSByZXF1ZXN0QW5pbWF0aW9uRnJhbWUodGljayk7CiAgICB9OwogICAgcmFmID0gcmVxdWVzdEFuaW1hdGlvbkZyYW1lKHRpY2spOwogICAgcmV0dXJuICgpID0+IGNhbmNlbEFuaW1hdGlvbkZyYW1lKHJhZik7CiAgfSwgW3ByZWZlcnNSZWR1Y2VkLCBOXSk7CgogIC8vIFNjcm9sbGluZyBhbHdheXMgd2lucyBvdmVyIGEgaG92ZXJlZCAvIHRhcHBlZCBmb2N1cy4KICB1c2VFZmZlY3QoKCkgPT4gewogICAgaWYgKHByZWZlcnNSZWR1Y2VkKSByZXR1cm47CiAgICBjb25zdCBvblNjcm9sbCA9ICgpID0+IHsKICAgICAgaWYgKGZvY3VzUmVmLmN1cnJlbnQgIT0gbnVsbCkgc2V0Rm9jdXMobnVsbCk7CiAgICB9OwogICAgd2luZG93LmFkZEV2ZW50TGlzdGVuZXIoJ3Njcm9sbCcsIG9uU2Nyb2xsLCB7IHBhc3NpdmU6IHRydWUgfSk7CiAgICByZXR1cm4gKCkgPT4gd2luZG93LnJlbW92ZUV2ZW50TGlzdGVuZXIoJ3Njcm9sbCcsIG9uU2Nyb2xsKTsKICB9LCBbcHJlZmVyc1JlZHVjZWQsIHNldEZvY3VzXSk7CgogIHVzZUVmZmVjdCgoKSA9PiB7CiAgICByZXR1cm4gKCkgPT4gewogICAgICBpZiAoaG92ZXJUaW1lclJlZi5jdXJyZW50ICE9IG51bGwpIHdpbmRvdy5jbGVhclRpbWVvdXQoaG92ZXJUaW1lclJlZi5jdXJyZW50KTsKICAgIH07CiAgfSwgW10pOwoKICBjb25zdCBhY3RpdmVJZHggPSBOID09PSAwID8gLTEgOiBNYXRoLm1pbihOIC0gMSwgTWF0aC5tYXgoMCwgTWF0aC5yb3VuZChwcm9ncmVzcyAqIChOIC0gMSkpKSk7CiAgY29uc3QgYWN0aXZlRnJhbWUgPSBhY3RpdmVJZHggPj0gMCA/IGZyYW1lc1thY3RpdmVJZHhdIDogbnVsbDsKCiAgLy8gSGVsaXggcm90YXRpb24gKyB0aGUgY291bnRlci1saWZ0IHRoYXQga2VlcHMgdGhlIGFjdGl2ZSBmcmFtZSBjZW50cmVkLgogIGNvbnN0IHJvdCA9IHByb2dyZXNzICogKE4gLSAxKSAqIHN0ZXA7CiAgY29uc3QgbGlmdCA9IHByb2dyZXNzICogKE4gLSAxKSAqIGRyb3A7CgogIGNvbnN0IGhhbmRsZVRhYiA9ICh0OiBUYWJJZCkgPT4gewogICAgc2V0Rm9jdXMobnVsbCk7CiAgICBzZXRUYWIodCk7CiAgfTsKCiAgY29uc3QgbmF2aWdhdGVGcmFtZSA9IChmcmFtZTogSGVsaXhGcmFtZSkgPT4gewogICAgaWYgKGZyYW1lLmtpbmQgPT09ICdsYWInKSBvbk5hdmlnYXRlKGZyYW1lLnRhYik7CiAgICBlbHNlIG9uTmF2aWdhdGVUb0NvdXJzZShmcmFtZS5jb3Vyc2VJZCk7CiAgfTsKCiAgY29uc3QgaGFuZGxlRnJhbWVDbGljayA9IChmcmFtZTogSGVsaXhGcmFtZSwgaTogbnVtYmVyKSA9PiB7CiAgICAvLyBEZXNrdG9wOiBob3ZlciBhbHJlYWR5IGZvY3VzZWQgaXQsIHNvIGEgY2xpY2sgb3BlbnMgaXQuIFRvdWNoOiBmaXJzdAogICAgLy8gdGFwIHN3aW5ncyBpdCB0byB0aGUgY2VudHJlLCBzZWNvbmQgdGFwIG9wZW5zIGl0LgogICAgaWYgKGZvY3VzZWRJZHggPT09IGkgfHwgYWN0aXZlSWR4ID09PSBpKSBuYXZpZ2F0ZUZyYW1lKGZyYW1lKTsKICAgIGVsc2Ugc2V0Rm9jdXMoaSk7CiAgfTsKCiAgY29uc3QgaGFuZGxlRnJhbWVFbnRlciA9IChpOiBudW1iZXIpID0+IHsKICAgIGlmIChob3ZlclRpbWVyUmVmLmN1cnJlbnQgIT0gbnVsbCkgd2luZG93LmNsZWFyVGltZW91dChob3ZlclRpbWVyUmVmLmN1cnJlbnQpOwogICAgaG92ZXJUaW1lclJlZi5jdXJyZW50ID0gd2luZG93LnNldFRpbWVvdXQoKCkgPT4gc2V0Rm9jdXMoaSksIDE1MCk7CiAgfTsKCiAgY29uc3QgaGFuZGxlRnJhbWVMZWF2ZSA9ICgpID0+IHsKICAgIGlmIChob3ZlclRpbWVyUmVmLmN1cnJlbnQgIT0gbnVsbCkgd2luZG93LmNsZWFyVGltZW91dChob3ZlclRpbWVyUmVmLmN1cnJlbnQpOwogICAgc2V0Rm9jdXMobnVsbCk7CiAgfTsKCiAgY29uc3QgZnJhbWVTdHlsZSA9IChpOiBudW1iZXIpOiBSZWFjdC5DU1NQcm9wZXJ0aWVzID0+IHsKICAgIGNvbnN0IGFuZ2xlID0gaSAqIHN0ZXA7CiAgICAvLyBXb3JsZCBhbmdsZSBvZiB0aGlzIGZyYW1lIHJlbGF0aXZlIHRvIHRoZSBjYW1lcmEsIG5vcm1hbGlzZWQgdG8gWy0xODAsIDE4MF0uCiAgICBsZXQgcGhpID0gYW5nbGUgLSByb3Q7CiAgICBwaGkgPSAoKHBoaSArIDE4MCkgJSAzNjAgKyAzNjApICUgMzYwIC0gMTgwOwogICAgLy8gMCBhdCB0aGUgZnJvbnQsIDEgYXQgdGhlIGJhY2suCiAgICBjb25zdCBkZXB0aCA9ICgxIC0gTWF0aC5jb3MoKHBoaSAqIE1hdGguUEkpIC8gMTgwKSkgLyAyOwogICAgY29uc3QgaXNGb2N1c2VkID0gZm9jdXNlZElkeCA9PT0gaTsKICAgIGNvbnN0IGlzQWN0aXZlID0gYWN0aXZlSWR4ID09PSBpOwogICAgY29uc3Qgb3BhY2l0eSA9IGlzRm9jdXNlZCA/IDEgOiAxIC0gZGVwdGggKiAwLjg7CiAgICBjb25zdCBibHVyID0gaXNGb2N1c2VkID8gMCA6IGRlcHRoICogTUFYX0JMVVJfUFg7CiAgICBjb25zdCBzY2FsZSA9ICgxIC0gZGVwdGggKiAwLjEpICogKGlzRm9jdXNlZCA/IDEuMTIgOiBpc0FjdGl2ZSA/IDEuMDQgOiAxKTsKICAgIHJldHVybiB7CiAgICAgIHRyYW5zZm9ybTogYHJvdGF0ZVkoJHthbmdsZX1kZWcpIHRyYW5zbGF0ZVooJHtSfXB4KSB0cmFuc2xhdGVZKCR7LWkgKiBkcm9wfXB4KSByb3RhdGVZKCR7cm90IC0gYW5nbGV9ZGVnKSB0cmFuc2xhdGUoLTUwJSwgLTUwJSkgc2NhbGUoJHtzY2FsZS50b0ZpeGVkKDMpfSlgLAogICAgICBvcGFjaXR5OiBOdW1iZXIob3BhY2l0eS50b0ZpeGVkKDMpKSwKICAgICAgZmlsdGVyOiBibHVyID4gMC4yID8gYGJsdXIoJHtibHVyLnRvRml4ZWQoMSl9cHgpYCA6IHVuZGVmaW5lZCwKICAgICAgd2lsbENoYW5nZTogJ3RyYW5zZm9ybSwgb3BhY2l0eScsCiAgICB9OwogIH07CgogIC8vIC0tLSBSZWR1Y2VkLW1vdGlvbiBmYWxsYmFjazogdGhlIHNhbWUgZnJhbWVzIGFzIGEgcGxhaW4gc3RhdGljIGdyaWQuIC0tLQogIGlmIChwcmVmZXJzUmVkdWNlZCkgewogICAgcmV0dXJuICgKICAgICAgPHNlY3Rpb24gY2xhc3NOYW1lPSJzcGFjZS15LTYgcm91bmRlZC1bMnJlbV0gYmctemluYy05NTAgcC01IHNtOnAtOCI+CiAgICAgICAgPEhlbGl4SGVhZGVyIHRhYj17dGFifSBvblRhYj17aGFuZGxlVGFifSBvblZpZXdBbGw9eygpID0+IG9uTmF2aWdhdGUoJ2NvdXJzZXMnKX0gLz4KICAgICAgICB7TiA9PT0gMCA/ICgKICAgICAgICAgIDxwIGNsYXNzTmFtZT0icHktMTAgdGV4dC1jZW50ZXIgdGV4dC1zbSB0ZXh0LXppbmMtNDAwIj7ZhdmI2LHYr9uMINio2LHYp9uMINmG2YXYp9uM2LQg2YbbjNiz2KouPC9wPgogICAgICAgICkgOiAoCiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iZ3JpZCBncmlkLWNvbHMtMiBnYXAtMyBzbTpncmlkLWNvbHMtMyBsZzpncmlkLWNvbHMtNCI+CiAgICAgICAgICAgIHtmcmFtZXMubWFwKChmcmFtZSkgPT4gKAogICAgICAgICAgICAgIDxidXR0b24KICAgICAgICAgICAgICAgIGtleT17ZnJhbWUuaWR9CiAgICAgICAgICAgICAgICB0eXBlPSJidXR0b24iCiAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBuYXZpZ2F0ZUZyYW1lKGZyYW1lKX0KICAgICAgICAgICAgICAgIGNsYXNzTmFtZT0ib3ZlcmZsb3ctaGlkZGVuIHJvdW5kZWQtMnhsIGJvcmRlciBib3JkZXItd2hpdGUvMTAgYmctemluYy05MDAgdGV4dC1yaWdodCB0cmFuc2l0aW9uLWNvbG9ycyBob3Zlcjpib3JkZXItY3lhbi00MDAvNjAiCiAgICAgICAgICAgICAgPgogICAgICAgICAgICAgICAgPEhlbGl4RnJhbWVJbm5lciBmcmFtZT17ZnJhbWV9IC8+CiAgICAgICAgICAgICAgPC9idXR0b24+CiAgICAgICAgICAgICkpfQogICAgICAgICAgPC9kaXY+CiAgICAgICAgKX0KICAgICAgPC9zZWN0aW9uPgogICAgKTsKICB9CgogIHJldHVybiAoCiAgICA8ZGl2IHJlZj17c2VjdGlvblJlZn0gY2xhc3NOYW1lPSJyZWxhdGl2ZSIgc3R5bGU9e3sgaGVpZ2h0OiBgJHtTRUNUSU9OX0hFSUdIVF9WSH12aGAgfX0+CiAgICAgIDxkaXYgY2xhc3NOYW1lPSJzdGlja3kgdG9wLTAgZmxleCBoLXNjcmVlbiB3LWZ1bGwgZmxleC1jb2wgb3ZlcmZsb3ctaGlkZGVuIHJvdW5kZWQtWzJyZW1dIGJnLXppbmMtOTUwIHBiLTI0IHNtOnBiLTI4Ij4KICAgICAgICB7LyogQW1iaWVudCBnbG93ICovfQogICAgICAgIDxkaXYKICAgICAgICAgIGNsYXNzTmFtZT0icG9pbnRlci1ldmVudHMtbm9uZSBhYnNvbHV0ZSBpbnNldC0wIG9wYWNpdHktNDAiCiAgICAgICAgICBzdHlsZT17eyBiYWNrZ3JvdW5kOiAncmFkaWFsLWdyYWRpZW50KGNpcmNsZSBhdCA1MCUgNDUlLCByZ2JhKDM0LDIxMSwyMzgsMC4xMiksIHRyYW5zcGFyZW50IDYwJSknIH19CiAgICAgICAgLz4KCiAgICAgICAgey8qIEhlYWRlciArIHRhYnMgKi99CiAgICAgICAgPGRpdiBjbGFzc05hbWU9InJlbGF0aXZlIHotMjAgcHgtNSBwdC02IHNtOnB4LTEwIHNtOnB0LTgiPgogICAgICAgICAgPEhlbGl4SGVhZGVyIHRhYj17dGFifSBvblRhYj17aGFuZGxlVGFifSBvblZpZXdBbGw9eygpID0+IG9uTmF2aWdhdGUoJ2NvdXJzZXMnKX0gLz4KICAgICAgICA8L2Rpdj4KCiAgICAgICAgey8qIDNEIHN0YWdlICovfQogICAgICAgIDxkaXYgY2xhc3NOYW1lPSJyZWxhdGl2ZSBmbGV4LTEiIHN0eWxlPXt7IHBlcnNwZWN0aXZlOiAnMTEwMHB4JyB9fT4KICAgICAgICAgIHtOID09PSAwID8gKAogICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iYWJzb2x1dGUgaW5zZXQtMCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBweC02Ij4KICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9InRleHQtY2VudGVyIHRleHQtc20gdGV4dC16aW5jLTQwMCI+2YXZiNix2K/bjCDYqNix2KfbjCDZhtmF2KfbjNi0INmG24zYs9iqLjwvcD4KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICApIDogKAogICAgICAgICAgICA8ZGl2CiAgICAgICAgICAgICAgY2xhc3NOYW1lPSJhYnNvbHV0ZSBsZWZ0LTEvMiB0b3AtMS8yIGgtMCB3LTAiCiAgICAgICAgICAgICAgc3R5bGU9e3sKICAgICAgICAgICAgICAgIHRyYW5zZm9ybTogYHRyYW5zbGF0ZVkoJHtsaWZ0LnRvRml4ZWQoMSl9cHgpIHJvdGF0ZVgoJHtUSUxUX0RFR31kZWcpIHJvdGF0ZVkoJHsoLXJvdCkudG9GaXhlZCgyKX1kZWcpYCwKICAgICAgICAgICAgICAgIHRyYW5zZm9ybVN0eWxlOiAncHJlc2VydmUtM2QnLAogICAgICAgICAgICAgICAgd2lsbENoYW5nZTogJ3RyYW5zZm9ybScsCiAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgPgogICAgICAgICAgICAgIHtmcmFtZXMubWFwKChmcmFtZSwgaSkgPT4gewogICAgICAgICAgICAgICAgY29uc3QgaXNGb2N1c2VkID0gZm9jdXNlZElkeCA9PT0gaTsKICAgICAgICAgICAgICAgIGNvbnN0IGlzQWN0aXZlID0gYWN0aXZlSWR4ID09PSBpOwogICAgICAgICAgICAgICAgcmV0dXJuICgKICAgICAgICAgICAgICAgICAgPGJ1dHRvbgogICAgICAgICAgICAgICAgICAgIGtleT17ZnJhbWUuaWR9CiAgICAgICAgICAgICAgICAgICAgdHlwZT0iYnV0dG9uIgogICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IGhhbmRsZUZyYW1lQ2xpY2soZnJhbWUsIGkpfQogICAgICAgICAgICAgICAgICAgIG9uTW91c2VFbnRlcj17KCkgPT4gaGFuZGxlRnJhbWVFbnRlcihpKX0KICAgICAgICAgICAgICAgICAgICBvbk1vdXNlTGVhdmU9e2hhbmRsZUZyYW1lTGVhdmV9CiAgICAgICAgICAgICAgICAgICAgYXJpYS1sYWJlbD17ZnJhbWUudGl0bGV9CiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPXtgYWJzb2x1dGUgbGVmdC0wIHRvcC0wIHctWzE5MHB4XSBjdXJzb3ItcG9pbnRlciBvdmVyZmxvdy1oaWRkZW4gcm91bmRlZC0yeGwgYm9yZGVyIGJnLXppbmMtOTAwIHRleHQtcmlnaHQgc2hhZG93LTJ4bCBzbTp3LVsyNTBweF0gJHsKICAgICAgICAgICAgICAgICAgICAgIGlzRm9jdXNlZAogICAgICAgICAgICAgICAgICAgICAgICA/ICdib3JkZXItY3lhbi00MDAvNzAgcmluZy0yIHJpbmctY3lhbi00MDAvODAnCiAgICAgICAgICAgICAgICAgICAgICAgIDogaXNBY3RpdmUKICAgICAgICAgICAgICAgICAgICAgICAgICA/ICdib3JkZXItd2hpdGUvMjUgcmluZy0xIHJpbmctY3lhbi00MDAvNTAnCiAgICAgICAgICAgICAgICAgICAgICAgICAgOiAnYm9yZGVyLXdoaXRlLzE1JwogICAgICAgICAgICAgICAgICAgIH1gfQogICAgICAgICAgICAgICAgICAgIHN0eWxlPXtmcmFtZVN0eWxlKGkpfQogICAgICAgICAgICAgICAgICA+CiAgICAgICAgICAgICAgICAgICAgPEhlbGl4RnJhbWVJbm5lciBmcmFtZT17ZnJhbWV9IC8+CiAgICAgICAgICAgICAgICAgIDwvYnV0dG9uPgogICAgICAgICAgICAgICAgKTsKICAgICAgICAgICAgICB9KX0KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICApfQogICAgICAgIDwvZGl2PgoKICAgICAgICB7LyogQ2FwdGlvbiBiYXIg4oCUIHVwZGF0ZXMgd2l0aCB0aGUgYWN0aXZlIGZyYW1lICovfQogICAgICAgIDxkaXYgY2xhc3NOYW1lPSJyZWxhdGl2ZSB6LTIwIHB4LTUgc206cHgtMTAiPgogICAgICAgICAgPGRpdiBjbGFzc05hbWU9Im14LWF1dG8gbWF4LXctMnhsIGJvcmRlci10IGJvcmRlci13aGl0ZS8xMCBwdC0zIHRleHQtY2VudGVyIj4KICAgICAgICAgICAge2FjdGl2ZUZyYW1lID8gKAogICAgICAgICAgICAgIDw+CiAgICAgICAgICAgICAgICA8cCBkaXI9ImF1dG8iIGNsYXNzTmFtZT0idGV4dC1zbSBzbTp0ZXh0LWJhc2UgZm9udC1ib2xkIHRleHQtd2hpdGUiPgogICAgICAgICAgICAgICAgICB7YWN0aXZlRnJhbWUudGl0bGV9CiAgICAgICAgICAgICAgICA8L3A+CiAgICAgICAgICAgICAgICA8cCBkaXI9ImF1dG8iIGNsYXNzTmFtZT0ibXQtMC41IGxpbmUtY2xhbXAtMSB0ZXh0LVsxMXB4XSBzbTp0ZXh0LXhzIHRleHQtemluYy00MDAiPgogICAgICAgICAgICAgICAgICB7YWN0aXZlRnJhbWUuc3VidGl0bGV9CiAgICAgICAgICAgICAgICA8L3A+CiAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9Im10LTEgdGV4dC1bMTFweF0gZm9udC1ib2xkIHRleHQtY3lhbi00MDAiPgogICAgICAgICAgICAgICAgICDZgtin2Kgge3RvRmEoYWN0aXZlSWR4ICsgMSl9INin2LIge3RvRmEoTil9CiAgICAgICAgICAgICAgICA8L3A+CiAgICAgICAgICAgICAgPC8+CiAgICAgICAgICAgICkgOiAoCiAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPSJ0ZXh0LXhzIHRleHQtemluYy01MDAiPtmF2YjYsdiv24wg2KjYsdin24wg2YbZhdin24zYtCDZhtuM2LPYqi48L3A+CiAgICAgICAgICAgICl9CiAgICAgICAgICA8L2Rpdj4KICAgICAgICA8L2Rpdj4KICAgICAgPC9kaXY+CiAgICA8L2Rpdj4KICApOwp9Owo=
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { ArrowLeft, BookOpen, Microscope, Upload } from 'lucide-react';
+import { CourseFrontmatter } from '../../content/loader';
+import { getRecentUploads } from '../../content/recentUploads';
+import { assetUrl } from '../../utils/assetPath';
+
+/**
+ * CourseHelix — Helix-style spiral showcase (modelled on the "Helix" motion
+ * from motionin.design: an endless descending spiral of photographs winding
+ * down a black void; scrolling descends the spiral; hovering a print swings
+ * it to the centre and a caption below updates with its title and a
+ * "FRAME n / N" counter).
+ *
+ * The section is a tall scroll area (~300vh) with a sticky full-screen
+ * viewport. Scroll progress rotates a CSS-3D helix (preserve-3d, rotateY /
+ * translateZ / translateY); frames on the far side get smaller (perspective),
+ * more transparent and slightly blurred. Frames are billboarded — each one
+ * counter-rotates so it always faces the camera — so the Persian titles stay
+ * readable instead of mirroring on the far side. Hovering (or tapping) a
+ * frame swings it to the centre; clicking an already-centred frame opens it
+ * (course detail, or the lab tab). Three tabs swap the spiral's frames:
+ * courses, labs, latest uploaded lessons. Respects prefers-reduced-motion
+ * (static grid fallback). The animation loop only writes transform / opacity
+ * / filter — no layout work.
+ */
+
+/** One lab entry, as defined inline in HomePage (quickFeatures). */
+export interface HelixLab {
+  title: string;
+  desc: string;
+  icon: React.ComponentType<{ className?: string }>;
+  tab: string;
+  /** Tailwind gradient classes, e.g. 'from-cyan-500 to-blue-600'. */
+  color: string;
+}
+
+interface CourseHelixProps {
+  courses: (CourseFrontmatter & { id: string })[];
+  labs: HelixLab[];
+  onNavigateToCourse: (courseId: string) => void;
+  onNavigate: (tab: string) => void;
+}
+
+type TabId = 'courses' | 'labs' | 'latest';
+
+type HelixFrame =
+  | { kind: 'course'; id: string; title: string; subtitle: string; image: string; courseId: string }
+  | { kind: 'lab'; id: string; title: string; subtitle: string; icon: React.ComponentType<{ className?: string }>; gradient: string; tab: string }
+  | { kind: 'latest'; id: string; title: string; subtitle: string; image: string; courseId: string };
+
+const FA_DIGITS = '۰۱۲۳۴۵۶۷۸۹';
+const toFa = (n: number | string): string =>
+  String(n).replace(/\d/g, (d) => FA_DIGITS[Number(d)]);
+
+function useReducedMotion(): boolean {
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReduced(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setReduced(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+  return reduced;
+}
+
+function useViewportWidth(): number {
+  const [w, setW] = useState(() => (typeof window === 'undefined' ? 1280 : window.innerWidth));
+  useEffect(() => {
+    const onResize = () => setW(window.innerWidth);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+  return w;
+}
+
+const TABS: { id: TabId; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
+  { id: 'courses', label: 'سرفصل‌ها', icon: BookOpen },
+  { id: 'labs', label: 'آزمایشگاه', icon: Microscope },
+  { id: 'latest', label: 'آخرین درس‌های آپلود شده', icon: Upload },
+];
+
+const SECTION_HEIGHT_VH = 300;
+const TILT_DEG = 12;
+const MAX_BLUR_PX = 4;
+
+/** The card content of one frame: image + name underneath (courses/latest), or gradient + icon + name (labs). */
+const HelixFrameInner: React.FC<{ frame: HelixFrame }> = ({ frame }) => {
+  if (frame.kind === 'lab') {
+    const Icon = frame.icon;
+    return (
+      <div
+        className={`flex h-[170px] sm:h-[202px] flex-col items-center justify-center gap-2.5 bg-gradient-to-br ${frame.gradient} p-3 text-center`}
+      >
+        <span className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-white/20 text-white shadow-inner">
+          <Icon className="h-6 w-6 sm:h-7 sm:w-7" />
+        </span>
+        <span dir="auto" className="line-clamp-2 text-[13px] sm:text-sm font-bold leading-snug text-white">
+          {frame.title}
+        </span>
+      </div>
+    );
+  }
+  return (
+    <div className="flex flex-col bg-zinc-900">
+      <div className="h-[118px] sm:h-[148px] w-full overflow-hidden bg-zinc-800">
+        {frame.image ? (
+          <img src={assetUrl(frame.image)} alt="" draggable={false} className="h-full w-full object-cover" />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-cyan-500/30 to-indigo-500/30">
+            <BookOpen className="h-8 w-8 text-cyan-300" />
+          </div>
+        )}
+      </div>
+      <div className="flex h-[52px] sm:h-[54px] items-center px-3">
+        <span dir="auto" className="line-clamp-2 text-[12px] sm:text-[13px] font-bold leading-snug text-white">
+          {frame.title}
+        </span>
+      </div>
+    </div>
+  );
+};
+
+/** Section heading + "view all" + the three tabs. Shared by the spiral and the reduced-motion grid. */
+const HelixHeader: React.FC<{
+  tab: TabId;
+  onTab: (t: TabId) => void;
+  onViewAll: () => void;
+}> = ({ tab, onTab, onViewAll }) => (
+  <div className="space-y-4">
+    <div className="flex flex-wrap items-end justify-between gap-3">
+      <div className="space-y-1">
+        <h2 className="text-lg sm:text-2xl font-bold text-white font-display">گشتی در اورالیس</h2>
+        <p className="text-xs text-zinc-400">
+          اسکرول کنید تا در مارپیچ پایین بروید؛ روی هر قاب بایستید تا به مرکز بیاید، و برای باز کردن آن کلیک کنید.
+        </p>
+      </div>
+      <button
+        onClick={onViewAll}
+        className="flex shrink-0 items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors"
+      >
+        <span>مشاهده همه سرفصل‌ها</span>
+        <ArrowLeft className="w-3.5 h-3.5" />
+      </button>
+    </div>
+
+    <div className="flex flex-wrap items-center gap-2" role="tablist" aria-label="دسته‌بندی مارپیچ">
+      {TABS.map((t) => {
+        const Icon = t.icon;
+        const active = tab === t.id;
+        return (
+          <button
+            key={t.id}
+            role="tab"
+            aria-selected={active}
+            onClick={() => onTab(t.id)}
+            className={`flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-bold transition-all ${
+              active
+                ? 'bg-white text-zinc-900 shadow'
+                : 'border border-white/10 bg-white/10 text-zinc-300 hover:bg-white/20'
+            }`}
+          >
+            <Icon className="w-3.5 h-3.5" />
+            <span>{t.label}</span>
+          </button>
+        );
+      })}
+    </div>
+  </div>
+);
+
+export const CourseHelix: React.FC<CourseHelixProps> = ({ courses, labs, onNavigateToCourse, onNavigate }) => {
+  const [tab, setTab] = useState<TabId>('courses');
+  const prefersReduced = useReducedMotion();
+  const vw = useViewportWidth();
+  const isMobile = vw < 640;
+  // Spiral radius: wide enough to read, narrow enough that side frames stay
+  // mostly on screen. Drops per frame (the helix descends as it winds).
+  const R = Math.max(130, Math.min(430, vw * 0.36));
+  const drop = isMobile ? 56 : 84;
+
+  const courseById = useMemo(() => {
+    const m = new Map<string, CourseFrontmatter & { id: string }>();
+    courses.forEach((c) => m.set(c.id, c));
+    return m;
+  }, [courses]);
+
+  // Latest uploaded lessons — same source as RecentUploadsPage
+  // (getRecentUploads, newest first): video sessions only, capped at 8.
+  // Each frame shows the session title, the parent course name as subtitle,
+  // and the parent course's icon image.
+  const latestFrames = useMemo<HelixFrame[]>(() => {
+    return getRecentUploads(80)
+      .filter((u) => u.type === 'video')
+      .slice(0, 8)
+      .map((u) => {
+        const course = courseById.get(u.courseId);
+        return {
+          kind: 'latest' as const,
+          id: u.id,
+          title: u.title,
+          subtitle: u.courseTitle,
+          image: course?.icon ?? '',
+          courseId: u.courseId,
+        };
+      })
+      .filter((f) => f.image !== '');
+  }, [courseById]);
+
+  const frames: HelixFrame[] = useMemo(() => {
+    if (tab === 'labs') {
+      return labs.map((l) => ({
+        kind: 'lab' as const,
+        id: `lab-${l.tab}`,
+        title: l.title,
+        subtitle: l.desc,
+        icon: l.icon,
+        gradient: l.color,
+        tab: l.tab,
+      }));
+    }
+    if (tab === 'latest') return latestFrames;
+    return courses.map((c) => ({
+      kind: 'course' as const,
+      id: c.id,
+      title: c.title,
+      subtitle: `${c.category} • ${c.duration}`,
+      image: c.icon ?? '',
+      courseId: c.id,
+    }));
+  }, [tab, courses, labs, latestFrames]);
+
+  const N = frames.length;
+  // Frames spread over roughly one full turn of the helix, whatever N is.
+  const step = N > 0 ? 360 / N : 55;
+
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
+  const displayRef = useRef(0);
+  const focusRef = useRef<number | null>(null);
+  const [focusedIdx, setFocusedIdx] = useState<number | null>(null);
+  const hoverTimerRef = useRef<number | null>(null);
+
+  const setFocus = useCallback((i: number | null) => {
+    focusRef.current = i;
+    setFocusedIdx(i);
+  }, []);
+
+  // Scroll-driven animation loop (rAF): eases the displayed progress toward
+  // the scroll progress, or toward the focused frame while one is hovered /
+  // tapped. Only runs while the section is near the viewport.
+  useEffect(() => {
+    if (prefersReduced) return;
+    let raf = 0;
+    let lastSet = -1;
+    const tick = () => {
+      const el = sectionRef.current;
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        const vh = window.innerHeight;
+        if (rect.bottom > -vh && rect.top < vh * 1.5) {
+          const total = rect.height - vh;
+          const scrollP = total > 0 ? Math.min(1, Math.max(0, -rect.top / total)) : 0;
+          const focus = focusRef.current;
+          const target = focus != null && N > 1 ? focus / (N - 1) : scrollP;
+          const rate = focus != null ? 0.08 : 0.2;
+          displayRef.current += (target - displayRef.current) * rate;
+          if (Math.abs(target - displayRef.current) < 0.0004) displayRef.current = target;
+          const rounded = Math.round(displayRef.current * 1000) / 1000;
+          if (rounded !== lastSet) {
+            lastSet = rounded;
+            setProgress(rounded);
+          }
+        }
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [prefersReduced, N]);
+
+  // Scrolling always wins over a hovered / tapped focus.
+  useEffect(() => {
+    if (prefersReduced) return;
+    const onScroll = () => {
+      if (focusRef.current != null) setFocus(null);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [prefersReduced, setFocus]);
+
+  useEffect(() => {
+    return () => {
+      if (hoverTimerRef.current != null) window.clearTimeout(hoverTimerRef.current);
+    };
+  }, []);
+
+  const activeIdx = N === 0 ? -1 : Math.min(N - 1, Math.max(0, Math.round(progress * (N - 1))));
+  const activeFrame = activeIdx >= 0 ? frames[activeIdx] : null;
+
+  // Helix rotation + the counter-lift that keeps the active frame centred.
+  const rot = progress * (N - 1) * step;
+  const lift = progress * (N - 1) * drop;
+
+  const handleTab = (t: TabId) => {
+    setFocus(null);
+    setTab(t);
+  };
+
+  const navigateFrame = (frame: HelixFrame) => {
+    if (frame.kind === 'lab') onNavigate(frame.tab);
+    else onNavigateToCourse(frame.courseId);
+  };
+
+  const handleFrameClick = (frame: HelixFrame, i: number) => {
+    // Desktop: hover already focused it, so a click opens it. Touch: first
+    // tap swings it to the centre, second tap opens it.
+    if (focusedIdx === i || activeIdx === i) navigateFrame(frame);
+    else setFocus(i);
+  };
+
+  const handleFrameEnter = (i: number) => {
+    if (hoverTimerRef.current != null) window.clearTimeout(hoverTimerRef.current);
+    hoverTimerRef.current = window.setTimeout(() => setFocus(i), 150);
+  };
+
+  const handleFrameLeave = () => {
+    if (hoverTimerRef.current != null) window.clearTimeout(hoverTimerRef.current);
+    setFocus(null);
+  };
+
+  const frameStyle = (i: number): React.CSSProperties => {
+    const angle = i * step;
+    // World angle of this frame relative to the camera, normalised to [-180, 180].
+    let phi = angle - rot;
+    phi = ((phi + 180) % 360 + 360) % 360 - 180;
+    // 0 at the front, 1 at the back.
+    const depth = (1 - Math.cos((phi * Math.PI) / 180)) / 2;
+    const isFocused = focusedIdx === i;
+    const isActive = activeIdx === i;
+    const opacity = isFocused ? 1 : 1 - depth * 0.8;
+    const blur = isFocused ? 0 : depth * MAX_BLUR_PX;
+    const scale = (1 - depth * 0.1) * (isFocused ? 1.12 : isActive ? 1.04 : 1);
+    return {
+      transform: `rotateY(${angle}deg) translateZ(${R}px) translateY(${-i * drop}px) rotateY(${rot - angle}deg) translate(-50%, -50%) scale(${scale.toFixed(3)})`,
+      opacity: Number(opacity.toFixed(3)),
+      filter: blur > 0.2 ? `blur(${blur.toFixed(1)}px)` : undefined,
+      willChange: 'transform, opacity',
+    };
+  };
+
+  // --- Reduced-motion fallback: the same frames as a plain static grid. ---
+  if (prefersReduced) {
+    return (
+      <section className="space-y-6 rounded-[2rem] bg-zinc-950 p-5 sm:p-8">
+        <HelixHeader tab={tab} onTab={handleTab} onViewAll={() => onNavigate('courses')} />
+        {N === 0 ? (
+          <p className="py-10 text-center text-sm text-zinc-400">موردی برای نمایش نیست.</p>
+        ) : (
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+            {frames.map((frame) => (
+              <button
+                key={frame.id}
+                type="button"
+                onClick={() => navigateFrame(frame)}
+                className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900 text-right transition-colors hover:border-cyan-400/60"
+              >
+                <HelixFrameInner frame={frame} />
+              </button>
+            ))}
+          </div>
+        )}
+      </section>
+    );
+  }
+
+  return (
+    <div ref={sectionRef} className="relative" style={{ height: `${SECTION_HEIGHT_VH}vh` }}>
+      <div className="sticky top-0 flex h-screen w-full flex-col overflow-hidden rounded-[2rem] bg-zinc-950 pb-24 sm:pb-28">
+        {/* Ambient glow */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-40"
+          style={{ background: 'radial-gradient(circle at 50% 45%, rgba(34,211,238,0.12), transparent 60%)' }}
+        />
+
+        {/* Header + tabs */}
+        <div className="relative z-20 px-5 pt-6 sm:px-10 sm:pt-8">
+          <HelixHeader tab={tab} onTab={handleTab} onViewAll={() => onNavigate('courses')} />
+        </div>
+
+        {/* 3D stage */}
+        <div className="relative flex-1" style={{ perspective: '1100px' }}>
+          {N === 0 ? (
+            <div className="absolute inset-0 flex items-center justify-center px-6">
+              <p className="text-center text-sm text-zinc-400">موردی برای نمایش نیست.</p>
+            </div>
+          ) : (
+            <div
+              className="absolute left-1/2 top-1/2 h-0 w-0"
+              style={{
+                transform: `translateY(${lift.toFixed(1)}px) rotateX(${TILT_DEG}deg) rotateY(${(-rot).toFixed(2)}deg)`,
+                transformStyle: 'preserve-3d',
+                willChange: 'transform',
+              }}
+            >
+              {frames.map((frame, i) => {
+                const isFocused = focusedIdx === i;
+                const isActive = activeIdx === i;
+                return (
+                  <button
+                    key={frame.id}
+                    type="button"
+                    onClick={() => handleFrameClick(frame, i)}
+                    onMouseEnter={() => handleFrameEnter(i)}
+                    onMouseLeave={handleFrameLeave}
+                    aria-label={frame.title}
+                    className={`absolute left-0 top-0 w-[190px] cursor-pointer overflow-hidden rounded-2xl border bg-zinc-900 text-right shadow-2xl sm:w-[250px] ${
+                      isFocused
+                        ? 'border-cyan-400/70 ring-2 ring-cyan-400/80'
+                        : isActive
+                          ? 'border-white/25 ring-1 ring-cyan-400/50'
+                          : 'border-white/15'
+                    }`}
+                    style={frameStyle(i)}
+                  >
+                    <HelixFrameInner frame={frame} />
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
+        {/* Caption bar — updates with the active frame */}
+        <div className="relative z-20 px-5 sm:px-10">
+          <div className="mx-auto max-w-2xl border-t border-white/10 pt-3 text-center">
+            {activeFrame ? (
+              <>
+                <p dir="auto" className="text-sm sm:text-base font-bold text-white">
+                  {activeFrame.title}
+                </p>
+                <p dir="auto" className="mt-0.5 line-clamp-1 text-[11px] sm:text-xs text-zinc-400">
+                  {activeFrame.subtitle}
+                </p>
+                <p className="mt-1 text-[11px] font-bold text-cyan-400">
+                  قاب {toFa(activeIdx + 1)} از {toFa(N)}
+                </p>
+              </>
+            ) : (
+              <p className="text-xs text-zinc-500">موردی برای نمایش نیست.</p>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
