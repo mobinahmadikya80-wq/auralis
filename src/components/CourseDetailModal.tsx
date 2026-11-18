@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Video, Presentation, FileText, Download, Clock } from 'lucide-react';
 import { CourseFrontmatter, CourseMaterialItem } from '../content/loader';
 
@@ -45,6 +46,21 @@ const MaterialRow: React.FC<{ item: CourseMaterialItem; index: number }> = ({ it
 export const CourseDetailModal: React.FC<CourseDetailModalProps> = ({ course, onClose }) => {
   const [tab, setTab] = useState<Tab>('videos');
 
+  // While the modal is open: lock the page behind it so scrolling the list
+  // can't throw the modal away, and close on Escape.
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [onClose]);
+
   const itemsByTab: Record<Tab, CourseMaterialItem[]> = {
     videos: course.videos || [],
     slides: course.slides || [],
@@ -53,9 +69,12 @@ export const CourseDetailModal: React.FC<CourseDetailModalProps> = ({ course, on
 
   const activeItems = itemsByTab[tab];
 
-  return (
+  // Render through a portal so `fixed` is relative to the viewport, not to a
+  // transformed ancestor (the scroll-pinned showcase), which made the modal
+  // scroll away with the page.
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 pb-24"
       onClick={onClose}
     >
       <div
@@ -108,7 +127,7 @@ export const CourseDetailModal: React.FC<CourseDetailModalProps> = ({ course, on
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-3 overflow-y-auto">
+        <div className="p-6 space-y-3 overflow-y-auto flex-1 min-h-0 overscroll-contain">
           {activeItems.length === 0 ? (
             <div className="text-center text-sm text-zinc-400 py-10">
               هنوز آیتمی به این بخش اضافه نشده. از پنل ادمین اضافه کن (Courses → این درس → {tab === 'videos' ? 'Videos' : tab === 'slides' ? 'Slides' : 'Notes'}).
@@ -118,6 +137,7 @@ export const CourseDetailModal: React.FC<CourseDetailModalProps> = ({ course, on
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 };
