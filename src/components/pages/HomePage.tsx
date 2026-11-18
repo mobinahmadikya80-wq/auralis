@@ -8,14 +8,12 @@ import {
   Sparkles, 
   ArrowRight, 
   Activity, 
-  Award, 
   Users, 
   Download,
   Calendar,
   CheckCircle2,
   Ear,
-  Search,
-  Upload
+  Search
 } from 'lucide-react';
 import { EducationalResource } from '../../types';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '../motion/ScrollReveal';
@@ -67,63 +65,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectResource
 
   return (
     <div className="space-y-12">
-      
-      {/* Hero Banner Container */}
-      <ScrollReveal direction="up" duration={0.7}>
-        <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-900 via-zinc-950 to-indigo-950 text-white border border-zinc-800 p-8 sm:p-12 shadow-2xl">
-          <div className="relative z-10 max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold border border-cyan-500/20">
-              <Award className="w-4 h-4 text-cyan-400" />
-              <span>برترین پلتفرم آزاد علم و عمل بالینی شنوایی‌شناسی</span>
-            </div>
 
-            <h1 className="text-3xl sm:text-5xl font-extrabold font-display tracking-tight leading-[1.15]">
-              تسلط بر علم شنوایی‌شناسی و <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">عمل بالینی</span>
-            </h1>
-
-            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-2xl">
-              به کتاب‌های درسی، جلسات ویدیویی، پروتکل‌های الکتروفیزیولوژی ABR، بسته‌های موارد بیماران واقعی و ابزارهای آدیومتری کالیبره‌شده با استاندارد ANSI، همه در یک فضای کاری یکپارچه دسترسی داشته باشید.
-            </p>
-
-            <div className="flex flex-wrap gap-3 pt-2">
-              <Magnetic strength={0.25}>
-                <button
-                  onClick={() => onNavigate('courses')}
-                  className="px-6 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold text-xs sm:text-sm transition-all shadow-lg shadow-cyan-500/20 flex items-center gap-2 cursor-pointer"
-                >
-                  <span>مشاهده سرفصل‌ها</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </Magnetic>
-
-              <Magnetic strength={0.25}>
-                <button
-                  onClick={() => onNavigate('simulator')}
-                  className="px-6 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-xs sm:text-sm border border-zinc-700 transition-all flex items-center gap-2 cursor-pointer"
-                >
-                  <Activity className="w-4 h-4 text-cyan-400" />
-                  <span>ورود به آزمایشگاه آدیوگرام</span>
-                </button>
-              </Magnetic>
-
-              <Magnetic strength={0.25}>
-                <button
-                  onClick={() => onNavigate('recent-uploads')}
-                  className="px-6 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-xs sm:text-sm border border-zinc-700 transition-all flex items-center gap-2 cursor-pointer"
-                >
-                  <Upload className="w-4 h-4 text-emerald-400" />
-                  <span>فایل‌های اخیراً آپلود‌شده</span>
-                </button>
-              </Magnetic>
-            </div>
-          </div>
-
-          {/* Decorative ambient orb */}
-          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
-        </section>
-      </ScrollReveal>
-
-      {/* Course Helix — Helix-style spiral showcase (courses / labs / latest uploads) */}
+      {/* Course Helix — full-screen Helix-style spiral (courses / labs / latest uploads).
+          The Helix is the home page's opening view, exactly like the reference:
+          full-screen black spiral, small options + caption at the bottom, toolbar below. */}
       {coursesWithIcons.length > 0 && (
         <CourseHelix
           courses={coursesWithIcons}

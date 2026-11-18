@@ -12,7 +12,11 @@ import { assetUrl } from '../../utils/assetPath';
  * "FRAME n / N" counter).
  *
  * The section is a tall scroll area (~300vh) with a sticky full-screen
- * viewport. Scroll progress rotates a CSS-3D helix (preserve-3d, rotateY /
+ * viewport. It is full-bleed (breaks out of the page's max-width container)
+ * and edge-to-edge black, like the reference — no card, no rounded corners,
+ * no top header. The only UI is a small row of category options plus the
+ * caption at the bottom, above the site's fixed bottom toolbar.
+ * Scroll progress rotates a CSS-3D helix (preserve-3d, rotateY /
  * translateZ / translateY); frames on the far side get smaller (perspective),
  * more transparent and slightly blurred. Frames are billboarded — each one
  * counter-rotates so it always faces the camera — so the Persian titles stay
@@ -121,51 +125,40 @@ const HelixFrameInner: React.FC<{ frame: HelixFrame }> = ({ frame }) => {
   );
 };
 
-/** Section heading + "view all" + the three tabs. Shared by the spiral and the reduced-motion grid. */
-const HelixHeader: React.FC<{
+/** The three category options, small and subtle at the bottom (like the Helix reference's minimal UI), plus a small "view all" link. Shared by the spiral and the reduced-motion grid. */
+const HelixMiniTabs: React.FC<{
   tab: TabId;
   onTab: (t: TabId) => void;
   onViewAll: () => void;
 }> = ({ tab, onTab, onViewAll }) => (
-  <div className="space-y-4">
-    <div className="flex flex-wrap items-end justify-between gap-3">
-      <div className="space-y-1">
-        <h2 className="text-lg sm:text-2xl font-bold text-white font-display">گشتی در اورالیس</h2>
-        <p className="text-xs text-zinc-400">
-          اسکرول کنید تا در مارپیچ پایین بروید؛ روی هر قاب بایستید تا به مرکز بیاید، و برای باز کردن آن کلیک کنید.
-        </p>
-      </div>
-      <button
-        onClick={onViewAll}
-        className="flex shrink-0 items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors"
-      >
-        <span>مشاهده همه سرفصل‌ها</span>
-        <ArrowLeft className="w-3.5 h-3.5" />
-      </button>
-    </div>
-
-    <div className="flex flex-wrap items-center gap-2" role="tablist" aria-label="دسته‌بندی مارپیچ">
-      {TABS.map((t) => {
-        const Icon = t.icon;
-        const active = tab === t.id;
-        return (
-          <button
-            key={t.id}
-            role="tab"
-            aria-selected={active}
-            onClick={() => onTab(t.id)}
-            className={`flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-bold transition-all ${
-              active
-                ? 'bg-white text-zinc-900 shadow'
-                : 'border border-white/10 bg-white/10 text-zinc-300 hover:bg-white/20'
-            }`}
-          >
-            <Icon className="w-3.5 h-3.5" />
-            <span>{t.label}</span>
-          </button>
-        );
-      })}
-    </div>
+  <div className="flex flex-wrap items-center justify-center gap-1.5" role="tablist" aria-label="دسته‌بندی مارپیچ">
+    {TABS.map((t) => {
+      const Icon = t.icon;
+      const active = tab === t.id;
+      return (
+        <button
+          key={t.id}
+          role="tab"
+          aria-selected={active}
+          onClick={() => onTab(t.id)}
+          className={`flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-bold transition-all ${
+            active
+              ? 'bg-white text-zinc-900 shadow'
+              : 'border border-white/10 bg-white/5 text-zinc-400 hover:bg-white/10 hover:text-zinc-200'
+          }`}
+        >
+          <Icon className="w-3 h-3" />
+          <span>{t.label}</span>
+        </button>
+      );
+    })}
+    <button
+      onClick={onViewAll}
+      className="flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-bold text-cyan-400/90 transition-colors hover:text-cyan-300"
+    >
+      <span>مشاهده همه سرفصل‌ها</span>
+      <ArrowLeft className="w-3 h-3" />
+    </button>
   </div>
 );
 
@@ -352,8 +345,7 @@ export const CourseHelix: React.FC<CourseHelixProps> = ({ courses, labs, onNavig
   // --- Reduced-motion fallback: the same frames as a plain static grid. ---
   if (prefersReduced) {
     return (
-      <section className="space-y-6 rounded-[2rem] bg-zinc-950 p-5 sm:p-8">
-        <HelixHeader tab={tab} onTab={handleTab} onViewAll={() => onNavigate('courses')} />
+      <section className="space-y-6 bg-zinc-950 p-5 sm:p-8">
         {N === 0 ? (
           <p className="py-10 text-center text-sm text-zinc-400">موردی برای نمایش نیست.</p>
         ) : (
@@ -370,23 +362,19 @@ export const CourseHelix: React.FC<CourseHelixProps> = ({ courses, labs, onNavig
             ))}
           </div>
         )}
+        <HelixMiniTabs tab={tab} onTab={handleTab} onViewAll={() => onNavigate('courses')} />
       </section>
     );
   }
 
   return (
-    <div ref={sectionRef} className="relative" style={{ height: `${SECTION_HEIGHT_VH}vh` }}>
-      <div className="sticky top-0 flex h-screen w-full flex-col overflow-hidden rounded-[2rem] bg-zinc-950 pb-24 sm:pb-28">
+    <div ref={sectionRef} className="relative mx-[calc(50%-50vw)]" style={{ height: `${SECTION_HEIGHT_VH}vh` }}>
+      <div className="sticky top-0 flex h-screen w-full flex-col overflow-hidden bg-zinc-950 pb-24 sm:pb-28">
         {/* Ambient glow */}
         <div
           className="pointer-events-none absolute inset-0 opacity-40"
           style={{ background: 'radial-gradient(circle at 50% 45%, rgba(34,211,238,0.12), transparent 60%)' }}
         />
-
-        {/* Header + tabs */}
-        <div className="relative z-20 px-5 pt-6 sm:px-10 sm:pt-8">
-          <HelixHeader tab={tab} onTab={handleTab} onViewAll={() => onNavigate('courses')} />
-        </div>
 
         {/* 3D stage */}
         <div className="relative flex-1" style={{ perspective: '1100px' }}>
@@ -431,9 +419,10 @@ export const CourseHelix: React.FC<CourseHelixProps> = ({ courses, labs, onNavig
           )}
         </div>
 
-        {/* Caption bar — updates with the active frame */}
-        <div className="relative z-20 px-5 sm:px-10">
-          <div className="mx-auto max-w-2xl border-t border-white/10 pt-3 text-center">
+        {/* Bottom bar — small options + caption, like the Helix reference */}
+        <div className="relative z-20 space-y-2.5 px-5 sm:px-10">
+          <HelixMiniTabs tab={tab} onTab={handleTab} onViewAll={() => onNavigate('courses')} />
+          <div className="mx-auto max-w-2xl border-t border-white/10 pt-2.5 text-center">
             {activeFrame ? (
               <>
                 <p dir="auto" className="text-sm sm:text-base font-bold text-white">
