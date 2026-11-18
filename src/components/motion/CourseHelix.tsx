@@ -16,6 +16,12 @@ import { assetUrl } from '../../utils/assetPath';
  * and edge-to-edge black, like the reference — no card, no rounded corners,
  * no top header. The only UI is a small row of category options plus the
  * caption at the bottom, above the site's fixed bottom toolbar.
+ * The section is pulled up 100px (mt-[-100px]) so the sticky viewport
+ * starts at the viewport top even under the site header — otherwise the
+ * header's height pushes the bottom bar (tabs + caption) below the fold
+ * at initial load. On narrow screens the spiral radius and frame size
+ * shrink so frames stay inside the viewport instead of escaping to the
+ * corners/edges.
  * Scroll progress rotates a CSS-3D helix (preserve-3d, rotateY /
  * translateZ / translateY); frames on the far side get smaller (perspective),
  * more transparent and slightly blurred. Frames are billboarded — each one
@@ -94,7 +100,7 @@ const HelixFrameInner: React.FC<{ frame: HelixFrame }> = ({ frame }) => {
     const Icon = frame.icon;
     return (
       <div
-        className={`flex h-[170px] sm:h-[202px] flex-col items-center justify-center gap-2.5 bg-gradient-to-br ${frame.gradient} p-3 text-center`}
+        className={`flex h-[150px] sm:h-[202px] flex-col items-center justify-center gap-2.5 bg-gradient-to-br ${frame.gradient} p-3 text-center`}
       >
         <span className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-white/20 text-white shadow-inner">
           <Icon className="h-6 w-6 sm:h-7 sm:w-7" />
@@ -107,7 +113,7 @@ const HelixFrameInner: React.FC<{ frame: HelixFrame }> = ({ frame }) => {
   }
   return (
     <div className="flex flex-col bg-zinc-900">
-      <div className="h-[118px] sm:h-[148px] w-full overflow-hidden bg-zinc-800">
+      <div className="h-[100px] sm:h-[148px] w-full overflow-hidden bg-zinc-800">
         {frame.image ? (
           <img src={assetUrl(frame.image)} alt="" draggable={false} className="h-full w-full object-cover" />
         ) : (
@@ -116,7 +122,7 @@ const HelixFrameInner: React.FC<{ frame: HelixFrame }> = ({ frame }) => {
           </div>
         )}
       </div>
-      <div className="flex h-[52px] sm:h-[54px] items-center px-3">
+      <div className="flex h-[48px] sm:h-[54px] items-center px-3">
         <span dir="auto" className="line-clamp-2 text-[12px] sm:text-[13px] font-bold leading-snug text-white">
           {frame.title}
         </span>
@@ -167,10 +173,11 @@ export const CourseHelix: React.FC<CourseHelixProps> = ({ courses, labs, onNavig
   const prefersReduced = useReducedMotion();
   const vw = useViewportWidth();
   const isMobile = vw < 640;
-  // Spiral radius: wide enough to read, narrow enough that side frames stay
-  // mostly on screen. Drops per frame (the helix descends as it winds).
-  const R = Math.max(130, Math.min(430, vw * 0.36));
-  const drop = isMobile ? 56 : 84;
+  // Spiral radius: small enough on narrow screens that frames stay inside
+  // the viewport instead of escaping to the corners/edges. Drops per frame
+  // (the helix descends as it winds).
+  const R = Math.max(95, Math.min(430, vw * 0.3));
+  const drop = isMobile ? 44 : 84;
 
   const courseById = useMemo(() => {
     const m = new Map<string, CourseFrontmatter & { id: string }>();
@@ -368,7 +375,7 @@ export const CourseHelix: React.FC<CourseHelixProps> = ({ courses, labs, onNavig
   }
 
   return (
-    <div ref={sectionRef} className="relative mx-[calc(50%-50vw)]" style={{ height: `${SECTION_HEIGHT_VH}vh` }}>
+    <div ref={sectionRef} className="relative mx-[calc(50%-50vw)] mt-[-100px]" style={{ height: `${SECTION_HEIGHT_VH}vh` }}>
       <div className="sticky top-0 flex h-screen w-full flex-col overflow-hidden bg-zinc-950 pb-24 sm:pb-28">
         {/* Ambient glow */}
         <div
@@ -402,7 +409,7 @@ export const CourseHelix: React.FC<CourseHelixProps> = ({ courses, labs, onNavig
                     onMouseEnter={() => handleFrameEnter(i)}
                     onMouseLeave={handleFrameLeave}
                     aria-label={frame.title}
-                    className={`absolute left-0 top-0 w-[190px] cursor-pointer overflow-hidden rounded-2xl border bg-zinc-900 text-right shadow-2xl sm:w-[250px] ${
+                    className={`absolute left-0 top-0 w-[160px] cursor-pointer overflow-hidden rounded-2xl border bg-zinc-900 text-right shadow-2xl sm:w-[250px] ${
                       isFocused
                         ? 'border-cyan-400/70 ring-2 ring-cyan-400/80'
                         : isActive
