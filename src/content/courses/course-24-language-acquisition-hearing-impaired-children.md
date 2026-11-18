@@ -44,6 +44,8 @@ videos:
     fileUrl: https://tumsaud.ir/term5/zabanamoozi/voices/session6.m4a
   - title: جلسه هفتم
     fileUrl: https://tumsaud.ir/term5/zabanamoozi/voices/Session7.m4a
+  - title: جلسه هشتم
+    fileUrl: https://tumsaud.ir/term5/zabanamoozi/voices/Session8.m4a
 slides:
   - title: جلسه 1
     fileUrl: https://tumsaud.ir/term5/zabanamoozi/slides/zaban%20amoozi%201th%20session.pdf
