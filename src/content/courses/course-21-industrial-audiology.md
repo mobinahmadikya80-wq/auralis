@@ -47,6 +47,8 @@ videos:
     fileUrl: https://tumsaud.ir/term5/SHENAVAIE-SANATI/VOICES/Session6-part1.m4a
   - title: جلسه 6 پارت 2
     fileUrl: https://tumsaud.ir/term5/SHENAVAIE-SANATI/VOICES/Session6-part2.m4a
+  - title: جلسه 7
+    fileUrl: https://tumsaud.ir/term5/SHENAVAIE-SANATI/VOICES/Session7.m4a
 slides: []
 notes: []
 ---
