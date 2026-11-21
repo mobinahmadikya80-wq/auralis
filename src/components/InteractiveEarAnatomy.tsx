@@ -19,6 +19,7 @@ import { ANATOMICAL_STRUCTURES, COCHLEAR_TONOTOPIC_MAP } from '../data/anatomy';
 import { AnatomicalStructure } from '../types';
 import { playComplexCochlearFrequency } from '../utils/audioSynth';
 import { Ear3DCanvas } from './Ear3DCanvas';
+import { EarSketchfabViewer } from './EarSketchfabViewer';
 
 interface LessonOption {
   id: string;
@@ -61,7 +62,7 @@ const INTERACTIVE_LESSONS: LessonOption[] = [
 ];
 
 export const InteractiveEarAnatomy: React.FC = () => {
-  const [viewMode, setViewMode] = useState<'3d' | '2d'>('3d');
+  const [viewMode, setViewMode] = useState<'model' | '3d' | '2d'>('model');
   const [selectedRegion, setSelectedRegion] = useState<'outer' | 'middle' | 'inner' | 'neural' | 'all'>('all');
   const [activeStructure, setActiveStructure] = useState<AnatomicalStructure>(ANATOMICAL_STRUCTURES[0]);
   const [activeFreqNode, setActiveFreqNode] = useState<number | null>(null);
@@ -109,6 +110,17 @@ export const InteractiveEarAnatomy: React.FC = () => {
         <div className="flex flex-col gap-3 w-full md:w-auto">
           {/* 3D vs 2D Toggle */}
           <div className="flex items-center p-1 rounded-2xl bg-zinc-900 border border-zinc-800 self-start md:self-end">
+            <button
+              onClick={() => setViewMode('model')}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+                viewMode === 'model'
+                  ? 'bg-cyan-500 text-zinc-950 shadow-md'
+                  : 'text-zinc-400 hover:text-white'
+              }`}
+            >
+              <Ear className="w-3.5 h-3.5" />
+              <span>مدل واقعی</span>
+            </button>
             <button
               onClick={() => setViewMode('3d')}
               className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
@@ -207,7 +219,7 @@ export const InteractiveEarAnatomy: React.FC = () => {
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-zinc-100 dark:border-zinc-800 pb-4">
             <h3 className="text-sm font-bold text-zinc-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
               <Layers className="w-4 h-4 text-cyan-500" />
-              {viewMode === '3d' ? 'نمای سه‌بعدی آناتومی' : 'نقشه برداری دوبعدی'}
+              {viewMode === 'model' ? 'مدل واقعی برش گوش' : viewMode === '3d' ? 'نمای سه‌بعدی آناتومی' : 'نقشه برداری دوبعدی'}
             </h3>
 
             {/* 3D Toggles Toolbar */}
@@ -248,7 +260,9 @@ export const InteractiveEarAnatomy: React.FC = () => {
           </div>
 
           {/* 3D Model or 2D Map Render */}
-          {viewMode === '3d' ? (
+          {viewMode === 'model' ? (
+            <EarSketchfabViewer />
+          ) : viewMode === '3d' ? (
             <Ear3DCanvas
               activeStructure={activeStructure}
               onSelectStructure={(struct) => setActiveStructure(struct)}
