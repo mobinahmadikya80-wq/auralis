@@ -49,7 +49,7 @@ videos:
     fileUrl: https://tumsaud.ir/term5/SHENAVAIE-SANATI/VOICES/Session6-part2.m4a
   - title: جلسه 7
     fileUrl: https://tumsaud.ir/term5/SHENAVAIE-SANATI/VOICES/Session7.m4a
-  - title: جلسه هشتم
+  - title: جلسه 8
     fileUrl: https://tumsaud.ir/term5/SHENAVAIE-SANATI/VOICES/session8.m4a
 slides: []
 notes: []
